@@ -1,0 +1,5 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3045
+
+CMake reference in vimhelp format with a python script to regenerate it.
+
+Reference for CMake 2.8.0 included.
