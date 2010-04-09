@@ -1,7 +1,8 @@
 CMake Properties
 
 
-CMake |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+CMake  |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+CMake  |cmake-policies|
 
 INDEX                          *cmake-properties*
 
@@ -149,10 +150,11 @@ INDEX                          *cmake-properties*
 <CONFIG>_OUTPUT_NAME                     *<CONFIG>_OUTPUT_NAME*
      Old per-configuration target file base name.
 
-     This is a configuration-specific version of OUTPUT_NAME.  Use
-     OUTPUT_NAME_<CONFIG> instead.
+     This is a configuration-specific version of |OUTPUT_NAME|.  Use
+     |OUTPUT_NAME_<CONFIG>| instead.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -162,10 +164,11 @@ INDEX                          *cmake-properties*
      When building with configuration <CONFIG> the value of this property
      is appended to the target file name built on disk.  For non-executable
      targets, this property is initialized by the value of the variable
-     CMAKE_<CONFIG>_POSTFIX if it is set when a target is created.  This
+     |CMAKE_<CONFIG>_POSTFIX| if it is set when a target is created.  This
      property is ignored on the Mac for Frameworks and App Bundles.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -177,7 +180,8 @@ ABSTRACT                                 *ABSTRACT*
      languages that have a notion of an abstract class and it is only used
      by some tools that wrap classes into other languages.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -187,7 +191,8 @@ ADDITIONAL_MAKE_CLEAN_FILES              *ADDITIONAL_MAKE_CLEAN_FILES*
      A list of files that will be cleaned as a part of the "make clean"
      stage.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -195,10 +200,11 @@ ADVANCED                                 *ADVANCED*
      True if entry should be hidden by default in GUIs.
 
      This is a boolean value indicating whether the entry is considered
-     interesting only for advanced configuration.  The mark_as_advanced()
+     interesting only for advanced configuration.  The |mark_as_advanced|()
      command modifies this property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -206,7 +212,7 @@ ALLOW_DUPLICATE_CUSTOM_TARGETS           *ALLOW_DUPLICATE_CUSTOM_TARGETS*
      Allow duplicate custom targets to be created.
 
      Normally CMake requires that all targets built in a project have
-     globally unique logical names (see policy CMP0002).  This is necessary
+     globally unique logical names (see policy |CMP0002|).  This is necessary
      to generate meaningful project file names in Xcode and VS IDE
      generators.  It also allows the target names to be referenced
      unambiguously.
@@ -215,12 +221,13 @@ ALLOW_DUPLICATE_CUSTOM_TARGETS           *ALLOW_DUPLICATE_CUSTOM_TARGETS*
      names.  For projects that care only about Makefile generators and do
      not wish to support Xcode or VS IDE generators, one may set this
      property to true to allow duplicate custom targets.  The property
-     allows multiple add_custom_target command calls in different
+     allows multiple |add_custom_target| command calls in different
      directories to specify the same target name.  However, setting this
      property will cause non-Makefile generators to produce an error and
      refuse to generate the project.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -237,9 +244,10 @@ ARCHIVE_OUTPUT_DIRECTORY                 *ARCHIVE_OUTPUT_DIRECTORY*
      runtime target and the corresponding import library is treated as an
      archive target.  All Windows-based systems including Cygwin are DLL
      platforms.  This property is initialized by the value of the variable
-     CMAKE_ARCHIVE_OUTPUT_DIRECTORY if it is set when a target is created.
+     |CMAKE_ARCHIVE_OUTPUT_DIRECTORY| if it is set when a target is created.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -247,7 +255,7 @@ ARCHIVE_OUTPUT_NAME                      *ARCHIVE_OUTPUT_NAME*
      Output name for ARCHIVE target files.
 
      This property specifies the base name for archive target files.  It
-     overrides OUTPUT_NAME and OUTPUT_NAME_<CONFIG> properties.  There are
+     overrides |OUTPUT_NAME| and |OUTPUT_NAME_<CONFIG>| properties.  There are
      three kinds of target files that may be built: archive, library, and
      runtime.  Executables are always treated as runtime targets.  Static
      libraries are always treated as archive targets.  Module libraries are
@@ -257,30 +265,33 @@ ARCHIVE_OUTPUT_NAME                      *ARCHIVE_OUTPUT_NAME*
      corresponding import library is treated as an archive target.  All
      Windows-based systems including Cygwin are DLL platforms.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 ARCHIVE_OUTPUT_NAME_<CONFIG>             *ARCHIVE_OUTPUT_NAME_<CONFIG>*
      Per-configuration output name for ARCHIVE target files.
 
-     This is the configuration-specific version of ARCHIVE_OUTPUT_NAME.
+     This is the configuration-specific version of |ARCHIVE_OUTPUT_NAME|.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 BUILD_WITH_INSTALL_RPATH                 *BUILD_WITH_INSTALL_RPATH*
      Should build tree targets have install tree rpaths.
 
-     BUILD_WITH_INSTALL_RPATH is a boolean specifying whether to link the
-     target in the build tree with the INSTALL_RPATH.  This takes
-     precedence over SKIP_BUILD_RPATH and avoids the need for relinking
+     |BUILD_WITH_INSTALL_RPATH| is a boolean specifying whether to link the
+     target in the build tree with the |INSTALL_RPATH|.  This takes
+     precedence over |SKIP_BUILD_RPATH| and avoids the need for relinking
      before installation.  This property is initialized by the value of the
-     variable CMAKE_BUILD_WITH_INSTALL_RPATH if it is set when a target is
+     variable |CMAKE_BUILD_WITH_INSTALL_RPATH| if it is set when a target is
      created.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -290,7 +301,8 @@ CACHE_VARIABLES                          *CACHE_VARIABLES*
      This read-only property specifies the list of CMake cache variables
      currently defined.  It is intended for debugging purposes.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -300,20 +312,21 @@ CLEAN_NO_CUSTOM                          *CLEAN_NO_CUSTOM*
      If this is true then the outputs of custom commands for this directory
      will not be removed during the "make clean" stage.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 COMPILE_DEFINITIONS                      *COMPILE_DEFINITIONS*
      Preprocessor definitions for compiling a directory's sources.
 
-     The COMPILE_DEFINITIONS property may be set to a semicolon-separated
+     The |COMPILE_DEFINITIONS| property may be set to a semicolon-separated
      list of preprocessor definitions using the syntax VAR or VAR=value.
      Function-style definitions are not supported.  CMake will
      automatically escape the value correctly for the native build system
      (note that CMake language syntax may require escapes to specify some
      values).  This property may be set on a per-configuration basis using
-     the name COMPILE_DEFINITIONS_<CONFIG> where <CONFIG> is an upper-case
+     the name |COMPILE_DEFINITIONS_<CONFIG>| where <CONFIG> is an upper-case
      name (ex.  "COMPILE_DEFINITIONS_DEBUG").  This property will be
      initialized in each directory by its value in the directory's parent.
 
@@ -330,29 +343,32 @@ COMPILE_DEFINITIONS                      *COMPILE_DEFINITIONS*
      consider defining the macro in a (configured) header file.  Then
      report the limitation.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 COMPILE_DEFINITIONS_<CONFIG>             *COMPILE_DEFINITIONS_<CONFIG>*
      Per-configuration preprocessor definitions in a directory.
 
-     This is the configuration-specific version of COMPILE_DEFINITIONS.
+     This is the configuration-specific version of |COMPILE_DEFINITIONS|.
      This property will be initialized in each directory by its value in
      the directory's parent.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 COMPILE_FLAGS                            *COMPILE_FLAGS*
      Additional flags to use when compiling this target's sources.
 
-     The COMPILE_FLAGS property sets additional compiler flags used to
-     build sources within the target.  Use COMPILE_DEFINITIONS to pass
+     The |COMPILE_FLAGS| property sets additional compiler flags used to
+     build sources within the target.  Use |COMPILE_DEFINITIONS| to pass
      additional preprocessor definitions.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -360,51 +376,55 @@ DEBUG_CONFIGURATIONS                     *DEBUG_CONFIGURATIONS*
      Specify which configurations are for debugging.
 
      The value must be a semi-colon separated list of configuration names.
-     Currently this property is used only by the target_link_libraries
+     Currently this property is used only by the |target_link_libraries|
      command (see its documentation for details).  Additional uses may be
      defined in the future.
 
      This property must be set at the top level of the project and before
-     the first target_link_libraries command invocation.  If any entry in
+     the first |target_link_libraries| command invocation.  If any entry in
      the list does not match a valid configuration for the project the
      behavior is undefined.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 DEBUG_POSTFIX                            *DEBUG_POSTFIX*
-     See target property <CONFIG>_POSTFIX.
+     See target property |<CONFIG>_POSTFIX|.
 
-     This property is a special case of the more-general <CONFIG>_POSTFIX
+     This property is a special case of the more-general |<CONFIG>_POSTFIX|
      property for the DEBUG configuration.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 DEFINE_SYMBOL                            *DEFINE_SYMBOL*
      Define a symbol when compiling this target's sources.
 
-     DEFINE_SYMBOL sets the name of the preprocessor symbol defined when
+     |DEFINE_SYMBOL| sets the name of the preprocessor symbol defined when
      compiling sources in a shared library.  If not set here then it is set
      to target_EXPORTS by default (with some substitutions if the target is
      not a valid C identifier).  This is useful for headers to know whether
      they are being included from inside their library our outside to
      properly setup dllexport/dllimport decorations.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 DEFINITIONS                              *DEFINITIONS*
-     For CMake 2.4 compatibility only.  Use COMPILE_DEFINITIONS instead.
+     For CMake 2.4 compatibility only.  Use |COMPILE_DEFINITIONS| instead.
 
      This read-only property specifies the list of flags given so far to
-     the add_definitions command.  It is intended for debugging purposes.
-     Use the COMPILE_DEFINITIONS instead.
+     the |add_definitions| command.  It is intended for debugging purposes.
+     Use the |COMPILE_DEFINITIONS| instead.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -415,9 +435,10 @@ DISABLED_FEATURES                        *DISABLED_FEATURES*
      it contains the names of all packages which were not found.  This is
      determined using the <NAME>_FOUND variables.  Packages which are
      searched QUIET are not listed.  A project can add its own features to
-     this list.This property is used by the macros in FeatureSummary.cmake.
+     this list.This property is used by the macros in |FeatureSummary|.cmake.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -428,9 +449,10 @@ ENABLED_FEATURES                         *ENABLED_FEATURES*
      it contains the names of all packages which were found.  This is
      determined using the <NAME>_FOUND variables.  Packages which are
      searched QUIET are not listed.  A project can add its own features to
-     this list.This property is used by the macros in FeatureSummary.cmake.
+     this list.This property is used by the macros in |FeatureSummary|.cmake.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -440,7 +462,8 @@ ENABLED_LANGUAGES                        *ENABLED_LANGUAGES*
 
      Set to list of currently enabled languages.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -459,7 +482,8 @@ ENABLE_EXPORTS                           *ENABLE_EXPORTS*
      exported symbols and then used for linking.  All Windows-based systems
      including Cygwin are DLL platforms.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -472,7 +496,8 @@ ENVIRONMENT                              *ENVIRONMENT*
      the test.  The environment is restored to its previous state after the
      test is done.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -484,7 +509,8 @@ EXCLUDE_FROM_ALL                         *EXCLUDE_FROM_ALL*
      example typing make will cause the targets to be built.  The same
      concept applies to the default build of other generators.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -495,7 +521,8 @@ EXTERNAL_OBJECT                          *EXTERNAL_OBJECT*
      object file and should not be compiled.  It will still be linked into
      the target though.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -505,7 +532,8 @@ EchoString                               *EchoString*
      A message to display on some generators (such as makefiles) when the
      target is built.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -513,22 +541,24 @@ FAIL_REGULAR_EXPRESSION                  *FAIL_REGULAR_EXPRESSION*
      If the output matches this regular expression the test will fail.
 
      If set, if the output matches one of specified regular expressions,
-     the test will fail.For example: PASS_REGULAR_EXPRESSION
+     the test will fail.For example: |PASS_REGULAR_EXPRESSION|
      "[^a-z]Error;ERROR;Failed"
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 FIND_LIBRARY_USE_LIB64_PATHS             *FIND_LIBRARY_USE_LIB64_PATHS*
      Whether FIND_LIBRARY should automatically search lib64 directories.
 
-     FIND_LIBRARY_USE_LIB64_PATHS is a boolean specifying whether the
+     |FIND_LIBRARY_USE_LIB64_PATHS| is a boolean specifying whether the
      FIND_LIBRARY command should automatically search the lib64 variant of
      directories called lib in the search path when building 64-bit
      binaries.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -540,7 +570,8 @@ FIND_LIBRARY_USE_OPENBSD_VERSIONING      *FIND_LIBRARY_USE_OPENBSD_VERSIONING*
      ".so.<major>.<minor>".  The property is set to true on OpenBSD and
      false on other platforms.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -552,7 +583,8 @@ FRAMEWORK                                *FRAMEWORK*
      directory structure required for a framework and will be suitable to
      be used with the -framework option
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -564,10 +596,11 @@ Fortran_MODULE_DIRECTORY                 *Fortran_MODULE_DIRECTORY*
      directory in which the modules will be placed.  When this property is
      not set the modules will be placed in the build directory
      corresponding to the target's source directory.  If the variable
-     CMAKE_Fortran_MODULE_DIRECTORY is set when a target is created its
+     |CMAKE_Fortran_MODULE_DIRECTORY| is set when a target is created its
      value is used to initialize this property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -578,7 +611,8 @@ GENERATED                                *GENERATED*
      it differently in temrs of dependency checking etc.  Otherwise having
      a non-existent source file could create problems.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -588,7 +622,8 @@ GENERATOR_FILE_NAME                      *GENERATOR_FILE_NAME*
      An internal property used by some generators to record the name of
      project or dsp file associated with this target.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -599,7 +634,8 @@ GLOBAL_DEPENDS_DEBUG_MODE                *GLOBAL_DEPENDS_DEBUG_MODE*
      at the beginning of native build system generation.  This property
      causes it to display details of its analysis to stderr.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -612,17 +648,19 @@ GLOBAL_DEPENDS_NO_CYCLES                 *GLOBAL_DEPENDS_NO_CYCLES*
      of all STATIC library targets.  This property tells CMake to disallow
      all cycles completely, even among static libraries.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 HAS_CXX                                  *HAS_CXX*
      Link the target using the C++ linker tool (obselete).
 
-     This is equivalent to setting the LINKER_LANGUAGE property to CXX.
+     This is equivalent to setting the |LINKER_LANGUAGE| property to CXX.
      See that property's documentation for details.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -634,7 +672,8 @@ HEADER_FILE_ONLY                         *HEADER_FILE_ONLY*
      automatically based on the file extension and is used by CMake to
      determine is certain dependency information should be computed.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -644,7 +683,8 @@ HELPSTRING                               *HELPSTRING*
      This string summarizes the purpose of an entry to help users set it
      through a CMake GUI.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -675,53 +715,58 @@ IMPLICIT_DEPENDS_INCLUDE_TRANSFORM       *IMPLICIT_DEPENDS_INCLUDE_TRANSFORM*
      The property value is initialized in each directory by its value in
      the directory's parent.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED                                 *IMPORTED*
-     Read-only indication of whether a target is IMPORTED.
+     Read-only indication of whether a target is |IMPORTED|.
 
      The boolean value of this property is true for targets created with
-     the IMPORTED option to add_executable or add_library.  It is false for
+     the |IMPORTED| option to |add_executable| or |add_library|.  It is false for
      targets built within the project.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_CONFIGURATIONS                  *IMPORTED_CONFIGURATIONS*
-     Configurations provided for an IMPORTED target.
+     Configurations provided for an |IMPORTED| target.
 
-     Lists configuration names available for an IMPORTED target.  The names
+     Lists configuration names available for an |IMPORTED| target.  The names
      correspond to configurations defined in the project from which the
      target is imported.  If the importing project uses a different set of
      configurations the names may be mapped using the
-     MAP_IMPORTED_CONFIG_<CONFIG> property.  Ignored for non-imported
+     |MAP_IMPORTED_CONFIG_<CONFIG>| property.  Ignored for non-imported
      targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_IMPLIB                          *IMPORTED_IMPLIB*
-     Full path to the import library for an IMPORTED target.
+     Full path to the import library for an |IMPORTED| target.
 
      Specifies the location of the ".lib" part of a windows DLL.  Ignored
      for non-imported targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_IMPLIB_<CONFIG>                 *IMPORTED_IMPLIB_<CONFIG>*
-     Per-configuration version of IMPORTED_IMPLIB property.
+     Per-configuration version of |IMPORTED_IMPLIB| property.
 
      This property is used when loading settings for the <CONFIG>
      configuration of an imported target.  Configuration names correspond
      to those provided by the project from which the target is imported.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -733,17 +778,18 @@ IMPORTED_LINK_DEPENDENT_LIBRARIES        *IMPORTED_LINK_DEPENDENT_LIBRARIES*
      dependent libraries of shared libraries they are including in the
      link.  This property lists the dependent shared libraries of an
      imported library.  The list should be disjoint from the list of
-     interface libraries in the IMPORTED_LINK_INTERFACE_LIBRARIES property.
+     interface libraries in the |IMPORTED_LINK_INTERFACE_LIBRARIES| property.
      On platforms requiring dependent shared libraries to be found at link
      time CMake uses this list to add appropriate files or paths to the
      link command line.  Ignored for non-imported targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LINK_DEPENDENT_LIBRARIES_<CONFIG> *IMPORTED_LINK_DEPENDENT_LIBRARIES_<CONFIG>*
-     Per-configuration version of IMPORTED_LINK_DEPENDENT_LIBRARIES.
+     Per-configuration version of |IMPORTED_LINK_DEPENDENT_LIBRARIES|.
 
      This property is used when loading settings for the <CONFIG>
      configuration of an imported target.  Configuration names correspond
@@ -751,14 +797,15 @@ IMPORTED_LINK_DEPENDENT_LIBRARIES_<CONFIG> *IMPORTED_LINK_DEPENDENT_LIBRARIES_<C
      If set, this property completely overrides the generic property for
      the named configuration.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LINK_INTERFACE_LANGUAGES        *IMPORTED_LINK_INTERFACE_LANGUAGES*
-     Languages compiled into an IMPORTED static library.
+     Languages compiled into an |IMPORTED| static library.
 
-     Lists languages of soure files compiled to produce a STATIC IMPORTED
+     Lists languages of soure files compiled to produce a STATIC |IMPORTED|
      library (such as "C" or "CXX").  CMake accounts for these languages
      when computing how to link a target to the imported library.  For
      example, when a C executable links to an imported C++ static library
@@ -768,12 +815,13 @@ IMPORTED_LINK_INTERFACE_LANGUAGES        *IMPORTED_LINK_INTERFACE_LANGUAGES*
      This property is ignored for targets that are not STATIC libraries.
      This property is ignored for non-imported targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LINK_INTERFACE_LANGUAGES_<CONFIG> *IMPORTED_LINK_INTERFACE_LANGUAGES_<CONFIG>*
-     Per-configuration version of IMPORTED_LINK_INTERFACE_LANGUAGES.
+     Per-configuration version of |IMPORTED_LINK_INTERFACE_LANGUAGES|.
 
      This property is used when loading settings for the <CONFIG>
      configuration of an imported target.  Configuration names correspond
@@ -781,26 +829,28 @@ IMPORTED_LINK_INTERFACE_LANGUAGES_<CONFIG> *IMPORTED_LINK_INTERFACE_LANGUAGES_<C
      If set, this property completely overrides the generic property for
      the named configuration.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LINK_INTERFACE_LIBRARIES        *IMPORTED_LINK_INTERFACE_LIBRARIES*
-     Transitive link interface of an IMPORTED target.
+     Transitive link interface of an |IMPORTED| target.
 
-     Lists libraries whose interface is included when an IMPORTED library
+     Lists libraries whose interface is included when an |IMPORTED| library
      target is linked to another target.  The libraries will be included on
-     the link line for the target.  Unlike the LINK_INTERFACE_LIBRARIES
+     the link line for the target.  Unlike the |LINK_INTERFACE_LIBRARIES|
      property, this property applies to all imported target types,
      including STATIC libraries.  This property is ignored for non-imported
      targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LINK_INTERFACE_LIBRARIES_<CONFIG> *IMPORTED_LINK_INTERFACE_LIBRARIES_<CONFIG>*
-     Per-configuration version of IMPORTED_LINK_INTERFACE_LIBRARIES.
+     Per-configuration version of |IMPORTED_LINK_INTERFACE_LIBRARIES|.
 
      This property is used when loading settings for the <CONFIG>
      configuration of an imported target.  Configuration names correspond
@@ -808,34 +858,37 @@ IMPORTED_LINK_INTERFACE_LIBRARIES_<CONFIG> *IMPORTED_LINK_INTERFACE_LIBRARIES_<C
      If set, this property completely overrides the generic property for
      the named configuration.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LINK_INTERFACE_MULTIPLICITY     *IMPORTED_LINK_INTERFACE_MULTIPLICITY*
-     Repetition count for cycles of IMPORTED static libraries.
+     Repetition count for cycles of |IMPORTED| static libraries.
 
-     This is LINK_INTERFACE_MULTIPLICITY for IMPORTED targets.
+     This is |LINK_INTERFACE_MULTIPLICITY| for |IMPORTED| targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LINK_INTERFACE_MULTIPLICITY_<CONFIG> *IMPORTED_LINK_INTERFACE_MULTIPLICITY_<CONFIG>*
-     Per-configuration repetition count for cycles of IMPORTED archives.
+     Per-configuration repetition count for cycles of |IMPORTED| archives.
 
      This is the configuration-specific version of
-     IMPORTED_LINK_INTERFACE_MULTIPLICITY.  If set, this property
+     |IMPORTED_LINK_INTERFACE_MULTIPLICITY|.  If set, this property
      completely overrides the generic property for the named configuration.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LOCATION                        *IMPORTED_LOCATION*
-     Full path to the main file on disk for an IMPORTED target.
+     Full path to the main file on disk for an |IMPORTED| target.
 
-     Specifies the location of an IMPORTED target file on disk.  For
+     Specifies the location of an |IMPORTED| target file on disk.  For
      executables this is the location of the executable file.  For bundles
      on OS X this is the location of the executable file inside
      Contents/MacOS under the application bundle folder.  For static
@@ -847,64 +900,70 @@ IMPORTED_LOCATION                        *IMPORTED_LOCATION*
      libraries this is the location of the file to be linked.  Ignored for
      non-imported targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_LOCATION_<CONFIG>               *IMPORTED_LOCATION_<CONFIG>*
-     Per-configuration version of IMPORTED_LOCATION property.
+     Per-configuration version of |IMPORTED_LOCATION| property.
 
      This property is used when loading settings for the <CONFIG>
      configuration of an imported target.  Configuration names correspond
      to those provided by the project from which the target is imported.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_SONAME                          *IMPORTED_SONAME*
-     The "soname" of an IMPORTED target of shared library type.
+     The "soname" of an |IMPORTED| target of shared library type.
 
      Specifies the "soname" embedded in an imported shared library.  This
      is meaningful only on platforms supporting the feature.  Ignored for
      non-imported targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORTED_SONAME_<CONFIG>                 *IMPORTED_SONAME_<CONFIG>*
-     Per-configuration version of IMPORTED_SONAME property.
+     Per-configuration version of |IMPORTED_SONAME| property.
 
      This property is used when loading settings for the <CONFIG>
      configuration of an imported target.  Configuration names correspond
      to those provided by the project from which the target is imported.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORT_PREFIX                            *IMPORT_PREFIX*
      What comes before the import library name.
 
-     Similar to the target property PREFIX, but used for import libraries
+     Similar to the target property |PREFIX|, but used for import libraries
      (typically corresponding to a DLL) instead of regular libraries.  A
      target property that can be set to override the prefix (such as "lib")
      on an import library name.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 IMPORT_SUFFIX                            *IMPORT_SUFFIX*
      What comes after the import library name.
 
-     Similar to the target property SUFFIX, but used for import libraries
+     Similar to the target property |SUFFIX|, but used for import libraries
      (typically corresponding to a DLL) instead of regular libraries.  A
      target property that can be set to override the suffix (such as
      ".lib") on an import library name.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -912,10 +971,11 @@ INCLUDE_DIRECTORIES                      *INCLUDE_DIRECTORIES*
      List of preprocessor include file search directories.
 
      This read-only property specifies the list of directories given so far
-     to the include_directories command.  It is intended for debugging
+     to the |include_directories| command.  It is intended for debugging
      purposes.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -924,20 +984,22 @@ INCLUDE_REGULAR_EXPRESSION               *INCLUDE_REGULAR_EXPRESSION*
 
      This read-only property specifies the regular expression used during
      dependency scanning to match include files that should be followed.
-     See the include_regular_expression command.
+     See the |include_regular_expression| command.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 INSTALL_NAME_DIR                         *INSTALL_NAME_DIR*
      Mac OSX directory name for installed targets.
 
-     INSTALL_NAME_DIR is a string specifying the directory portion of the
+     |INSTALL_NAME_DIR| is a string specifying the directory portion of the
      "install_name" field of shared libraries on Mac OSX to use in the
      installed targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -946,23 +1008,25 @@ INSTALL_RPATH                            *INSTALL_RPATH*
 
      A semicolon-separated list specifying the rpath to use in installed
      targets (for platforms that support it).  This property is initialized
-     by the value of the variable CMAKE_INSTALL_RPATH if it is set when a
+     by the value of the variable |CMAKE_INSTALL_RPATH| if it is set when a
      target is created.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 INSTALL_RPATH_USE_LINK_PATH              *INSTALL_RPATH_USE_LINK_PATH*
      Add paths to linker search and installed rpath.
 
-     INSTALL_RPATH_USE_LINK_PATH is a boolean that if set to true will
+     |INSTALL_RPATH_USE_LINK_PATH| is a boolean that if set to true will
      append directories in the linker search path and outside the project
-     to the INSTALL_RPATH.  This property is initialized by the value of
-     the variable CMAKE_INSTALL_RPATH_USE_LINK_PATH if it is set when a
+     to the |INSTALL_RPATH|.  This property is initialized by the value of
+     the variable |CMAKE_INSTALL_RPATH_USE_LINK_PATH| if it is set when a
      target is created.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -972,18 +1036,20 @@ INTERPROCEDURAL_OPTIMIZATION             *INTERPROCEDURAL_OPTIMIZATION*
      If set to true, enables interprocedural optimizations if they are
      known to be supported by the compiler.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 INTERPROCEDURAL_OPTIMIZATION_<CONFIG>    *INTERPROCEDURAL_OPTIMIZATION_<CONFIG>*
      Per-configuration interprocedural optimization for a directory.
 
-     This is a per-configuration version of INTERPROCEDURAL_OPTIMIZATION.
+     This is a per-configuration version of |INTERPROCEDURAL_OPTIMIZATION|.
      If set, this property overrides the generic property for the named
      configuration.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -992,7 +1058,8 @@ IN_TRY_COMPILE                           *IN_TRY_COMPILE*
 
      True when building a project inside a TRY_COMPILE or TRY_RUN command.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1004,7 +1071,8 @@ KEEP_EXTENSION                           *KEEP_EXTENSION*
      extension is computed based on the language of the source file, for
      example .cxx will go to a .o extension.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1013,7 +1081,8 @@ LABELS                                   *LABELS*
 
      Target label semantics are currently unspecified.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1024,7 +1093,8 @@ LANGUAGE                                 *LANGUAGE*
      source file is.  If it is not set the language is determined based on
      the file extension.  Typical values are CXX C etc.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1041,9 +1111,10 @@ LIBRARY_OUTPUT_DIRECTORY                 *LIBRARY_OUTPUT_DIRECTORY*
      runtime target and the corresponding import library is treated as an
      archive target.  All Windows-based systems including Cygwin are DLL
      platforms.  This property is initialized by the value of the variable
-     CMAKE_LIBRARY_OUTPUT_DIRECTORY if it is set when a target is created.
+     |CMAKE_LIBRARY_OUTPUT_DIRECTORY| if it is set when a target is created.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1051,7 +1122,7 @@ LIBRARY_OUTPUT_NAME                      *LIBRARY_OUTPUT_NAME*
      Output name for LIBRARY target files.
 
      This property specifies the base name for library target files.  It
-     overrides OUTPUT_NAME and OUTPUT_NAME_<CONFIG> properties.  There are
+     overrides |OUTPUT_NAME| and |OUTPUT_NAME_<CONFIG>| properties.  There are
      three kinds of target files that may be built: archive, library, and
      runtime.  Executables are always treated as runtime targets.  Static
      libraries are always treated as archive targets.  Module libraries are
@@ -1061,16 +1132,18 @@ LIBRARY_OUTPUT_NAME                      *LIBRARY_OUTPUT_NAME*
      corresponding import library is treated as an archive target.  All
      Windows-based systems including Cygwin are DLL platforms.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 LIBRARY_OUTPUT_NAME_<CONFIG>             *LIBRARY_OUTPUT_NAME_<CONFIG>*
      Per-configuration output name for LIBRARY target files.
 
-     This is the configuration-specific version of LIBRARY_OUTPUT_NAME.
+     This is the configuration-specific version of |LIBRARY_OUTPUT_NAME|.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1082,9 +1155,10 @@ LINKER_LANGUAGE                          *LINKER_LANGUAGE*
      typical value for an executable is the language of the source file
      providing the program entry point (main).  If not set, the language
      with the highest linker preference value is the default.  See
-     documentation of CMAKE_<LANG>_LINKER_PREFERENCE variables.
+     documentation of |CMAKE_<LANG>_LINKER_PREFERENCE| variables.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1092,30 +1166,33 @@ LINK_DIRECTORIES                         *LINK_DIRECTORIES*
      List of linker search directories.
 
      This read-only property specifies the list of directories given so far
-     to the link_directories command.  It is intended for debugging
+     to the |link_directories| command.  It is intended for debugging
      purposes.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 LINK_FLAGS                               *LINK_FLAGS*
      Additional flags to use when linking this target.
 
-     The LINK_FLAGS property can be used to add extra flags to the link
-     step of a target.  LINK_FLAGS_<CONFIG> will add to the configuration
+     The |LINK_FLAGS| property can be used to add extra flags to the link
+     step of a target.  |LINK_FLAGS_<CONFIG>| will add to the configuration
      <CONFIG>, for example, DEBUG, RELEASE, MINSIZEREL, RELWITHDEBINFO.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 LINK_FLAGS_<CONFIG>                      *LINK_FLAGS_<CONFIG>*
      Per-configuration linker flags for a target.
 
-     This is the configuration-specific version of LINK_FLAGS.
+     This is the configuration-specific version of |LINK_FLAGS|.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1124,7 +1201,7 @@ LINK_INTERFACE_LIBRARIES                 *LINK_INTERFACE_LIBRARIES*
 
      By default linking to a shared library target transitively links to
      targets with which the library itself was linked.  For an executable
-     with exports (see the ENABLE_EXPORTS property) no default transitive
+     with exports (see the |ENABLE_EXPORTS| property) no default transitive
      link dependencies are used.  This property replaces the default
      transitive link dependencies with an explict list.  When the target is
      linked into another target the libraries listed (and recursively their
@@ -1134,7 +1211,8 @@ LINK_INTERFACE_LIBRARIES                 *LINK_INTERFACE_LIBRARIES*
      the default set is non-empty.  This property is ignored for STATIC
      libraries.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1142,10 +1220,11 @@ LINK_INTERFACE_LIBRARIES_<CONFIG>        *LINK_INTERFACE_LIBRARIES_<CONFIG>*
      Per-configuration list of public interface libraries for a target.
 
      This is the configuration-specific version of
-     LINK_INTERFACE_LIBRARIES.  If set, this property completely overrides
+     |LINK_INTERFACE_LIBRARIES|.  If set, this property completely overrides
      the generic property for the named configuration.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1160,7 +1239,8 @@ LINK_INTERFACE_MULTIPLICITY              *LINK_INTERFACE_MULTIPLICITY*
      number of scans if it is larger than the default.  CMake uses the
      largest value specified by any target in a component.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1168,10 +1248,11 @@ LINK_INTERFACE_MULTIPLICITY_<CONFIG>     *LINK_INTERFACE_MULTIPLICITY_<CONFIG>*
      Per-configuration repetition count for cycles of STATIC libraries.
 
      This is the configuration-specific version of
-     LINK_INTERFACE_MULTIPLICITY.  If set, this property completely
+     |LINK_INTERFACE_MULTIPLICITY|.  If set, this property completely
      overrides the generic property for the named configuration.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1186,7 +1267,8 @@ LINK_SEARCH_END_STATIC                   *LINK_SEARCH_END_STATIC*
      left at -Bdynamic by the end of the library list.  This property
      switches the final linker search type to -Bstatic.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1198,7 +1280,8 @@ LISTFILE_STACK                           *LISTFILE_STACK*
      being processed, in order.  So if one listfile does an INCLUDE command
      then that is effectively pushing the included listfile onto the stack.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1206,20 +1289,21 @@ LOCATION                                 *LOCATION*
      Read-only location of a target on disk.
 
      For an imported target, this read-only property returns the value of
-     the LOCATION_<CONFIG> property for an unspecified configuration
+     the |LOCATION_<CONFIG>| property for an unspecified configuration
      <CONFIG> provided by the target.
 
      For a non-imported target, this property is provided for compatibility
      with CMake 2.4 and below.  It was meant to get the location of an
-     executable target's output file for use in add_custom_command.  The
+     executable target's output file for use in |add_custom_command|.  The
      path may contain a build-system-specific portion that is replaced at
      build time with the configuration getting built (such as
      "$(ConfigurationName)" in VS).  In CMake 2.6 and above
-     add_custom_command automatically recognizes a target name in its
+     |add_custom_command| automatically recognizes a target name in its
      COMMAND and DEPENDS options and computes the target location.
      Therefore this property is not needed for creating custom commands.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1232,10 +1316,11 @@ LOCATION_<CONFIG>                        *LOCATION_<CONFIG>*
      may provide a set of configurations different from that of the
      importing project.  By default CMake looks for an exact-match but
      otherwise uses an arbitrary available configuration.  Use the
-     MAP_IMPORTED_CONFIG_<CONFIG> property to map imported configurations
+     |MAP_IMPORTED_CONFIG_<CONFIG>| property to map imported configurations
      explicitly.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1245,20 +1330,21 @@ MACOSX_BUNDLE                            *MACOSX_BUNDLE*
      When this property is set to true the executable when built on Mac OS
      X will be created as an application bundle.  This makes it a GUI
      executable that can be launched from the Finder.  See the
-     MACOSX_BUNDLE_INFO_PLIST target property for information about
+     |MACOSX_BUNDLE_INFO_PLIST| target property for information about
      creation of the Info.plist file for the application bundle.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 MACOSX_BUNDLE_INFO_PLIST                 *MACOSX_BUNDLE_INFO_PLIST*
      Specify a custom Info.plist template for a Mac OS X App Bundle.
 
-     An executable target with MACOSX_BUNDLE enabled will be built as an
+     An executable target with |MACOSX_BUNDLE| enabled will be built as an
      application bundle on Mac OS X.  By default its Info.plist file is
      created by configuring a template called MacOSXBundleInfo.plist.in
-     located in the CMAKE_MODULE_PATH.  This property specifies an
+     located in the |CMAKE_MODULE_PATH|.  This property specifies an
      alternative template file name which may be a full path.
 
      The following target properties may be set to specify content to be
@@ -1278,17 +1364,18 @@ MACOSX_BUNDLE_INFO_PLIST                 *MACOSX_BUNDLE_INFO_PLIST*
      Info.plist is specified by this property it may of course hard-code
      all the settings instead of using the target properties.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 MACOSX_FRAMEWORK_INFO_PLIST              *MACOSX_FRAMEWORK_INFO_PLIST*
      Specify a custom Info.plist template for a Mac OS X Framework.
 
-     An library target with FRAMEWORK enabled will be built as a framework
+     An library target with |FRAMEWORK| enabled will be built as a framework
      on Mac OS X.  By default its Info.plist file is created by configuring
      a template called MacOSXFrameworkInfo.plist.in located in the
-     CMAKE_MODULE_PATH.  This property specifies an alternative template
+     |CMAKE_MODULE_PATH|.  This property specifies an alternative template
      file name which may be a full path.
 
      The following target properties may be set to specify content to be
@@ -1304,26 +1391,28 @@ MACOSX_FRAMEWORK_INFO_PLIST              *MACOSX_FRAMEWORK_INFO_PLIST*
      Info.plist is specified by this property it may of course hard-code
      all the settings instead of using the target properties.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 MACOSX_PACKAGE_LOCATION                  *MACOSX_PACKAGE_LOCATION*
      Place a source file inside a Mac OS X bundle or framework.
 
-     Executable targets with the MACOSX_BUNDLE property set are built as
+     Executable targets with the |MACOSX_BUNDLE| property set are built as
      Mac OS X application bundles on Apple platforms.  Shared library
-     targets with the FRAMEWORK property set are built as Mac OS X
+     targets with the |FRAMEWORK| property set are built as Mac OS X
      frameworks on Apple platforms.  Source files listed in the target with
      this property set will be copied to a directory inside the bundle or
      framework content folder specified by the property value.  For bundles
      the content folder is "<name>.app/Contents".  For frameworks the
      content folder is "<name>.framework/Versions/<version>".  See the
-     PUBLIC_HEADER, PRIVATE_HEADER, and RESOURCE target properties for
+     |PUBLIC_HEADER|, |PRIVATE_HEADER|, and |RESOURCE| target properties for
      specifying files meant for Headers, PrivateHeadres, or Resources
      directories.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1334,12 +1423,13 @@ MACROS                                   *MACROS*
      defined.  It is intended for debugging purposes.  See the macro
      command.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 MAP_IMPORTED_CONFIG_<CONFIG>             *MAP_IMPORTED_CONFIG_<CONFIG>*
-     Map from project configuration to IMPORTED target's configuration.
+     Map from project configuration to |IMPORTED| target's configuration.
 
      List configurations of an imported target that may be used for the
      current project's <CONFIG> configuration.  Targets imported from
@@ -1351,7 +1441,8 @@ MAP_IMPORTED_CONFIG_<CONFIG>             *MAP_IMPORTED_CONFIG_<CONFIG>*
      configurations are available the imported target is considered to be
      not found.  This property is ignored for non-imported targets.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1360,9 +1451,10 @@ MEASUREMENT                              *MEASUREMENT*
 
      If set to a name then that name will be reported to CDASH as a named
      measurement with a value of 1.  You may also specify a value by
-     setting MEASUREMENT to "measurement=value".
+     setting |MEASUREMENT| to "measurement=value".
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1372,7 +1464,8 @@ MODIFIED                                 *MODIFIED*
      This is an internal cache entry property managed by CMake to track
      interactive user modification of entries.  Ignore it.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1390,10 +1483,11 @@ OBJECT_DEPENDS                           *OBJECT_DEPENDS*
      command in the same target as the source file, the automatic
      dependency scanning process will recognize the dependency.  If the
      generated header file is created by another target, an inter-target
-     dependency should be created with the add_dependencies command (if one
+     dependency should be created with the |add_dependencies| command (if one
      does not already exist due to linking relationships).
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1405,7 +1499,8 @@ OBJECT_OUTPUTS                           *OBJECT_OUTPUTS*
      supported only on Makefile generators and will be ignored on other
      generators.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1416,16 +1511,18 @@ OUTPUT_NAME                              *OUTPUT_NAME*
      library target.  If not set, the logical target name is used by
      default.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 OUTPUT_NAME_<CONFIG>                     *OUTPUT_NAME_<CONFIG>*
      Per-configuration target file base name.
 
-     This is the configuration-specific version of OUTPUT_NAME.
+     This is the configuration-specific version of |OUTPUT_NAME|.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1435,7 +1532,8 @@ PACKAGES_FOUND                           *PACKAGES_FOUND*
      List of packages which were found during the CMake run.  Whether a
      package has been found is determined using the <NAME>_FOUND variables.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1445,7 +1543,8 @@ PACKAGES_NOT_FOUND                       *PACKAGES_NOT_FOUND*
      List of packages which were not found during the CMake run.  Whether a
      package has been found is determined using the <NAME>_FOUND variables.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1456,7 +1555,8 @@ PARENT_DIRECTORY                         *PARENT_DIRECTORY*
      current source directory as a subdirectory of the build.  In the
      top-level directory the value is the empty-string.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1467,19 +1567,21 @@ PASS_REGULAR_EXPRESSION                  *PASS_REGULAR_EXPRESSION*
      expressions and at least one of the regular expressions has to match,
      otherwise the test will fail.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 POST_INSTALL_SCRIPT                      *POST_INSTALL_SCRIPT*
      Deprecated install support.
 
-     The PRE_INSTALL_SCRIPT and POST_INSTALL_SCRIPT properties are the old
+     The |PRE_INSTALL_SCRIPT| and |POST_INSTALL_SCRIPT| properties are the old
      way to specify CMake scripts to run before and after installing a
      target.  They are used only when the old INSTALL_TARGETS command is
      used to install the target.  Use the INSTALL command instead.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1489,33 +1591,36 @@ PREFIX                                   *PREFIX*
      A target property that can be set to override the prefix (such as
      "lib") on a library name.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 PRE_INSTALL_SCRIPT                       *PRE_INSTALL_SCRIPT*
      Deprecated install support.
 
-     The PRE_INSTALL_SCRIPT and POST_INSTALL_SCRIPT properties are the old
+     The |PRE_INSTALL_SCRIPT| and |POST_INSTALL_SCRIPT| properties are the old
      way to specify CMake scripts to run before and after installing a
      target.  They are used only when the old INSTALL_TARGETS command is
      used to install the target.  Use the INSTALL command instead.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 PRIVATE_HEADER                           *PRIVATE_HEADER*
-     Specify private header files in a FRAMEWORK shared library target.
+     Specify private header files in a |FRAMEWORK| shared library target.
 
-     Shared library targets marked with the FRAMEWORK property generate
+     Shared library targets marked with the |FRAMEWORK| property generate
      frameworks on OS X and normal shared libraries on other platforms.
      This property may be set to a list of header files to be placed in the
      PrivateHeaders directory inside the framework folder.  On non-Apple
-     platforms these headers may be installed using the PRIVATE_HEADER
+     platforms these headers may be installed using the |PRIVATE_HEADER|
      option to the install(TARGETS) command.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1525,21 +1630,23 @@ PROJECT_LABEL                            *PROJECT_LABEL*
      Can be used to change the name of the target in an IDE like visual
      stuido.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 PUBLIC_HEADER                            *PUBLIC_HEADER*
-     Specify public header files in a FRAMEWORK shared library target.
+     Specify public header files in a |FRAMEWORK| shared library target.
 
-     Shared library targets marked with the FRAMEWORK property generate
+     Shared library targets marked with the |FRAMEWORK| property generate
      frameworks on OS X and normal shared libraries on other platforms.
      This property may be set to a list of header files to be placed in the
      Headers directory inside the framework folder.  On non-Apple platforms
-     these headers may be installed using the PUBLIC_HEADER option to the
+     these headers may be installed using the |PUBLIC_HEADER| option to the
      install(TARGETS) command.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1550,21 +1657,23 @@ REPORT_UNDEFINED_PROPERTIES              *REPORT_UNDEFINED_PROPERTIES*
      report any properties or variables that were accessed but not defined
      into the filename specified in this property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 RESOURCE                                 *RESOURCE*
-     Specify resource files in a FRAMEWORK shared library target.
+     Specify resource files in a |FRAMEWORK| shared library target.
 
-     Shared library targets marked with the FRAMEWORK property generate
+     Shared library targets marked with the |FRAMEWORK| property generate
      frameworks on OS X and normal shared libraries on other platforms.
      This property may be set to a list of files to be placed in the
      Resources directory inside the framework folder.  On non-Apple
-     platforms these files may be installed using the RESOURCE option to
+     platforms these files may be installed using the |RESOURCE| option to
      the install(TARGETS) command.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1576,7 +1685,8 @@ RULE_LAUNCH_COMPILE                      *RULE_LAUNCH_COMPILE*
      problems with high granularity.  Non-Makefile generators currently
      ignore this property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1588,7 +1698,8 @@ RULE_LAUNCH_CUSTOM                       *RULE_LAUNCH_CUSTOM*
      problems with high granularity.  Non-Makefile generators currently
      ignore this property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1600,7 +1711,8 @@ RULE_LAUNCH_LINK                         *RULE_LAUNCH_LINK*
      intercept build problems with high granularity.  Non-Makefile
      generators currently ignore this property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1616,7 +1728,8 @@ RULE_MESSAGES                            *RULE_MESSAGES*
      value initializes the value of this property.  Non-Makefile generators
      currently ignore this property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1633,9 +1746,10 @@ RUNTIME_OUTPUT_DIRECTORY                 *RUNTIME_OUTPUT_DIRECTORY*
      runtime target and the corresponding import library is treated as an
      archive target.  All Windows-based systems including Cygwin are DLL
      platforms.  This property is initialized by the value of the variable
-     CMAKE_RUNTIME_OUTPUT_DIRECTORY if it is set when a target is created.
+     |CMAKE_RUNTIME_OUTPUT_DIRECTORY| if it is set when a target is created.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1643,7 +1757,7 @@ RUNTIME_OUTPUT_NAME                      *RUNTIME_OUTPUT_NAME*
      Output name for RUNTIME target files.
 
      This property specifies the base name for runtime target files.  It
-     overrides OUTPUT_NAME and OUTPUT_NAME_<CONFIG> properties.  There are
+     overrides |OUTPUT_NAME| and |OUTPUT_NAME_<CONFIG>| properties.  There are
      three kinds of target files that may be built: archive, library, and
      runtime.  Executables are always treated as runtime targets.  Static
      libraries are always treated as archive targets.  Module libraries are
@@ -1653,28 +1767,31 @@ RUNTIME_OUTPUT_NAME                      *RUNTIME_OUTPUT_NAME*
      corresponding import library is treated as an archive target.  All
      Windows-based systems including Cygwin are DLL platforms.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 RUNTIME_OUTPUT_NAME_<CONFIG>             *RUNTIME_OUTPUT_NAME_<CONFIG>*
      Per-configuration output name for RUNTIME target files.
 
-     This is the configuration-specific version of RUNTIME_OUTPUT_NAME.
+     This is the configuration-specific version of |RUNTIME_OUTPUT_NAME|.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 SKIP_BUILD_RPATH                         *SKIP_BUILD_RPATH*
      Should rpaths be used for the build tree.
 
-     SKIP_BUILD_RPATH is a boolean specifying whether to skip automatic
+     |SKIP_BUILD_RPATH| is a boolean specifying whether to skip automatic
      generation of an rpath allowing the target to run from the build tree.
      This property is initialized by the value of the variable
-     CMAKE_SKIP_BUILD_RPATH if it is set when a target is created.
+     |CMAKE_SKIP_BUILD_RPATH| if it is set when a target is created.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1682,25 +1799,27 @@ SOURCES                                  *SOURCES*
      Source names specified for a target.
 
      Read-only list of sources specified for a target.  The names returned
-     are suitable for passing to the set_source_files_properties command.
+     are suitable for passing to the |set_source_files_properties| command.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 SOVERSION                                *SOVERSION*
      What version number is this target.
 
-     For shared libraries VERSION and SOVERSION can be used to specify the
+     For shared libraries |VERSION| and |SOVERSION| can be used to specify the
      build version and api version respectively.  When building or
      installing appropriate symlinks are created if the platform supports
      symlinks and the linker supports so-names.  If only one of both is
      specified the missing is assumed to have the same version number.  For
-     shared libraries and executables on Windows the VERSION attribute is
+     shared libraries and executables on Windows the |VERSION| attribute is
      parsed to extract a "major.minor" version number.  These numbers are
      used as the image version of the binary.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1709,7 +1828,8 @@ STATIC_LIBRARY_FLAGS                     *STATIC_LIBRARY_FLAGS*
 
      Extra flags to use when linking a static library.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1721,7 +1841,8 @@ STRINGS                                  *STRINGS*
      generic string entry field.  This is for convenience only.  CMake does
      not enforce that the value matches one of those listed.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1731,18 +1852,20 @@ SUFFIX                                   *SUFFIX*
      A target property that can be set to override the suffix (such as
      ".so") on a library name.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 SYMBOLIC                                 *SYMBOLIC*
      Is this just a name for a rule.
 
-     If SYMBOLIC (boolean) is set to true the build system will be informed
+     If |SYMBOLIC| (boolean) is set to true the build system will be informed
      that the source file is not actually created on disk but instead used
      as a symbolic name for a build rule.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1752,29 +1875,32 @@ TARGET_ARCHIVES_MAY_BE_SHARED_LIBS       *TARGET_ARCHIVES_MAY_BE_SHARED_LIBS*
      On AIX shared libraries may be named "lib<name>.a".  This property is
      set to true on such platforms.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 TARGET_SUPPORTS_SHARED_LIBS              *TARGET_SUPPORTS_SHARED_LIBS*
      Does the target platform support shared libraries.
 
-     TARGET_SUPPORTS_SHARED_LIBS is a boolean specifying whether the target
+     |TARGET_SUPPORTS_SHARED_LIBS| is a boolean specifying whether the target
      platform supports shared libraries.  Basically all current general
      general purpose OS do so, the exception are usually embedded systems
      with no or special OSs.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 TEST_INCLUDE_FILE                        *TEST_INCLUDE_FILE*
      A cmake file that will be included when ctest is run.
 
-     If you specify TEST_INCLUDE_FILE, that file will be included and
+     If you specify |TEST_INCLUDE_FILE|, that file will be included and
      processed when ctest is run on the directory.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1786,7 +1912,8 @@ TIMEOUT                                  *TIMEOUT*
      process will be killed and ctest will move to the next test.  This
      setting takes precedence over CTEST_TESTING_TIMEOUT.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1797,7 +1924,8 @@ TYPE                                     *TYPE*
      target.  It will be one of STATIC_LIBRARY, MODULE_LIBRARY,
      SHARED_LIBRARY, EXECUTABLE or one of the internal target types.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1807,7 +1935,8 @@ VALUE                                    *VALUE*
      This property maps to the actual value of a cache entry.  Setting this
      property always sets the value without checking, so use with care.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1817,26 +1946,28 @@ VARIABLES                                *VARIABLES*
      This read-only property specifies the list of CMake variables
      currently defined.  It is intended for debugging purposes.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
 VERSION                                  *VERSION*
      What version number is this target.
 
-     For shared libraries VERSION and SOVERSION can be used to specify the
+     For shared libraries |VERSION| and |SOVERSION| can be used to specify the
      build version and api version respectively.  When building or
      installing appropriate symlinks are created if the platform supports
      symlinks and the linker supports so-names.  If only one of both is
      specified the missing is assumed to have the same version number.  For
-     executables VERSION can be used to specify the build version.  When
+     executables |VERSION| can be used to specify the build version.  When
      building or installing appropriate symlinks are created if the
      platform supports symlinks.  For shared libraries and executables on
-     Windows the VERSION attribute is parsed to extract a "major.minor"
+     Windows the |VERSION| attribute is parsed to extract a "major.minor"
      version number.  These numbers are used as the image version of the
      binary.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1846,7 +1977,8 @@ VS_KEYWORD                               *VS_KEYWORD*
      Can be set to change the visual studio keyword, for example QT
      integration works better if this is set to Qt4VSv1.0.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1856,7 +1988,8 @@ VS_SCC_LOCALPATH                         *VS_SCC_LOCALPATH*
      Can be set to change the visual studio source code control local path
      property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1866,7 +1999,8 @@ VS_SCC_PROJECTNAME                       *VS_SCC_PROJECTNAME*
      Can be set to change the visual studio source code control project
      name property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1876,7 +2010,8 @@ VS_SCC_PROVIDER                          *VS_SCC_PROVIDER*
      Can be set to change the visual studio source code control provider
      property.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1886,7 +2021,8 @@ WILL_FAIL                                *WILL_FAIL*
      This property can be used for tests that are expected to fail and
      return a non zero return code.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1896,10 +2032,11 @@ WIN32_EXECUTABLE                         *WIN32_EXECUTABLE*
      When this property is set to true the executable when linked on
      Windows will be created with a WinMain() entry point instead of of
      just main().This makes it a GUI executable instead of a console
-     application.  See the CMAKE_MFC_FLAG variable documentation to
+     application.  See the |CMAKE_MFC_FLAG| variable documentation to
      configure use of MFC for WinMain executables.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1908,11 +2045,12 @@ WRAP_EXCLUDE                             *WRAP_EXCLUDE*
 
      Some packages can wrap source files into alternate languages to
      provide additional functionality.  For example, C++ code can be
-     wrapped into Java or Python etc using SWIG etc.  If WRAP_EXCLUDE is
+     wrapped into Java or Python etc using SWIG etc.  If |WRAP_EXCLUDE| is
      set to true (1 etc) that indicates then this source file should not be
      wrapped.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1922,7 +2060,8 @@ XCODE_ATTRIBUTE_<an-attribute>           *XCODE_ATTRIBUTE_<an-attribute>*
      Tell the Xcode generator to set '<an-attribute>' to a given value in
      the generated Xcode project.  Ignored on other generators.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1931,7 +2070,8 @@ __CMAKE_DELETE_CACHE_CHANGE_VARS_        *__CMAKE_DELETE_CACHE_CHANGE_VARS_*
 
      Used to detect compiler changes, Do not set.
 
-    |cmake-properties|  |cmake-commands|  |cmake-modules|  |cmake-variables|
+     |cmake-properties| |cmake-commands| |cmake-modules| |cmake-variables|
+     |cmake-policies|
 
 
 ---------------------------------------------------------

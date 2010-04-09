@@ -1,7 +1,8 @@
 CMake Commands
 
 
-CMake |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+CMake  |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+CMake  |cmake-policies|
 
 INDEX                          *cmake-commands*
 
@@ -105,10 +106,10 @@ INDEX                          *cmake-commands*
 add_custom_command                       *add_custom_command*
      Add a custom build rule to the generated build system.
 
-     There are two main signatures for add_custom_command The first
+     There are two main signatures for |add_custom_command| The first
      signature is for adding a custom command to produce an output.
 
-       add_custom_command(OUTPUT output1 [output2 ...]
+       |add_custom_command|(OUTPUT output1 [output2 ...]
                           COMMAND command1 [ARGS] [args1...]
                           [COMMAND command2 [ARGS] [args2...] ...]
                           [MAIN_DEPENDENCY depend]
@@ -140,7 +141,7 @@ add_custom_command                       *add_custom_command*
      target and will only execute when the target itself is built.  If the
      target is already built, the command will not execute.
 
-       add_custom_command(TARGET target
+       |add_custom_command|(TARGET target
                           PRE_BUILD | PRE_LINK | POST_BUILD
                           COMMAND command1 [ARGS] [args1...]
                           [COMMAND command2 [ARGS] [args2...] ...]
@@ -171,14 +172,14 @@ add_custom_command                       *add_custom_command*
      If VERBATIM is given then all arguments to the commands will be
      escaped properly for the build tool so that the invoked command
      receives each argument unchanged.  Note that one level of escapes is
-     still used by the CMake language processor before add_custom_command
+     still used by the CMake language processor before |add_custom_command|
      even sees the arguments.  Use of VERBATIM is recommended as it enables
      correct behavior.  When VERBATIM is not given the behavior is platform
      specific because there is no protection of tool-specific special
      characters.
 
      If the output of the custom command is not actually created as a file
-     on disk it should be marked as SYMBOLIC with
+     on disk it should be marked as |SYMBOLIC| with
      SET_SOURCE_FILES_PROPERTIES.
 
      The IMPLICIT_DEPENDS option requests scanning of implicit dependencies
@@ -209,19 +210,20 @@ add_custom_command                       *add_custom_command*
      to cause the custom command to re-run whenever the target is
      recompiled.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 add_custom_target                        *add_custom_target*
      Add a target with no output so it will always be built.
 
-       add_custom_target(Name [ALL] [command1 [args1...]]
+       |add_custom_target|(Name [ALL] [command1 [args1...]]
                          [COMMAND command2 [args2...] ...]
                          [DEPENDS depend depend depend ... ]
                          [WORKING_DIRECTORY dir]
                          [COMMENT comment] [VERBATIM]
-                         [SOURCES src1 [src2...]])
+                         [|SOURCES| src1 [src2...]])
 
      Adds a target with the given name that executes the given commands.
      The target has no output file and is ALWAYS CONSIDERED OUT OF DATE
@@ -237,50 +239,52 @@ add_custom_target                        *add_custom_target*
      set, the value will be displayed as a message before the commands are
      executed at build time.  Dependencies listed with the DEPENDS argument
      may reference files and outputs of custom commands created with
-     add_custom_command() in the same directory (CMakeLists.txt file).
+     |add_custom_command|() in the same directory (CMakeLists.txt file).
 
      If VERBATIM is given then all arguments to the commands will be
      escaped properly for the build tool so that the invoked command
      receives each argument unchanged.  Note that one level of escapes is
-     still used by the CMake language processor before add_custom_target
+     still used by the CMake language processor before |add_custom_target|
      even sees the arguments.  Use of VERBATIM is recommended as it enables
      correct behavior.  When VERBATIM is not given the behavior is platform
      specific because there is no protection of tool-specific special
      characters.
 
-     The SOURCES option specifies additional source files to be included in
+     The |SOURCES| option specifies additional source files to be included in
      the custom target.  Specified source files will be added to IDE
      project files for convenience in editing even if they have not build
      rules.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 add_definitions                          *add_definitions*
      Adds -D define flags to the compilation of source files.
 
-       add_definitions(-DFOO -DBAR ...)
+       |add_definitions|(-DFOO -DBAR ...)
 
      Adds flags to the compiler command line for sources in the current
      directory and below.  This command can be used to add any flags, but
      it was originally intended to add preprocessor definitions.  Flags
      beginning in -D or /D that look like preprocessor definitions are
-     automatically added to the COMPILE_DEFINITIONS property for the
+     automatically added to the |COMPILE_DEFINITIONS| property for the
      current directory.  Definitions with non-trival values may be left in
      the set of flags instead of being converted for reasons of backwards
      compatibility.  See documentation of the directory, target, and source
-     file COMPILE_DEFINITIONS properties for details on adding preprocessor
+     file |COMPILE_DEFINITIONS| properties for details on adding preprocessor
      definitions to specific scopes and configurations.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 add_dependencies                         *add_dependencies*
      Add a dependency between top-level targets.
 
-       add_dependencies(target-name depend-target1
+       |add_dependencies|(target-name depend-target1
                         depend-target2 ...)
 
      Make a top-level target depend on other top-level targets.  A
@@ -288,19 +292,20 @@ add_dependencies                         *add_dependencies*
      ADD_CUSTOM_TARGET.  Adding dependencies with this command can be used
      to make sure one target is built before another target.  See the
      DEPENDS option of ADD_CUSTOM_TARGET and ADD_CUSTOM_COMMAND for adding
-     file-level dependencies in custom rules.  See the OBJECT_DEPENDS
+     file-level dependencies in custom rules.  See the |OBJECT_DEPENDS|
      option in SET_SOURCE_FILES_PROPERTIES to add file-level dependencies
      to object files.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 add_executable                           *add_executable*
      Add an executable to the project using the specified source files.
 
-       add_executable(<name> [WIN32] [MACOSX_BUNDLE]
-                      [EXCLUDE_FROM_ALL]
+       |add_executable|(<name> [|WIN32|] [|MACOSX_BUNDLE|]
+                      [|EXCLUDE_FROM_ALL|]
                       source1 source2 ... sourceN)
 
      Adds an executable target called <name> to be built from the source
@@ -313,48 +318,49 @@ add_executable                           *add_executable*
      By default the executable file will be created in the build tree
      directory corresponding to the source tree directory in which the
      command was invoked.  See documentation of the
-     RUNTIME_OUTPUT_DIRECTORY target property to change this location.  See
-     documentation of the OUTPUT_NAME target property to change the <name>
+     |RUNTIME_OUTPUT_DIRECTORY| target property to change this location.  See
+     documentation of the |OUTPUT_NAME| target property to change the <name>
      part of the final file name.
 
-     If WIN32 is given the property WIN32_EXECUTABLE will be set on the
+     If |WIN32| is given the property |WIN32_EXECUTABLE| will be set on the
      target created.  See documentation of that target property for
      details.
 
-     If MACOSX_BUNDLE is given the corresponding property will be set on
-     the created target.  See documentation of the MACOSX_BUNDLE target
+     If |MACOSX_BUNDLE| is given the corresponding property will be set on
+     the created target.  See documentation of the |MACOSX_BUNDLE| target
      property for details.
 
-     If EXCLUDE_FROM_ALL is given the corresponding property will be set on
-     the created target.  See documentation of the EXCLUDE_FROM_ALL target
+     If |EXCLUDE_FROM_ALL| is given the corresponding property will be set on
+     the created target.  See documentation of the |EXCLUDE_FROM_ALL| target
      property for details.
 
-     The add_executable command can also create IMPORTED executable targets
+     The |add_executable| command can also create |IMPORTED| executable targets
      using this signature:
 
-       add_executable(<name> IMPORTED)
+       |add_executable|(<name> |IMPORTED|)
 
-     An IMPORTED executable target references an executable file located
+     An |IMPORTED| executable target references an executable file located
      outside the project.  No rules are generated to build it.  The target
      name has scope in the directory in which it is created and below.  It
-     may be referenced like any target built within the project.  IMPORTED
+     may be referenced like any target built within the project.  |IMPORTED|
      executables are useful for convenient reference from commands like
-     add_custom_command.  Details about the imported executable are
+     |add_custom_command|.  Details about the imported executable are
      specified by setting properties whose names begin in "IMPORTED_".  The
-     most important such property is IMPORTED_LOCATION (and its
-     per-configuration version IMPORTED_LOCATION_<CONFIG>) which specifies
+     most important such property is |IMPORTED_LOCATION| (and its
+     per-configuration version |IMPORTED_LOCATION_<CONFIG>|) which specifies
      the location of the main executable file on disk.  See documentation
      of the IMPORTED_* properties for more information.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 add_library                              *add_library*
      Add a library to the project using the specified source files.
 
-       add_library(<name> [STATIC | SHARED | MODULE]
-                   [EXCLUDE_FROM_ALL]
+       |add_library|(<name> [STATIC | SHARED | MODULE]
+                   [|EXCLUDE_FROM_ALL|]
                    source1 source2 ... sourceN)
 
      Adds a library target called <name> to be built from the source files
@@ -371,46 +377,47 @@ add_library                              *add_library*
      linked into other targets but may be loaded dynamically at runtime
      using dlopen-like functionality.  If no type is given explicitly the
      type is STATIC or SHARED based on whether the current value of the
-     variable BUILD_SHARED_LIBS is true.
+     variable |BUILD_SHARED_LIBS| is true.
 
      By default the library file will be created in the build tree
      directory corresponding to the source tree directory in which the
      command was invoked.  See documentation of the
-     ARCHIVE_OUTPUT_DIRECTORY, LIBRARY_OUTPUT_DIRECTORY, and
-     RUNTIME_OUTPUT_DIRECTORY target properties to change this location.
-     See documentation of the OUTPUT_NAME target property to change the
+     |ARCHIVE_OUTPUT_DIRECTORY|, |LIBRARY_OUTPUT_DIRECTORY|, and
+     |RUNTIME_OUTPUT_DIRECTORY| target properties to change this location.
+     See documentation of the |OUTPUT_NAME| target property to change the
      <name> part of the final file name.
 
-     If EXCLUDE_FROM_ALL is given the corresponding property will be set on
-     the created target.  See documentation of the EXCLUDE_FROM_ALL target
+     If |EXCLUDE_FROM_ALL| is given the corresponding property will be set on
+     the created target.  See documentation of the |EXCLUDE_FROM_ALL| target
      property for details.
 
-     The add_library command can also create IMPORTED library targets using
+     The |add_library| command can also create |IMPORTED| library targets using
      this signature:
 
-       add_library(<name> <SHARED|STATIC|MODULE|UNKNOWN> IMPORTED)
+       |add_library|(<name> <SHARED|STATIC|MODULE|UNKNOWN> |IMPORTED|)
 
-     An IMPORTED library target references a library file located outside
+     An |IMPORTED| library target references a library file located outside
      the project.  No rules are generated to build it.  The target name has
      scope in the directory in which it is created and below.  It may be
-     referenced like any target built within the project.  IMPORTED
+     referenced like any target built within the project.  |IMPORTED|
      libraries are useful for convenient reference from commands like
-     target_link_libraries.  Details about the imported library are
+     |target_link_libraries|.  Details about the imported library are
      specified by setting properties whose names begin in "IMPORTED_".  The
-     most important such property is IMPORTED_LOCATION (and its
-     per-configuration version IMPORTED_LOCATION_<CONFIG>) which specifies
+     most important such property is |IMPORTED_LOCATION| (and its
+     per-configuration version |IMPORTED_LOCATION_<CONFIG>|) which specifies
      the location of the main library file on disk.  See documentation of
      the IMPORTED_* properties for more information.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 add_subdirectory                         *add_subdirectory*
      Add a subdirectory to the build.
 
-       add_subdirectory(source_dir [binary_dir] 
-                        [EXCLUDE_FROM_ALL])
+       |add_subdirectory|(source_dir [binary_dir] 
+                        [|EXCLUDE_FROM_ALL|])
 
      Add a subdirectory to the build.  The source_dir specifies the
      directory in which the source CmakeLists.txt and code files are
@@ -425,7 +432,7 @@ add_subdirectory                         *add_subdirectory*
      directory will be processed immediately by CMake before processing in
      the current input file continues beyond this command.
 
-     If the EXCLUDE_FROM_ALL argument is provided then targets in the
+     If the |EXCLUDE_FROM_ALL| argument is provided then targets in the
      subdirectory will not be included in the ALL target of the parent
      directory by default, and will be excluded from IDE project files.
      Users must explicitly build targets in the subdirectory.  This is
@@ -439,14 +446,15 @@ add_subdirectory                         *add_subdirectory*
      target will be included in the parent project build system to satisfy
      the dependency.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 add_test                                 *add_test*
      Add a test to the project with the specified arguments.
 
-       add_test(testname Exename arg1 arg2 ...)
+       |add_test|(testname Exename arg1 arg2 ...)
 
      If the ENABLE_TESTING command has been run, this command adds a test
      target to the current directory.  If ENABLE_TESTING has not been run,
@@ -457,10 +465,10 @@ add_test                                 *add_test*
      working directory set to the CMakeList.txt files corresponding
      directory in the binary tree.
 
-       add_test(NAME <name> [CONFIGURATIONS [Debug|Release|...]]
+       |add_test|(NAME <name> [CONFIGURATIONS [Debug|Release|...]]
                 COMMAND <command> [arg1 [arg2 ...]])
 
-     If COMMAND specifies an executable target (created by add_executable)
+     If COMMAND specifies an executable target (created by |add_executable|)
      it will automatically be replaced by the location of the executable
      created at build time.  If a CONFIGURATIONS option is given then the
      test will be executed only when testing under one of the named
@@ -486,7 +494,7 @@ add_test                                 *add_test*
 
      Example usage:
 
-       add_test(NAME mytest
+       |add_test|(NAME mytest
                 COMMAND testDriver --config $<CONFIGURATION>
                                    --exe $<TARGET_FILE:myexe>)
 
@@ -494,14 +502,15 @@ add_test                                 *add_test*
      passing the configuration name and the full path to the executable
      file produced by target "myexe".
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 aux_source_directory                     *aux_source_directory*
      Find all source files in a directory.
 
-       aux_source_directory(<dir> <variable>)
+       |aux_source_directory|(<dir> <variable>)
 
      Collects the names of all the source files in the specified directory
      and stores the list in the <variable> provided.  This command is
@@ -519,25 +528,27 @@ aux_source_directory                     *aux_source_directory*
      directory without modifying this file, one would have to manually
      rerun CMake to generate a build system incorporating the new file.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 break                                    *break*
-     Break from an enclosing foreach or while loop.
+     Break from an enclosing |foreach| or while loop.
 
        break()
 
-     Breaks from an enclosing foreach loop or while loop
+     Breaks from an enclosing |foreach| loop or while loop
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 build_command                            *build_command*
      Get the command line that will build this project.
 
-       build_command(<variable> <makecommand>)
+       |build_command|(<variable> <makecommand>)
 
      Sets the given <variable> to a string containing the command that will
      build this project from the root of the build tree using the build
@@ -545,26 +556,27 @@ build_command                            *build_command*
      make or one of the end user build tools.  This is useful for
      configuring testing systems.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 cmake_minimum_required                   *cmake_minimum_required*
      Set the minimum required version of cmake for a project.
 
-       cmake_minimum_required(VERSION major[.minor[.patch]]
+       |cmake_minimum_required|(VERSION major[.minor[.patch]]
                               [FATAL_ERROR])
 
      If the current version of CMake is lower than that required it will
      stop processing the project and report an error.  When a version
      higher than 2.4 is specified the command implicitly invokes
 
-       cmake_policy(VERSION major[.minor[.patch]])
+       |cmake_policy|(VERSION major[.minor[.patch]])
 
      which sets the cmake policy version level to the version specified.
      When version 2.4 or lower is given the command implicitly invokes
 
-       cmake_policy(VERSION 2.4)
+       |cmake_policy|(VERSION 2.4)
 
      which enables compatibility features for CMake 2.4 and lower.
 
@@ -572,7 +584,8 @@ cmake_minimum_required                   *cmake_minimum_required*
      higher.  It should be specified so CMake versions 2.4 and lower fail
      with an error instead of just a warning.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -592,11 +605,11 @@ cmake_policy                             *cmake_policy*
      setting is available the OLD behavior is assumed and a warning is
      produced requesting that the policy be set.
 
-     The cmake_policy command is used to set policies to OLD or NEW
+     The |cmake_policy| command is used to set policies to OLD or NEW
      behavior.  While setting policies individually is supported, we
      encourage projects to set policies based on CMake versions.
 
-       cmake_policy(VERSION major.minor[.patch])
+       |cmake_policy|(VERSION major.minor[.patch])
 
      Specify that the current CMake list file is written for the given
      version of CMake.  All policies introduced in the specified version or
@@ -606,10 +619,10 @@ cmake_policy                             *cmake_policy*
      versions to warn about their new policies.  The policy version
      specified must be at least 2.4 or the command will report an error.
      In order to get compatibility features supporting versions earlier
-     than 2.4 see documentation of policy CMP0001.
+     than 2.4 see documentation of policy |CMP0001|.
 
-       cmake_policy(SET CMP<NNNN> NEW)
-       cmake_policy(SET CMP<NNNN> OLD)
+       |cmake_policy|(SET CMP<NNNN> NEW)
+       |cmake_policy|(SET CMP<NNNN> OLD)
 
      Tell CMake to use the OLD or NEW behavior for a given policy.
      Projects depending on the old behavior of a given policy may silence a
@@ -617,23 +630,23 @@ cmake_policy                             *cmake_policy*
      may fix the project to work with the new behavior and set the policy
      state to NEW.
 
-       cmake_policy(GET CMP<NNNN> <variable>)
+       |cmake_policy|(GET CMP<NNNN> <variable>)
 
      Check whether a given policy is set to OLD or NEW behavior.  The
      output variable value will be "OLD" or "NEW" if the policy is set, and
      empty otherwise.
 
      CMake keeps policy settings on a stack, so changes made by the
-     cmake_policy command affect only the top of the stack.  A new entry on
+     |cmake_policy| command affect only the top of the stack.  A new entry on
      the policy stack is managed automatically for each subdirectory to
      protect its parents and siblings.  CMake also manages a new entry for
-     scripts loaded by include() and find_package() commands except when
-     invoked with the NO_POLICY_SCOPE option (see also policy CMP0011).
-     The cmake_policy command provides an interface to manage custom
+     scripts loaded by include() and |find_package|() commands except when
+     invoked with the NO_POLICY_SCOPE option (see also policy |CMP0011|).
+     The |cmake_policy| command provides an interface to manage custom
      entries on the policy stack:
 
-       cmake_policy(PUSH)
-       cmake_policy(POP)
+       |cmake_policy|(PUSH)
+       |cmake_policy|(POP)
 
      Each PUSH must have a matching POP to erase any changes.  This is
      useful to make temporary changes to policy settings.
@@ -644,14 +657,15 @@ cmake_policy                             *cmake_policy*
      propagate up through callers until they reach the closest nested
      policy stack entry.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 configure_file                           *configure_file*
      Copy a file to another location and modify its contents.
 
-       configure_file(<input> <output>
+       |configure_file|(<input> <output>
                       [COPYONLY] [ESCAPE_QUOTES] [@ONLY])
 
      Copies a file <input> to file <output> and substitutes variable values
@@ -677,14 +691,15 @@ configure_file                           *configure_file*
      #define VAR 0 depending on whether VAR evaluates to TRUE or FALSE in
      CMake
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 create_test_sourcelist                   *create_test_sourcelist*
      Create a test driver and source list for building test programs.
 
-       create_test_sourcelist(sourceListName driverName
+       |create_test_sourcelist|(sourceListName driverName
                               test1 test2 test3
                               EXTRA_INCLUDE include.h
                               FUNCTION function)
@@ -708,23 +723,24 @@ create_test_sourcelist                   *create_test_sourcelist*
      CMAKE_TESTDRIVER_AFTER_TESTMAIN can be set to have code that will be
      placed directly after the call to the test main function.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 define_property                          *define_property*
      Define and document custom properties.
 
-       define_property(<GLOBAL | DIRECTORY | TARGET | SOURCE |
+       |define_property|(<GLOBAL | DIRECTORY | TARGET | SOURCE |
                         TEST | VARIABLE | CACHED_VARIABLE>
                         PROPERTY <name> [INHERITED]
                         BRIEF_DOCS <brief-doc> [docs...]
                         FULL_DOCS <full-doc> [docs...])
 
-     Define one property in a scope for use with the set_property and
-     get_property commands.  This is primarily useful to associate
+     Define one property in a scope for use with the |set_property| and
+     |get_property| commands.  This is primarily useful to associate
      documentation with property names that may be retrieved with the
-     get_property command.  The first argument determines the kind of scope
+     |get_property| command.  The first argument determines the kind of scope
      in which the property should be used.  It must be one of the
      following:
 
@@ -732,27 +748,28 @@ define_property                          *define_property*
        DIRECTORY = associated with one directory
        TARGET    = associated with one target
        SOURCE    = associated with one source file
-       TEST      = associated with a test named with add_test
+       TEST      = associated with a test named with |add_test|
        VARIABLE  = documents a CMake language variable
        CACHED_VARIABLE = documents a CMake cache variable
 
-     Note that unlike set_property and get_property no actual scope needs
+     Note that unlike |set_property| and |get_property| no actual scope needs
      to be given; only the kind of scope is important.
 
      The required PROPERTY option is immediately followed by the name of
      the property being defined.
 
-     If the INHERITED option then the get_property command will chain up to
+     If the INHERITED option then the |get_property| command will chain up to
      the next higher scope when the requested property is not set in the
      scope given to the command.  DIRECTORY scope chains to GLOBAL.
      TARGET, SOURCE, and TEST chain to DIRECTORY.
 
      The BRIEF_DOCS and FULL_DOCS options are followed by strings to be
      associated with the property as its brief and full documentation.
-     Corresponding options to the get_property command will retrieve the
+     Corresponding options to the |get_property| command will retrieve the
      documentation.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -763,25 +780,27 @@ else                                     *else*
 
      See the if command.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 elseif                                   *elseif*
-     Starts the elseif portion of an if block.
+     Starts the |elseif| portion of an if block.
 
-       elseif(expression)
+       |elseif|(expression)
 
      See the if command.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 enable_language                          *enable_language*
      Enable a language (CXX/C/Fortran/etc)
 
-       enable_language(languageName [OPTIONAL] )
+       |enable_language|(languageName [OPTIONAL] )
 
      This command enables support for the named language in CMake.  This is
      the same as the project command but does not create any of the extra
@@ -790,86 +809,93 @@ enable_language                          *enable_language*
      CMAKE_<languageName>_COMPILER_WORKS variable to check whether the
      language has been enabled successfully.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 enable_testing                           *enable_testing*
      Enable testing for current directory and below.
 
-       enable_testing()
+       |enable_testing|()
 
-     Enables testing for this directory and below.  See also the add_test
+     Enables testing for this directory and below.  See also the |add_test|
      command.  Note that ctest expects to find a test file in the build
      directory root.  Therefore, this command should be in the source
      directory root.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 endforeach                               *endforeach*
      Ends a list of commands in a FOREACH block.
 
-       endforeach(expression)
+       |endforeach|(expression)
 
      See the FOREACH command.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 endfunction                              *endfunction*
      Ends a list of commands in a function block.
 
-       endfunction(expression)
+       |endfunction|(expression)
 
      See the function command.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 endif                                    *endif*
      Ends a list of commands in an if block.
 
-       endif(expression)
+       |endif|(expression)
 
      See the if command.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 endmacro                                 *endmacro*
      Ends a list of commands in a macro block.
 
-       endmacro(expression)
+       |endmacro|(expression)
 
      See the macro command.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 endwhile                                 *endwhile*
      Ends a list of commands in a while block.
 
-       endwhile(expression)
+       |endwhile|(expression)
 
      See the while command.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 execute_process                          *execute_process*
      Execute one or more child processes.
 
-       execute_process(COMMAND <cmd1> [args1...]]
+       |execute_process|(COMMAND <cmd1> [args1...]]
                        [COMMAND <cmd2> [args2...] [...]]
                        [WORKING_DIRECTORY <directory>]
-                       [TIMEOUT <seconds>]
+                       [|TIMEOUT| <seconds>]
                        [RESULT_VARIABLE <variable>]
                        [OUTPUT_VARIABLE <variable>]
                        [ERROR_VARIABLE <variable>]
@@ -885,7 +911,7 @@ execute_process                          *execute_process*
      output of each process piped to the standard input of the next.  A
      single standard error pipe is used for all processes.  If
      WORKING_DIRECTORY is given the named directory will be set as the
-     current working directory of the child processes.  If TIMEOUT is given
+     current working directory of the child processes.  If |TIMEOUT| is given
      the child processes will be terminated if they do not finish in the
      specified number of seconds (fractions are allowed).  If
      RESULT_VARIABLE is given the variable will be set to contain the
@@ -905,10 +931,11 @@ execute_process                          *execute_process*
      output will be shared with the corresponding pipes of the CMake
      process itself.
 
-     The execute_process command is a newer more powerful version of
-     exec_program, but the old command has been kept for compatibility.
+     The |execute_process| command is a newer more powerful version of
+     |exec_program|, but the old command has been kept for compatibility.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -936,7 +963,7 @@ export                                   *export*
        export(PACKAGE <name>)
 
      Store the current build directory in the CMake user package registry
-     for package <name>.  The find_package command may consider the
+     for package <name>.  The |find_package| command may consider the
      directory while searching for package <name>.  This helps dependent
      projects find and use a package from the current project's build tree
      without help from the user.  Note that the entry in the package
@@ -944,7 +971,8 @@ export                                   *export*
      package configuration file (<name>Config.cmake) that works with the
      build tree.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -954,7 +982,7 @@ file                                     *file*
        file(WRITE filename "message to write"... )
        file(APPEND filename "message to write"... )
        file(READ filename variable [LIMIT numBytes] [OFFSET offset] [HEX])
-       file(STRINGS filename variable [LIMIT_COUNT num]
+       file(|STRINGS| filename variable [LIMIT_COUNT num]
             [LIMIT_INPUT numBytes] [LIMIT_OUTPUT numBytes]
             [LENGTH_MINIMUM numBytes] [LENGTH_MAXIMUM numBytes]
             [NEWLINE_CONSUME] [REGEX regex]
@@ -969,7 +997,7 @@ file                                     *file*
        file(RELATIVE_PATH variable directory file)
        file(TO_CMAKE_PATH path result)
        file(TO_NATIVE_PATH path result)
-       file(DOWNLOAD url file [TIMEOUT timeout] [STATUS status] [LOG log])
+       file(DOWNLOAD url file [|TIMEOUT| timeout] [STATUS status] [LOG log])
 
      WRITE will write a message into a file called 'filename'.  It
      overwrites the file if it already exists, and creates the file if it
@@ -983,7 +1011,7 @@ file                                     *file*
      argument HEX is given, the binary data will be converted to
      hexadecimal representation and this will be stored in the variable.
 
-     STRINGS will parse a list of ASCII strings from a file and store it in
+     |STRINGS| will parse a list of ASCII strings from a file and store it in
      a variable.  Binary data in the file are ignored.  Carriage return
      (CR) characters are ignored.  It works also for Intel Hex and Motorola
      S-record files, which are automatically converted to binary format
@@ -1001,7 +1029,7 @@ file                                     *file*
      REGEX specifies a regular expression that a string must match to be
      returned.  Typical usage
 
-       file(STRINGS myfile.txt myfile)
+       file(|STRINGS| myfile.txt myfile)
 
      stores a list in the variable "myfile" in which each item is a line
      from the input file.
@@ -1021,8 +1049,8 @@ file                                     *file*
      GLOB_RECURSE will generate a list similar to the regular GLOB, except
      it will traverse all the subdirectories of the matched directory and
      match the files.  Subdirectories that are symlinks are only traversed
-     if FOLLOW_SYMLINKS is given or cmake policy CMP0009 is not set to NEW.
-     See cmake --help-policy CMP0009 for more information.
+     if FOLLOW_SYMLINKS is given or cmake policy |CMP0009| is not set to NEW.
+     See cmake --help-policy |CMP0009| for more information.
 
      Examples of recursive globbing include:
 
@@ -1049,7 +1077,7 @@ file                                     *file*
 
      TO_NATIVE_PATH works just like TO_CMAKE_PATH, but will convert from a
      cmake style path into the native path style \ for windows and / for
-     UNIX.
+     |UNIX|.
 
      DOWNLOAD will download the given URL to the given file.  If LOG var is
      specified a log of the download will be put in var.  If STATUS var is
@@ -1057,7 +1085,7 @@ file                                     *file*
      is returned in a list of length 2.  The first element is the numeric
      return value for the operation, and the second element is a string
      value for the error.  A 0 numeric error means no error in the
-     operation.  If TIMEOUT time is specified, the operation will timeout
+     operation.  If |TIMEOUT| time is specified, the operation will timeout
      after time seconds, time should be specified as an integer.
 
      The file() command also provides COPY and INSTALL signatures:
@@ -1086,20 +1114,21 @@ file                                     *file*
      generated by the install() command use this signature (with some
      undocumented options for internal use).
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 find_file                                *find_file*
      Find the full path to a file.
 
-        find_file(<VAR> name1 [path1 path2 ...])
+        |find_file|(<VAR> name1 [path1 path2 ...])
 
      This is the short-hand signature for the command that is sufficient in
-     many cases.  It is the same as find_file(<VAR> name1 [PATHS path1
+     many cases.  It is the same as |find_file|(<VAR> name1 [PATHS path1
      path2 ...])
 
-        find_file(
+        |find_file|(
                   <VAR>
                   name | NAMES name1 [name2 ...]
                   [HINTS path1 [path2 ... ENV var]]
@@ -1121,7 +1150,7 @@ find_file                                *find_file*
      full path to a file is found the result is stored in the variable and
      the search will not be repeated unless the variable is cleared.  If
      nothing is found, the result will be <VAR>-NOTFOUND, and the search
-     will be attempted again the next time find_file is invoked with the
+     will be attempted again the next time |find_file| is invoked with the
      same variable.  The name of the full path to a file that is searched
      for is specified by the names listed after the NAMES argument.
      Additional search locations can be specified after the PATHS argument.
@@ -1140,16 +1169,16 @@ find_file                                *find_file*
      are intended to be used on the command line with a -DVAR=value.  This
      can be skipped if NO_CMAKE_PATH is passed.
 
-        <prefix>/include for each <prefix> in CMAKE_PREFIX_PATH
-        CMAKE_INCLUDE_PATH
+        <prefix>/include for each <prefix> in |CMAKE_PREFIX_PATH|
+        |CMAKE_INCLUDE_PATH|
         CMAKE_FRAMEWORK_PATH
 
      2.  Search paths specified in cmake-specific environment variables.
      These are intended to be set in the user's shell configuration.  This
      can be skipped if NO_CMAKE_ENVIRONMENT_PATH is passed.
 
-        <prefix>/include for each <prefix> in CMAKE_PREFIX_PATH
-        CMAKE_INCLUDE_PATH
+        <prefix>/include for each <prefix> in |CMAKE_PREFIX_PATH|
+        |CMAKE_INCLUDE_PATH|
         CMAKE_FRAMEWORK_PATH
 
      3.  Search the paths specified by the HINTS option.  These should be
@@ -1167,8 +1196,8 @@ find_file                                *find_file*
      current system.  This can be skipped if NO_CMAKE_SYSTEM_PATH is
      passed.
 
-        <prefix>/include for each <prefix> in CMAKE_SYSTEM_PREFIX_PATH
-        CMAKE_SYSTEM_INCLUDE_PATH
+        <prefix>/include for each <prefix> in |CMAKE_SYSTEM_PREFIX_PATH|
+        |CMAKE_SYSTEM_INCLUDE_PATH|
         CMAKE_SYSTEM_FRAMEWORK_PATH
 
      6.  Search the paths specified by the PATHS option or in the
@@ -1216,26 +1245,27 @@ find_file                                *find_file*
      by simply calling the command multiple times and using the NO_*
      options:
 
-        find_file(<VAR> NAMES name PATHS paths... NO_DEFAULT_PATH)
-        find_file(<VAR> NAMES name)
+        |find_file|(<VAR> NAMES name PATHS paths... NO_DEFAULT_PATH)
+        |find_file|(<VAR> NAMES name)
 
      Once one of the calls succeeds the result variable will be set and
      stored in the cache so that no call will search again.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 find_library                             *find_library*
      Find a library.
 
-        find_library(<VAR> name1 [path1 path2 ...])
+        |find_library|(<VAR> name1 [path1 path2 ...])
 
      This is the short-hand signature for the command that is sufficient in
-     many cases.  It is the same as find_library(<VAR> name1 [PATHS path1
+     many cases.  It is the same as |find_library|(<VAR> name1 [PATHS path1
      path2 ...])
 
-        find_library(
+        |find_library|(
                   <VAR>
                   name | NAMES name1 [name2 ...]
                   [HINTS path1 [path2 ... ENV var]]
@@ -1257,7 +1287,7 @@ find_library                             *find_library*
      found the result is stored in the variable and the search will not be
      repeated unless the variable is cleared.  If nothing is found, the
      result will be <VAR>-NOTFOUND, and the search will be attempted again
-     the next time find_library is invoked with the same variable.  The
+     the next time |find_library| is invoked with the same variable.  The
      name of the library that is searched for is specified by the names
      listed after the NAMES argument.  Additional search locations can be
      specified after the PATHS argument.  If ENV var is found in the HINTS
@@ -1276,16 +1306,16 @@ find_library                             *find_library*
      are intended to be used on the command line with a -DVAR=value.  This
      can be skipped if NO_CMAKE_PATH is passed.
 
-        <prefix>/lib for each <prefix> in CMAKE_PREFIX_PATH
-        CMAKE_LIBRARY_PATH
+        <prefix>/lib for each <prefix> in |CMAKE_PREFIX_PATH|
+        |CMAKE_LIBRARY_PATH|
         CMAKE_FRAMEWORK_PATH
 
      2.  Search paths specified in cmake-specific environment variables.
      These are intended to be set in the user's shell configuration.  This
      can be skipped if NO_CMAKE_ENVIRONMENT_PATH is passed.
 
-        <prefix>/lib for each <prefix> in CMAKE_PREFIX_PATH
-        CMAKE_LIBRARY_PATH
+        <prefix>/lib for each <prefix> in |CMAKE_PREFIX_PATH|
+        |CMAKE_LIBRARY_PATH|
         CMAKE_FRAMEWORK_PATH
 
      3.  Search the paths specified by the HINTS option.  These should be
@@ -1303,8 +1333,8 @@ find_library                             *find_library*
      current system.  This can be skipped if NO_CMAKE_SYSTEM_PATH is
      passed.
 
-        <prefix>/lib for each <prefix> in CMAKE_SYSTEM_PREFIX_PATH
-        CMAKE_SYSTEM_LIBRARY_PATH
+        <prefix>/lib for each <prefix> in |CMAKE_SYSTEM_PREFIX_PATH|
+        |CMAKE_SYSTEM_LIBRARY_PATH|
         CMAKE_SYSTEM_FRAMEWORK_PATH
 
      6.  Search the paths specified by the PATHS option or in the
@@ -1352,8 +1382,8 @@ find_library                             *find_library*
      by simply calling the command multiple times and using the NO_*
      options:
 
-        find_library(<VAR> NAMES name PATHS paths... NO_DEFAULT_PATH)
-        find_library(<VAR> NAMES name)
+        |find_library|(<VAR> NAMES name PATHS paths... NO_DEFAULT_PATH)
+        |find_library|(<VAR> NAMES name)
 
      Once one of the calls succeeds the result variable will be set and
      stored in the cache so that no call will search again.
@@ -1363,14 +1393,15 @@ find_library                             *find_library*
      framework is used as a library, CMake will use a -framework A, and a
      -F<fullPath> to link the framework to the target.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 find_package                             *find_package*
      Load settings for an external project.
 
-       find_package(<package> [version] [EXACT] [QUIET]
+       |find_package|(<package> [version] [EXACT] [QUIET]
                     [[REQUIRED|COMPONENTS] [components...]]
                     [NO_POLICY_SCOPE])
 
@@ -1399,7 +1430,7 @@ find_package                             *find_package*
      The command has two modes by which it searches for packages: "Module"
      mode and "Config" mode.  Module mode is available when the command is
      invoked with the above reduced signature.  CMake searches for a file
-     called "Find<package>.cmake" in the CMAKE_MODULE_PATH followed by the
+     called "Find<package>.cmake" in the |CMAKE_MODULE_PATH| followed by the
      CMake installation.  If the file is found, it is read and processed by
      CMake.  It is responsible for finding the package, checking the
      version, and producing any needed messages.  Many find-modules provide
@@ -1408,7 +1439,7 @@ find_package                             *find_package*
 
      The complete Config mode command signature is:
 
-       find_package(<package> [version] [EXACT] [QUIET]
+       |find_package|(<package> [version] [EXACT] [QUIET]
                     [[REQUIRED|COMPONENTS] [components...]] [NO_MODULE]
                     [NO_POLICY_SCOPE]
                     [NAMES name1 [name2 ...]]
@@ -1484,9 +1515,9 @@ find_package                             *find_package*
        PACKAGE_VERSION_COMPATIBLE = true if version is compatible
        PACKAGE_VERSION_UNSUITABLE = true if unsuitable as any version
 
-     These variables are checked by the find_package command to determine
+     These variables are checked by the |find_package| command to determine
      whether the configuration file provides an acceptable version.  They
-     are not available after the find_package call returns.  If the version
+     are not available after the |find_package| call returns.  If the version
      is acceptable the following variables are set:
 
        <package>_VERSION       = full provided version string
@@ -1507,7 +1538,7 @@ find_package                             *find_package*
      internally by find-modules loaded by Module mode.  Most user code
      should simply call
 
-       find_package(<package> [major[.minor]] [EXACT] [REQUIRED|QUIET])
+       |find_package|(<package> [major[.minor]] [EXACT] [REQUIRED|QUIET])
 
      in order to find a package.  Package maintainers providing CMake
      package configuration files are encouraged to name and install them
@@ -1517,7 +1548,7 @@ find_package                             *find_package*
      CMake constructs a set of possible installation prefixes for the
      package.  Under each prefix several directories are searched for a
      configuration file.  The tables below show the directories searched.
-     Each entry is meant for installation trees following Windows (W), UNIX
+     Each entry is meant for installation trees following Windows (W), |UNIX|
      (U), or Apple (A) conventions.
 
        <prefix>/                                               (W)
@@ -1549,7 +1580,7 @@ find_package                             *find_package*
      Directories above marked with (W) are intended for installations on
      Windows where the prefix may point at the top of an application's
      installation directory.  Those marked with (U) are intended for
-     installations on UNIX platforms where the prefix is shared by multiple
+     installations on |UNIX| platforms where the prefix is shared by multiple
      packages.  This is merely a convention, so all (W) and (U) directories
      are still searched on all platforms.  Directories marked with (A) are
      intended for installations on Apple platforms.  The cmake variables
@@ -1563,7 +1594,7 @@ find_package                             *find_package*
      are intended to be used on the command line with a -DVAR=value.  This
      can be skipped if NO_CMAKE_PATH is passed.
 
-        CMAKE_PREFIX_PATH
+        |CMAKE_PREFIX_PATH|
         CMAKE_FRAMEWORK_PATH
         CMAKE_APPBUNDLE_PATH
 
@@ -1571,7 +1602,7 @@ find_package                             *find_package*
      These are intended to be set in the user's shell configuration.  This
      can be skipped if NO_CMAKE_ENVIRONMENT_PATH is passed.
 
-        CMAKE_PREFIX_PATH
+        |CMAKE_PREFIX_PATH|
         CMAKE_FRAMEWORK_PATH
         CMAKE_APPBUNDLE_PATH
 
@@ -1602,7 +1633,7 @@ find_package                             *find_package*
      current system.  This can be skipped if NO_CMAKE_SYSTEM_PATH is
      passed.
 
-        CMAKE_SYSTEM_PREFIX_PATH
+        |CMAKE_SYSTEM_PREFIX_PATH|
         CMAKE_SYSTEM_FRAMEWORK_PATH
         CMAKE_SYSTEM_APPBUNDLE_PATH
 
@@ -1650,29 +1681,30 @@ find_package                             *find_package*
      by simply calling the command multiple times and using the NO_*
      options:
 
-        find_package(<package> PATHS paths... NO_DEFAULT_PATH)
-        find_package(<package>)
+        |find_package|(<package> PATHS paths... NO_DEFAULT_PATH)
+        |find_package|(<package>)
 
      Once one of the calls succeeds the result variable will be set and
      stored in the cache so that no call will search again.
 
-     See the cmake_policy() command documentation for discussion of the
+     See the |cmake_policy|() command documentation for discussion of the
      NO_POLICY_SCOPE option.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 find_path                                *find_path*
      Find the directory containing a file.
 
-        find_path(<VAR> name1 [path1 path2 ...])
+        |find_path|(<VAR> name1 [path1 path2 ...])
 
      This is the short-hand signature for the command that is sufficient in
-     many cases.  It is the same as find_path(<VAR> name1 [PATHS path1
+     many cases.  It is the same as |find_path|(<VAR> name1 [PATHS path1
      path2 ...])
 
-        find_path(
+        |find_path|(
                   <VAR>
                   name | NAMES name1 [name2 ...]
                   [HINTS path1 [path2 ... ENV var]]
@@ -1694,7 +1726,7 @@ find_path                                *find_path*
      command.  If the file in a directory is found the result is stored in
      the variable and the search will not be repeated unless the variable
      is cleared.  If nothing is found, the result will be <VAR>-NOTFOUND,
-     and the search will be attempted again the next time find_path is
+     and the search will be attempted again the next time |find_path| is
      invoked with the same variable.  The name of the file in a directory
      that is searched for is specified by the names listed after the NAMES
      argument.  Additional search locations can be specified after the
@@ -1714,16 +1746,16 @@ find_path                                *find_path*
      are intended to be used on the command line with a -DVAR=value.  This
      can be skipped if NO_CMAKE_PATH is passed.
 
-        <prefix>/include for each <prefix> in CMAKE_PREFIX_PATH
-        CMAKE_INCLUDE_PATH
+        <prefix>/include for each <prefix> in |CMAKE_PREFIX_PATH|
+        |CMAKE_INCLUDE_PATH|
         CMAKE_FRAMEWORK_PATH
 
      2.  Search paths specified in cmake-specific environment variables.
      These are intended to be set in the user's shell configuration.  This
      can be skipped if NO_CMAKE_ENVIRONMENT_PATH is passed.
 
-        <prefix>/include for each <prefix> in CMAKE_PREFIX_PATH
-        CMAKE_INCLUDE_PATH
+        <prefix>/include for each <prefix> in |CMAKE_PREFIX_PATH|
+        |CMAKE_INCLUDE_PATH|
         CMAKE_FRAMEWORK_PATH
 
      3.  Search the paths specified by the HINTS option.  These should be
@@ -1741,8 +1773,8 @@ find_path                                *find_path*
      current system.  This can be skipped if NO_CMAKE_SYSTEM_PATH is
      passed.
 
-        <prefix>/include for each <prefix> in CMAKE_SYSTEM_PREFIX_PATH
-        CMAKE_SYSTEM_INCLUDE_PATH
+        <prefix>/include for each <prefix> in |CMAKE_SYSTEM_PREFIX_PATH|
+        |CMAKE_SYSTEM_INCLUDE_PATH|
         CMAKE_SYSTEM_FRAMEWORK_PATH
 
      6.  Search the paths specified by the PATHS option or in the
@@ -1790,8 +1822,8 @@ find_path                                *find_path*
      by simply calling the command multiple times and using the NO_*
      options:
 
-        find_path(<VAR> NAMES name PATHS paths... NO_DEFAULT_PATH)
-        find_path(<VAR> NAMES name)
+        |find_path|(<VAR> NAMES name PATHS paths... NO_DEFAULT_PATH)
+        |find_path|(<VAR> NAMES name)
 
      Once one of the calls succeeds the result variable will be set and
      stored in the cache so that no call will search again.
@@ -1801,20 +1833,21 @@ find_path                                *find_path*
      is found the path will be set to the path to the framework.  CMake
      will convert this to the correct -F option to include the file.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 find_program                             *find_program*
      Find an executable program.
 
-        find_program(<VAR> name1 [path1 path2 ...])
+        |find_program|(<VAR> name1 [path1 path2 ...])
 
      This is the short-hand signature for the command that is sufficient in
-     many cases.  It is the same as find_program(<VAR> name1 [PATHS path1
+     many cases.  It is the same as |find_program|(<VAR> name1 [PATHS path1
      path2 ...])
 
-        find_program(
+        |find_program|(
                   <VAR>
                   name | NAMES name1 [name2 ...]
                   [HINTS path1 [path2 ... ENV var]]
@@ -1836,7 +1869,7 @@ find_program                             *find_program*
      found the result is stored in the variable and the search will not be
      repeated unless the variable is cleared.  If nothing is found, the
      result will be <VAR>-NOTFOUND, and the search will be attempted again
-     the next time find_program is invoked with the same variable.  The
+     the next time |find_program| is invoked with the same variable.  The
      name of the program that is searched for is specified by the names
      listed after the NAMES argument.  Additional search locations can be
      specified after the PATHS argument.  If ENV var is found in the HINTS
@@ -1855,16 +1888,16 @@ find_program                             *find_program*
      are intended to be used on the command line with a -DVAR=value.  This
      can be skipped if NO_CMAKE_PATH is passed.
 
-        <prefix>/[s]bin for each <prefix> in CMAKE_PREFIX_PATH
-        CMAKE_PROGRAM_PATH
+        <prefix>/[s]bin for each <prefix> in |CMAKE_PREFIX_PATH|
+        |CMAKE_PROGRAM_PATH|
         CMAKE_APPBUNDLE_PATH
 
      2.  Search paths specified in cmake-specific environment variables.
      These are intended to be set in the user's shell configuration.  This
      can be skipped if NO_CMAKE_ENVIRONMENT_PATH is passed.
 
-        <prefix>/[s]bin for each <prefix> in CMAKE_PREFIX_PATH
-        CMAKE_PROGRAM_PATH
+        <prefix>/[s]bin for each <prefix> in |CMAKE_PREFIX_PATH|
+        |CMAKE_PROGRAM_PATH|
         CMAKE_APPBUNDLE_PATH
 
      3.  Search the paths specified by the HINTS option.  These should be
@@ -1881,8 +1914,8 @@ find_program                             *find_program*
      current system.  This can be skipped if NO_CMAKE_SYSTEM_PATH is
      passed.
 
-        <prefix>/[s]bin for each <prefix> in CMAKE_SYSTEM_PREFIX_PATH
-        CMAKE_SYSTEM_PROGRAM_PATH
+        <prefix>/[s]bin for each <prefix> in |CMAKE_SYSTEM_PREFIX_PATH|
+        |CMAKE_SYSTEM_PROGRAM_PATH|
         CMAKE_SYSTEM_APPBUNDLE_PATH
 
      6.  Search the paths specified by the PATHS option or in the
@@ -1930,20 +1963,21 @@ find_program                             *find_program*
      by simply calling the command multiple times and using the NO_*
      options:
 
-        find_program(<VAR> NAMES name PATHS paths... NO_DEFAULT_PATH)
-        find_program(<VAR> NAMES name)
+        |find_program|(<VAR> NAMES name PATHS paths... NO_DEFAULT_PATH)
+        |find_program|(<VAR> NAMES name)
 
      Once one of the calls succeeds the result variable will be set and
      stored in the cache so that no call will search again.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 fltk_wrap_ui                             *fltk_wrap_ui*
      Create FLTK user interfaces Wrappers.
 
-       fltk_wrap_ui(resultingLibraryName source1
+       |fltk_wrap_ui|(resultingLibraryName source1
                     source2 ... sourceN )
 
      Produce .h and .cxx files for all the .fl and .fld files listed.  The
@@ -1951,28 +1985,29 @@ fltk_wrap_ui                             *fltk_wrap_ui*
      resultingLibraryName_FLTK_UI_SRCS which should be added to your
      library.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 foreach                                  *foreach*
      Evaluate a group of commands for each value in a list.
 
-       foreach(loop_var arg1 arg2 ...)
+       |foreach|(loop_var arg1 arg2 ...)
          COMMAND1(ARGS ...)
          COMMAND2(ARGS ...)
          ...
-       endforeach(loop_var)
+       |endforeach|(loop_var)
 
-     All commands between foreach and the matching endforeach are recorded
-     without being invoked.  Once the endforeach is evaluated, the recorded
+     All commands between |foreach| and the matching |endforeach| are recorded
+     without being invoked.  Once the |endforeach| is evaluated, the recorded
      list of commands is invoked once for each argument listed in the
-     original foreach command.  Before each iteration of the loop
+     original |foreach| command.  Before each iteration of the loop
      "${loop_var}" will be set as a variable with the current value in the
      list.
 
-       foreach(loop_var RANGE total)
-       foreach(loop_var RANGE start stop [step])
+       |foreach|(loop_var RANGE total)
+       |foreach|(loop_var RANGE start stop [step])
 
      Foreach can also iterate over a generated range of numbers.  There are
      three types of this iteration:
@@ -1986,7 +2021,7 @@ foreach                                  *foreach*
      * The third optional number is the increment used to iterate from the
      first number to the second number.
 
-       foreach(loop_var IN [LISTS [list1 [...]]]
+       |foreach|(loop_var IN [LISTS [list1 [...]]]
                            [ITEMS [item1 [...]]])
 
      Iterates over a precise list of items.  The LISTS option names
@@ -1994,7 +2029,8 @@ foreach                                  *foreach*
      empty string is a zero-length list).  The ITEMS option ends argument
      parsing and includes all arguments following it in the iteration.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2005,11 +2041,11 @@ function                                 *function*
          COMMAND1(ARGS ...)
          COMMAND2(ARGS ...)
          ...
-       endfunction(<name>)
+       |endfunction|(<name>)
 
      Define a function named <name> that takes arguments named arg1 arg2
      arg3 (...).  Commands listed after function, but before the matching
-     endfunction, are not invoked until the function is invoked.  When it
+     |endfunction|, are not invoked until the function is invoked.  When it
      is invoked, the commands recorded in the function are first modified
      by replacing formal parameters (${arg1}) with the arguments passed,
      and then invoked as normal commands.  In addition to referencing the
@@ -2021,31 +2057,33 @@ function                                 *function*
      given to the function and ARGN holds the list of argument past the
      last expected argument.
 
-     See the cmake_policy() command documentation for the behavior of
+     See the |cmake_policy|() command documentation for the behavior of
      policies inside functions.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 get_cmake_property                       *get_cmake_property*
      Get a property of the CMake instance.
 
-       get_cmake_property(VAR property)
+       |get_cmake_property|(VAR property)
 
      Get a property from the CMake instance.  The value of the property is
      stored in the variable VAR.  If the property is not found, CMake will
-     report an error.  Some supported properties include: VARIABLES,
-     CACHE_VARIABLES, COMMANDS, MACROS, and COMPONENTS.
+     report an error.  Some supported properties include: |VARIABLES|,
+     |CACHE_VARIABLES|, COMMANDS, |MACROS|, and COMPONENTS.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 get_directory_property                   *get_directory_property*
      Get a property of DIRECTORY scope.
 
-       get_directory_property(<variable> [DIRECTORY <dir>] <prop-name>)
+       |get_directory_property|(<variable> [DIRECTORY <dir>] <prop-name>)
 
      Store a property of directory scope in the named variable.  If the
      property is not defined the empty-string is returned.  The DIRECTORY
@@ -2053,20 +2091,21 @@ get_directory_property                   *get_directory_property*
      property value.  The specified directory must have already been
      traversed by CMake.
 
-       get_directory_property(<variable> [DIRECTORY <dir>]
+       |get_directory_property|(<variable> [DIRECTORY <dir>]
                               DEFINITION <var-name>)
 
      Get a variable definition from a directory.  This form is useful to
      get a variable definition from another directory.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 get_filename_component                   *get_filename_component*
      Get a specific component of a full filename.
 
-       get_filename_component(VarName FileName
+       |get_filename_component|(VarName FileName
                               PATH|ABSOLUTE|NAME|EXT|NAME_WE|REALPATH
                               [CACHE])
 
@@ -2078,7 +2117,7 @@ get_filename_component                   *get_filename_component*
      considered.  If the optional CACHE argument is specified, the result
      variable is added to the cache.
 
-       get_filename_component(VarName FileName
+       |get_filename_component|(VarName FileName
                               PROGRAM [PROGRAM_ARGS ArgVar]
                               [CACHE])
 
@@ -2088,14 +2127,15 @@ get_filename_component                   *get_filename_component*
      from the program name and stored in ArgVar.  This is used to separate
      a program name from its arguments in a command line string.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 get_property                             *get_property*
      Get a property.
 
-       get_property(<variable>
+       |get_property|(<variable>
                     <GLOBAL             |
                      DIRECTORY [dir]    |
                      TARGET    <target> |
@@ -2132,59 +2172,63 @@ get_property                             *get_property*
      returned.  If the SET option is given the variable is set to a boolean
      value indicating whether the property has been set.  If the DEFINED
      option is given the variable is set to a boolean value indicating
-     whether the property has been defined such as with define_property.
+     whether the property has been defined such as with |define_property|.
      If BRIEF_DOCS or FULL_DOCS is given then the variable is set to a
      string containing documentation for the requested property.  If
      documentation is requested for a property that has not been defined
      NOTFOUND is returned.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 get_source_file_property                 *get_source_file_property*
      Get a property for a source file.
 
-       get_source_file_property(VAR file property)
+       |get_source_file_property|(VAR file property)
 
      Get a property from a source file.  The value of the property is
      stored in the variable VAR.  If the property is not found, VAR will be
-     set to "NOTFOUND".  Use set_source_files_properties to set property
+     set to "NOTFOUND".  Use |set_source_files_properties| to set property
      values.  Source file properties usually control how the file is built.
-     One property that is always there is LOCATION
+     One property that is always there is |LOCATION|
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 get_target_property                      *get_target_property*
      Get a property from a target.
 
-       get_target_property(VAR target property)
+       |get_target_property|(VAR target property)
 
      Get a property from a target.  The value of the property is stored in
      the variable VAR.  If the property is not found, VAR will be set to
-     "NOTFOUND".  Use set_target_properties to set property values.
+     "NOTFOUND".  Use |set_target_properties| to set property values.
      Properties are usually used to control how a target is built, but some
      query the target instead.  This command can get properties for any
      target so far created.  The targets do not need to be in the current
      CMakeLists.txt file.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 get_test_property                        *get_test_property*
      Get a property of the test.
 
-       get_test_property(test VAR property)
+       |get_test_property|(test VAR property)
 
      Get a property from the Test.  The value of the property is stored in
      the variable VAR.  If the property is not found, CMake will report an
      error.  For a list of standard properties you can type cmake
      --help-property-list
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2196,8 +2240,8 @@ if                                       *if*
          COMMAND1(ARGS ...)
          COMMAND2(ARGS ...)
          ...
-       elseif(expression2)
-         # elseif section.
+       |elseif|(expression2)
+         # |elseif| section.
          COMMAND1(ARGS ...)
          COMMAND2(ARGS ...)
          ...
@@ -2206,13 +2250,13 @@ if                                       *if*
          COMMAND1(ARGS ...)
          COMMAND2(ARGS ...)
          ...
-       endif(expression)
+       |endif|(expression)
 
      Evaluates the given expression.  If the result is true, the commands
      in the THEN section are invoked.  Otherwise, the commands in the else
-     section are invoked.  The elseif and else sections are optional.  You
-     may have multiple elseif clauses.  Note that the expression in the
-     else and endif clause is optional.  Long expressions can be used and
+     section are invoked.  The |elseif| and else sections are optional.  You
+     may have multiple |elseif| clauses.  Note that the expression in the
+     else and |endif| clause is optional.  Long expressions can be used and
      there is a traditional order of precedence.  Parenthetical expressions
      are evaluated first followed by unary operators such as EXISTS,
      COMMAND, and DEFINED.  Then any EQUAL, LESS, GREATER, STRLESS,
@@ -2379,7 +2423,8 @@ if                                       *if*
      tested to see if they are boolean constants, if so they are used as
      such, otherwise they are assumed to be variables and are dereferenced.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2397,19 +2442,20 @@ include                                  *include*
      if it failed.
 
      If a module is specified instead of a file, the file with name
-     <modulename>.cmake is searched in the CMAKE_MODULE_PATH.
+     <modulename>.cmake is searched in the |CMAKE_MODULE_PATH|.
 
-     See the cmake_policy() command documentation for discussion of the
+     See the |cmake_policy|() command documentation for discussion of the
      NO_POLICY_SCOPE option.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 include_directories                      *include_directories*
      Add include directories to the build.
 
-       include_directories([AFTER|BEFORE] [SYSTEM] dir1 dir2 ...)
+       |include_directories|([AFTER|BEFORE] [SYSTEM] dir1 dir2 ...)
 
      Add the given directories to those searched by the compiler for
      include files.  By default the directories are appended onto the
@@ -2420,30 +2466,32 @@ include_directories                      *include_directories*
      told that the directories are meant as system include directories on
      some platforms.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 include_external_msproject               *include_external_msproject*
      Include an external Microsoft project file in a workspace.
 
-       include_external_msproject(projectname location
+       |include_external_msproject|(projectname location
                                   dep1 dep2 ...)
 
      Includes an external Microsoft project in the generated workspace
-     file.  Currently does nothing on UNIX.  This will create a target
+     file.  Currently does nothing on |UNIX|.  This will create a target
      named INCLUDE_EXTERNAL_MSPROJECT_[projectname].  This can be used in
-     the add_dependencies command to make things depend on the external
+     the |add_dependencies| command to make things depend on the external
      project.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 include_regular_expression               *include_regular_expression*
      Set the regular expression used for dependency checking.
 
-       include_regular_expression(regex_match [regex_complain])
+       |include_regular_expression|(regex_match [regex_complain])
 
      Set the regular expressions used in dependency checking.  Only files
      matching regex_match will be traced as dependencies.  Only files
@@ -2453,7 +2501,8 @@ include_regular_expression               *include_regular_expression*
        regex_match    = "^.*$" (match everything)
        regex_complain = "^$" (match empty string only)
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2473,7 +2522,7 @@ install                                  *install*
      DESTINATION arguments specify the directory on disk to which a file
      will be installed.  If a full path (with a leading slash or drive
      letter) is given it is used directly.  If a relative path is given it
-     is interpreted relative to the value of CMAKE_INSTALL_PREFIX.
+     is interpreted relative to the value of |CMAKE_INSTALL_PREFIX|.
 
      PERMISSIONS arguments specify permissions for installed files.  Valid
      permissions are OWNER_READ, OWNER_WRITE, OWNER_EXECUTE, GROUP_READ,
@@ -2511,30 +2560,30 @@ install                                  *install*
 
      The TARGETS form specifies rules for installing targets from a
      project.  There are five kinds of target files that may be installed:
-     ARCHIVE, LIBRARY, RUNTIME, FRAMEWORK, and BUNDLE.  Executables are
+     ARCHIVE, LIBRARY, RUNTIME, |FRAMEWORK|, and BUNDLE.  Executables are
      treated as RUNTIME targets, except that those marked with the
-     MACOSX_BUNDLE property are treated as BUNDLE targets on OS X.  Static
+     |MACOSX_BUNDLE| property are treated as BUNDLE targets on OS X.  Static
      libraries are always treated as ARCHIVE targets.  Module libraries are
      always treated as LIBRARY targets.  For non-DLL platforms shared
      libraries are treated as LIBRARY targets, except that those marked
-     with the FRAMEWORK property are treated as FRAMEWORK targets on OS X.
+     with the |FRAMEWORK| property are treated as |FRAMEWORK| targets on OS X.
      For DLL platforms the DLL part of a shared library is treated as a
      RUNTIME target and the corresponding import library is treated as an
      ARCHIVE target.  All Windows-based systems including Cygwin are DLL
-     platforms.  The ARCHIVE, LIBRARY, RUNTIME, and FRAMEWORK arguments
+     platforms.  The ARCHIVE, LIBRARY, RUNTIME, and |FRAMEWORK| arguments
      change the type of target to which the subsequent properties apply.
      If none is given the installation properties apply to all target
      types.  If only one is given then only targets of that type will be
      installed (which can be used to install just a DLL or just an import
      library).
 
-     The PRIVATE_HEADER, PUBLIC_HEADER, and RESOURCE arguments cause
-     subsequent properties to be applied to installing a FRAMEWORK shared
+     The |PRIVATE_HEADER|, |PUBLIC_HEADER|, and |RESOURCE| arguments cause
+     subsequent properties to be applied to installing a |FRAMEWORK| shared
      library target's associated files on non-Apple platforms.  Rules
      defined by these arguments are ignored on Apple platforms because the
      associated files are installed into the appropriate locations inside
-     the framework folder.  See documentation of the PRIVATE_HEADER,
-     PUBLIC_HEADER, and RESOURCE target properties for details.
+     the framework folder.  See documentation of the |PRIVATE_HEADER|,
+     |PUBLIC_HEADER|, and |RESOURCE| target properties for details.
 
      Either NAMELINK_ONLY or NAMELINK_SKIP may be specified as a LIBRARY
      option.  On some platforms a versioned shared library has a symbolic
@@ -2551,7 +2600,7 @@ install                                  *install*
      portions are installed.  On platforms where versioned shared libraries
      do not have namelinks or when a library is not versioned the
      NAMELINK_SKIP option installs the library and the NAMELINK_ONLY option
-     installs nothing.  See the VERSION and SOVERSION target properties for
+     installs nothing.  See the |VERSION| and |SOVERSION| target properties for
      details on creating versioned shared libraries.
 
      One or more groups of properties may be specified in a single call to
@@ -2578,7 +2627,7 @@ install                                  *install*
      ARCHIVE options.  See documentation of the install(EXPORT ...)
      signature below for details.
 
-     Installing a target with EXCLUDE_FROM_ALL set to true has undefined
+     Installing a target with |EXCLUDE_FROM_ALL| set to true has undefined
      behavior.
 
      The FILES signature:
@@ -2729,20 +2778,21 @@ install                                  *install*
      mp_myexe as if the target were built in its own tree.
 
      NOTE: This command supercedes the INSTALL_TARGETS command and the
-     target properties PRE_INSTALL_SCRIPT and POST_INSTALL_SCRIPT.  It also
+     target properties |PRE_INSTALL_SCRIPT| and |POST_INSTALL_SCRIPT|.  It also
      replaces the FILES forms of the INSTALL_FILES and INSTALL_PROGRAMS
      commands.  The processing order of these install rules relative to
      those generated by INSTALL_TARGETS, INSTALL_FILES, and
      INSTALL_PROGRAMS commands is not defined.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 link_directories                         *link_directories*
      Specify directories in which the linker will look for libraries.
 
-       link_directories(directory1 directory2 ...)
+       |link_directories|(directory1 directory2 ...)
 
      Specify the paths in which the linker should search for libraries.
      The command will apply only to targets created after it is called.
@@ -2750,7 +2800,8 @@ link_directories                         *link_directories*
      passed to the linker unchanged (unlike many CMake commands which
      interpret them relative to the current source directory).
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2802,21 +2853,22 @@ list                                     *list*
      Be careful when counting with negative indices: they do not start from
      0.  -0 is equivalent to 0, the first list element.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 load_cache                               *load_cache*
      Load in the values from another project's CMake cache.
 
-       load_cache(pathToCacheFile READ_WITH_PREFIX
+       |load_cache|(pathToCacheFile READ_WITH_PREFIX
                   prefix entry1...)
 
      Read the cache and store the requested entries in variables with their
      name prefixed with the given prefix.  This only reads the values, and
      does not create entries in the local project's cache.
 
-       load_cache(pathToCacheFile [EXCLUDE entry1...]
+       |load_cache|(pathToCacheFile [EXCLUDE entry1...]
                   [INCLUDE_INTERNALS entry1...])
 
      Load in the values from another cache and store them in the local
@@ -2828,14 +2880,15 @@ load_cache                               *load_cache*
      this form of the command is strongly discouraged, but it is provided
      for backward compatibility.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 load_command                             *load_command*
      Load a command into a running CMake.
 
-       load_command(COMMAND_NAME <loc1> [loc2 ...])
+       |load_command|(COMMAND_NAME <loc1> [loc2 ...])
 
      The given locations are searched for a library whose name is
      cmCOMMAND_NAME.  If found, it is loaded as a module and the command is
@@ -2848,7 +2901,8 @@ load_command                             *load_command*
      will be set to the full path of the module that was loaded.  Otherwise
      the variable will not be set.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2859,10 +2913,10 @@ macro                                    *macro*
          COMMAND1(ARGS ...)
          COMMAND2(ARGS ...)
          ...
-       endmacro(<name>)
+       |endmacro|(<name>)
 
      Define a macro named <name> that takes arguments named arg1 arg2 arg3
-     (...).  Commands listed after macro, but before the matching endmacro,
+     (...).  Commands listed after macro, but before the matching |endmacro|,
      are not invoked until the macro is invoked.  When it is invoked, the
      commands recorded in the macro are first modified by replacing formal
      parameters (${arg1}) with the arguments passed, and then invoked as
@@ -2878,17 +2932,18 @@ macro                                    *macro*
      replacements much like the c preprocessor would do with a macro.  If
      you want true CMake variables you should look at the function command.
 
-     See the cmake_policy() command documentation for the behavior of
+     See the |cmake_policy|() command documentation for the behavior of
      policies inside macros.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 mark_as_advanced                         *mark_as_advanced*
      Mark cmake cached variables as advanced.
 
-       mark_as_advanced([CLEAR|FORCE] VAR VAR2 VAR...)
+       |mark_as_advanced|([CLEAR|FORCE] VAR VAR2 VAR...)
 
      Mark the named cached variables as advanced.  An advanced variable
      will not be displayed in any of the cmake GUIs unless the show
@@ -2901,7 +2956,8 @@ mark_as_advanced                         *mark_as_advanced*
 
      It does nothing in script mode.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2915,7 +2971,8 @@ math                                     *math*
      Supported operators are + - * / % | & ^ ~ << >> * / %.  They have the
      same meaning as they do in c code.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2944,7 +3001,8 @@ message                                  *message*
      language.  Non-indented text is formatted in line-wrapped paragraphs
      delimited by newlines.  Indented text is considered pre-formatted.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2957,21 +3015,23 @@ option                                   *option*
      Provide an option for the user to select as ON or OFF.  If no initial
      value is provided, OFF is used.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 output_required_files                    *output_required_files*
      Output a list of required source files for a specified source file.
 
-       output_required_files(srcfile outputfile)
+       |output_required_files|(srcfile outputfile)
 
      Outputs a list of all the source files that are required by the
      specified srcfile.  This list is written into outputfile.  This is
      similar to writing out the dependencies for srcfile except that it
      jumps from .h files into .cxx, .c and .cpp files if possible.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2991,27 +3051,29 @@ project                                  *project*
      to support, e.g.  C.  By using the special language "NONE" all checks
      for any language can be disabled.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 qt_wrap_cpp                              *qt_wrap_cpp*
      Create Qt Wrappers.
 
-       qt_wrap_cpp(resultingLibraryName DestName
+       |qt_wrap_cpp|(resultingLibraryName DestName
                    SourceLists ...)
 
      Produce moc files for all the .h files listed in the SourceLists.  The
      moc files will be added to the library using the DestName source list.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 qt_wrap_ui                               *qt_wrap_ui*
      Create Qt user interfaces Wrappers.
 
-       qt_wrap_ui(resultingLibraryName HeadersDestName
+       |qt_wrap_ui|(resultingLibraryName HeadersDestName
                   SourcesDestName SourceLists ...)
 
      Produce .h and .cxx files for all the .ui files listed in the
@@ -3019,19 +3081,21 @@ qt_wrap_ui                               *qt_wrap_ui*
      HeadersDestNamesource list.  The .cxx files will be added to the
      library using the SourcesDestNamesource list.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 remove_definitions                       *remove_definitions*
-     Removes -D define flags added by add_definitions.
+     Removes -D define flags added by |add_definitions|.
 
-       remove_definitions(-DFOO -DBAR ...)
+       |remove_definitions|(-DFOO -DBAR ...)
 
-     Removes flags (added by add_definitions) from the compiler command
+     Removes flags (added by |add_definitions|) from the compiler command
      line for sources in the current directory and below.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3041,7 +3105,7 @@ return                                   *return*
        return()
 
      Returns from a file, directory or function.  When this command is
-     encountered in an included file (via include() or find_package()), it
+     encountered in an included file (via include() or |find_package|()), it
      causes processing of the current file to stop and control is returned
      to the including file.  If it is encountered in a file which is not
      included by another file, e.g.  a CMakeLists.txt, control is returned
@@ -3050,14 +3114,15 @@ return                                   *return*
      that a macro is not a function and does not handle return like a
      function does.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 separate_arguments                       *separate_arguments*
      Parse space-separated arguments into a semicolon-separated list.
 
-       separate_arguments(<var> <UNIX|WINDOWS>_COMMAND "<args>")
+       |separate_arguments|(<var> <UNIX|WINDOWS>_COMMAND "<args>")
 
      Parses a unix- or windows-style command-line string "<args>" and
      stores a semicolon-separated list of the arguments in <var>.  The
@@ -3074,13 +3139,14 @@ separate_arguments                       *separate_arguments*
      Backslashes are literal unless they precede double-quotes.  See the
      MSDN article "Parsing C Command-Line Arguments" for details.
 
-       separate_arguments(VARIABLE)
+       |separate_arguments|(VARIABLE)
 
      Convert the value of VARIABLE to a semi-colon separated list.  All
      spaces are replaced with ';'.  This helps with generating command
      lines.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3128,30 +3194,32 @@ set                                      *set*
 
      in which case the environment variable will be set.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 set_directory_properties                 *set_directory_properties*
      Set a property of the directory.
 
-       set_directory_properties(PROPERTIES prop1 value1 prop2 value2)
+       |set_directory_properties|(PROPERTIES prop1 value1 prop2 value2)
 
      Set a property for the current directory and subdirectories.  If the
      property is not found, CMake will report an error.  The properties
-     include: INCLUDE_DIRECTORIES, LINK_DIRECTORIES,
-     INCLUDE_REGULAR_EXPRESSION, and ADDITIONAL_MAKE_CLEAN_FILES.
-     ADDITIONAL_MAKE_CLEAN_FILES is a list of files that will be cleaned as
+     include: |INCLUDE_DIRECTORIES|, |LINK_DIRECTORIES|,
+     |INCLUDE_REGULAR_EXPRESSION|, and |ADDITIONAL_MAKE_CLEAN_FILES|.
+     |ADDITIONAL_MAKE_CLEAN_FILES| is a list of files that will be cleaned as
      a part of "make clean" stage.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 set_property                             *set_property*
      Set a named property in a given scope.
 
-       set_property(<GLOBAL                            |
+       |set_property|(<GLOBAL                            |
                      DIRECTORY [dir]                   |
                      TARGET    [target1 [target2 ...]] |
                      SOURCE    [src1 [src2 ...]]       |
@@ -3184,45 +3252,47 @@ set_property                             *set_property*
      APPEND option is given the list is appended to any existing property
      value.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 set_source_files_properties              *set_source_files_properties*
      Source files can have properties that affect how they are built.
 
-       set_source_files_properties(file1 file2 ...
+       |set_source_files_properties|(file1 file2 ...
                                    PROPERTIES prop1 value1
                                    prop2 value2 ...)
 
      Set properties on a file.  The syntax for the command is to list all
      the files you want to change, and then provide the values you want to
      set next.  You can make up your own properties as well.  The following
-     are used by CMake.  The ABSTRACT flag (boolean) is used by some class
-     wrapping commands.  If WRAP_EXCLUDE (boolean) is true then many
-     wrapping commands will ignore this file.  If GENERATED (boolean) is
+     are used by CMake.  The |ABSTRACT| flag (boolean) is used by some class
+     wrapping commands.  If |WRAP_EXCLUDE| (boolean) is true then many
+     wrapping commands will ignore this file.  If |GENERATED| (boolean) is
      true then it is not an error if this source file does not exist when
      it is added to a target.  Obviously, it must be created (presumably by
-     a custom command) before the target is built.  If the HEADER_FILE_ONLY
+     a custom command) before the target is built.  If the |HEADER_FILE_ONLY|
      (boolean) property is true then the file is not compiled.  This is
      useful if you want to add extra non build files to an IDE.
-     OBJECT_DEPENDS (string) adds dependencies to the object file.
-     COMPILE_FLAGS (string) is passed to the compiler as additional command
-     line arguments when the source file is compiled.  LANGUAGE (string)
+     |OBJECT_DEPENDS| (string) adds dependencies to the object file.
+     |COMPILE_FLAGS| (string) is passed to the compiler as additional command
+     line arguments when the source file is compiled.  |LANGUAGE| (string)
      CXX|C will change the default compiler used to compile the source
      file.  The languages used need to be enabled in the PROJECT command.
-     If SYMBOLIC (boolean) is set to true the build system will be informed
+     If |SYMBOLIC| (boolean) is set to true the build system will be informed
      that the source file is not actually created on disk but instead used
      as a symbolic name for a build rule.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 set_target_properties                    *set_target_properties*
      Targets can have properties that affect how they are built.
 
-       set_target_properties(target1 target2 ...
+       |set_target_properties|(target1 target2 ...
                              PROPERTIES prop1 value1
                              prop2 value2 ...)
 
@@ -3232,79 +3302,79 @@ set_target_properties                    *set_target_properties*
      later with the GET_TARGET_PROPERTY command.
 
      Properties that affect the name of a target's output file are as
-     follows.  The PREFIX and SUFFIX properties override the default target
-     name prefix (such as "lib") and suffix (such as ".so").  IMPORT_PREFIX
-     and IMPORT_SUFFIX are the equivalent properties for the import library
-     corresponding to a DLL (for SHARED library targets).  OUTPUT_NAME sets
+     follows.  The |PREFIX| and |SUFFIX| properties override the default target
+     name prefix (such as "lib") and suffix (such as ".so").  |IMPORT_PREFIX|
+     and |IMPORT_SUFFIX| are the equivalent properties for the import library
+     corresponding to a DLL (for SHARED library targets).  |OUTPUT_NAME| sets
      the real name of a target when it is built and can be used to help
      create two targets of the same name even though CMake requires unique
-     logical target names.  There is also a <CONFIG>_OUTPUT_NAME that can
-     set the output name on a per-configuration basis.  <CONFIG>_POSTFIX
+     logical target names.  There is also a |<CONFIG>_OUTPUT_NAME| that can
+     set the output name on a per-configuration basis.  |<CONFIG>_POSTFIX|
      sets a postfix for the real name of the target when it is built under
      the configuration named by <CONFIG> (in upper-case, such as
-     "DEBUG_POSTFIX").  The value of this property is initialized when the
-     target is created to the value of the variable CMAKE_<CONFIG>_POSTFIX
+     "|DEBUG_POSTFIX|").  The value of this property is initialized when the
+     target is created to the value of the variable |CMAKE_<CONFIG>_POSTFIX|
      (except for executable targets because earlier CMake versions which
      did not use this variable for executables).
 
-     The LINK_FLAGS property can be used to add extra flags to the link
-     step of a target.  LINK_FLAGS_<CONFIG> will add to the configuration
+     The |LINK_FLAGS| property can be used to add extra flags to the link
+     step of a target.  |LINK_FLAGS_<CONFIG>| will add to the configuration
      <CONFIG>, for example, DEBUG, RELEASE, MINSIZEREL, RELWITHDEBINFO.
-     DEFINE_SYMBOL sets the name of the preprocessor symbol defined when
+     |DEFINE_SYMBOL| sets the name of the preprocessor symbol defined when
      compiling sources in a shared library.  If not set here then it is set
      to target_EXPORTS by default (with some substitutions if the target is
      not a valid C identifier).  This is useful for headers to know whether
      they are being included from inside their library our outside to
-     properly setup dllexport/dllimport decorations.  The COMPILE_FLAGS
+     properly setup dllexport/dllimport decorations.  The |COMPILE_FLAGS|
      property sets additional compiler flags used to build sources within
      the target.  It may also be used to pass additional preprocessor
      definitions.
 
-     The LINKER_LANGUAGE property is used to change the tool used to link
+     The |LINKER_LANGUAGE| property is used to change the tool used to link
      an executable or shared library.  The default is set the language to
      match the files in the library.  CXX and C are common values for this
      property.
 
-     For shared libraries VERSION and SOVERSION can be used to specify the
+     For shared libraries |VERSION| and |SOVERSION| can be used to specify the
      build version and api version respectively.  When building or
      installing appropriate symlinks are created if the platform supports
      symlinks and the linker supports so-names.  If only one of both is
      specified the missing is assumed to have the same version number.  For
-     executables VERSION can be used to specify the build version.  When
+     executables |VERSION| can be used to specify the build version.  When
      building or installing appropriate symlinks are created if the
      platform supports symlinks.  For shared libraries and executables on
-     Windows the VERSION attribute is parsed to extract a "major.minor"
+     Windows the |VERSION| attribute is parsed to extract a "major.minor"
      version number.  These numbers are used as the image version of the
      binary.
 
-     There are a few properties used to specify RPATH rules.  INSTALL_RPATH
+     There are a few properties used to specify RPATH rules.  |INSTALL_RPATH|
      is a semicolon-separated list specifying the rpath to use in installed
-     targets (for platforms that support it).  INSTALL_RPATH_USE_LINK_PATH
+     targets (for platforms that support it).  |INSTALL_RPATH_USE_LINK_PATH|
      is a boolean that if set to true will append directories in the linker
-     search path and outside the project to the INSTALL_RPATH.
-     SKIP_BUILD_RPATH is a boolean specifying whether to skip automatic
+     search path and outside the project to the |INSTALL_RPATH|.
+     |SKIP_BUILD_RPATH| is a boolean specifying whether to skip automatic
      generation of an rpath allowing the target to run from the build tree.
-     BUILD_WITH_INSTALL_RPATH is a boolean specifying whether to link the
-     target in the build tree with the INSTALL_RPATH.  This takes
-     precedence over SKIP_BUILD_RPATH and avoids the need for relinking
-     before installation.  INSTALL_NAME_DIR is a string specifying the
+     |BUILD_WITH_INSTALL_RPATH| is a boolean specifying whether to link the
+     target in the build tree with the |INSTALL_RPATH|.  This takes
+     precedence over |SKIP_BUILD_RPATH| and avoids the need for relinking
+     before installation.  |INSTALL_NAME_DIR| is a string specifying the
      directory portion of the "install_name" field of shared libraries on
      Mac OSX to use in the installed targets.  When the target is created
-     the values of the variables CMAKE_INSTALL_RPATH,
-     CMAKE_INSTALL_RPATH_USE_LINK_PATH, CMAKE_SKIP_BUILD_RPATH,
-     CMAKE_BUILD_WITH_INSTALL_RPATH, and CMAKE_INSTALL_NAME_DIR are used to
+     the values of the variables |CMAKE_INSTALL_RPATH|,
+     |CMAKE_INSTALL_RPATH_USE_LINK_PATH|, |CMAKE_SKIP_BUILD_RPATH|,
+     |CMAKE_BUILD_WITH_INSTALL_RPATH|, and |CMAKE_INSTALL_NAME_DIR| are used to
      initialize these properties.
 
-     PROJECT_LABEL can be used to change the name of the target in an IDE
-     like visual studio.  VS_KEYWORD can be set to change the visual studio
+     |PROJECT_LABEL| can be used to change the name of the target in an IDE
+     like visual studio.  |VS_KEYWORD| can be set to change the visual studio
      keyword, for example QT integration works better if this is set to
      Qt4VSv1.0.
 
-     VS_SCC_PROJECTNAME, VS_SCC_LOCALPATH, VS_SCC_PROVIDER can be set to
+     |VS_SCC_PROJECTNAME|, |VS_SCC_LOCALPATH|, |VS_SCC_PROVIDER| can be set to
      add support for source control bindings in a Visual Studio project
      file.
 
-     The PRE_INSTALL_SCRIPT and POST_INSTALL_SCRIPT properties are the old
+     The |PRE_INSTALL_SCRIPT| and |POST_INSTALL_SCRIPT| properties are the old
      way to specify CMake scripts to run before and after installing a
      target.  They are used only when the old INSTALL_TARGETS command is
      used to install the target.  Use the INSTALL command instead.
@@ -3313,33 +3383,34 @@ set_target_properties                    *set_target_properties*
      generators.  If it is set to 1 the target will not be part of the
      default build when you select "Build Solution".
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 set_tests_properties                     *set_tests_properties*
      Set a property of the tests.
 
-       set_tests_properties(test1 [test2...] PROPERTIES prop1 value1 prop2 value2)
+       |set_tests_properties|(test1 [test2...] PROPERTIES prop1 value1 prop2 value2)
 
      Set a property for the tests.  If the property is not found, CMake
      will report an error.  The properties include:
 
-     WILL_FAIL: If set to true, this will invert the pass/fail flag of the
+     |WILL_FAIL|: If set to true, this will invert the pass/fail flag of the
      test.
 
-     PASS_REGULAR_EXPRESSION: If set, the test output will be checked
+     |PASS_REGULAR_EXPRESSION|: If set, the test output will be checked
      against the specified regular expressions and at least one of the
      regular expressions has to match, otherwise the test will fail.
 
-       Example: PASS_REGULAR_EXPRESSION "TestPassed;All ok"
+       Example: |PASS_REGULAR_EXPRESSION| "TestPassed;All ok"
 
-     FAIL_REGULAR_EXPRESSION: If set, if the output will match to one of
+     |FAIL_REGULAR_EXPRESSION|: If set, if the output will match to one of
      specified regular expressions, the test will fail.
 
-       Example: PASS_REGULAR_EXPRESSION "[^a-z]Error;ERROR;Failed"
+       Example: |PASS_REGULAR_EXPRESSION| "[^a-z]Error;ERROR;Failed"
 
-     Both PASS_REGULAR_EXPRESSION and FAIL_REGULAR_EXPRESSION expect a list
+     Both |PASS_REGULAR_EXPRESSION| and |FAIL_REGULAR_EXPRESSION| expect a list
      of regular expressions.
 
      PROCESSORS: Denotes the number of processors that this test will
@@ -3353,23 +3424,25 @@ set_tests_properties                     *set_tests_properties*
      any other tests.  This should be used in conjunction with the
      ctest_test PARALLEL_LEVEL option.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 site_name                                *site_name*
      Set the given variable to the name of the computer.
 
-       site_name(variable)
+       |site_name|(variable)
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 source_group                             *source_group*
      Define a grouping for sources in the makefile.
 
-       source_group(name [REGULAR_EXPRESSION regex] [FILES src1 src2 ...])
+       |source_group|(name [REGULAR_EXPRESSION regex] [FILES src1 src2 ...])
 
      Defines a group into which sources will be placed in project files.
      This is mainly used to setup file tabs in Visual Studio.  Any file
@@ -3381,13 +3454,14 @@ source_group                             *source_group*
 
      The name of the group may contain backslashes to specify subgroups:
 
-       source_group(outer\\inner ...)
+       |source_group|(outer\\inner ...)
 
      For backwards compatibility, this command is also supports the format:
 
-       source_group(name regex)
+       |source_group|(name regex)
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3475,14 +3549,15 @@ string                                   *string*
                   by all regular expression-related commands, including 
                   e.g. if( MATCHES ), in the variables CMAKE_MATCH_(0..9).
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 target_link_libraries                    *target_link_libraries*
      Link a target to given libraries.
 
-       target_link_libraries(<target> [item1 [item2 [...]]]
+       |target_link_libraries|(<target> [item1 [item2 [...]]]
                              [[debug|optimized|general] <item>] ...)
 
      Specify libraries or flags to use when linking a given target.  If a
@@ -3496,31 +3571,31 @@ target_link_libraries                    *target_link_libraries*
      library immediately following it is to be used only for the
      corresponding build configuration.  The "debug" keyword corresponds to
      the Debug configuration (or to configurations named in the
-     DEBUG_CONFIGURATIONS global property if it is set).  The "optimized"
+     |DEBUG_CONFIGURATIONS| global property if it is set).  The "optimized"
      keyword corresponds to all other configurations.  The "general"
      keyword corresponds to all configurations, and is purely optional
      (assumed if omitted).  Higher granularity may be achieved for
-     per-configuration rules by creating and linking to IMPORTED library
-     targets.  See the IMPORTED mode of the add_library command for more
+     per-configuration rules by creating and linking to |IMPORTED| library
+     targets.  See the |IMPORTED| mode of the |add_library| command for more
      information.
 
      Library dependencies are transitive by default.  When this target is
      linked into another target then the libraries linked to this target
      will appear on the link line for the other target too.  See the
-     LINK_INTERFACE_LIBRARIES target property to override the set of
+     |LINK_INTERFACE_LIBRARIES| target property to override the set of
      transitive link dependencies for a target.
 
-       target_link_libraries(<target> LINK_INTERFACE_LIBRARIES
+       |target_link_libraries|(<target> |LINK_INTERFACE_LIBRARIES|
                              [[debug|optimized|general] <lib>] ...)
 
-     The LINK_INTERFACE_LIBRARIES mode appends the libraries to the
-     LINK_INTERFACE_LIBRARIES and its per-configuration equivalent target
+     The |LINK_INTERFACE_LIBRARIES| mode appends the libraries to the
+     |LINK_INTERFACE_LIBRARIES| and its per-configuration equivalent target
      properties instead of using them for linking.  Libraries specified as
      "debug" are appended to the the LINK_INTERFACE_LIBRARIES_DEBUG
      property (or to the properties corresponding to configurations listed
-     in the DEBUG_CONFIGURATIONS global property if it is set).  Libraries
+     in the |DEBUG_CONFIGURATIONS| global property if it is set).  Libraries
      specified as "optimized" are appended to the the
-     LINK_INTERFACE_LIBRARIES property.  Libraries specified as "general"
+     |LINK_INTERFACE_LIBRARIES| property.  Libraries specified as "general"
      (or without any keyword) are treated as if specified for both "debug"
      and "optimized".
 
@@ -3530,28 +3605,29 @@ target_link_libraries                    *target_link_libraries*
      links to one of the libraries CMake repeats the entire connected
      component.  For example, the code
 
-       add_library(A STATIC a.c)
-       add_library(B STATIC b.c)
-       target_link_libraries(A B)
-       target_link_libraries(B A)
-       add_executable(main main.c)
-       target_link_libraries(main A)
+       |add_library|(A STATIC a.c)
+       |add_library|(B STATIC b.c)
+       |target_link_libraries|(A B)
+       |target_link_libraries|(B A)
+       |add_executable|(main main.c)
+       |target_link_libraries|(main A)
 
      links 'main' to 'A B A B'.  (While one repetition is usually
      sufficient, pathological object file and symbol arrangements can
      require more.  One may handle such cases by manually repeating the
-     component in the last target_link_libraries call.  However, if two
+     component in the last |target_link_libraries| call.  However, if two
      archives are really so interdependent they should probably be combined
      into a single archive.)
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 try_compile                              *try_compile*
      Try compiling some code.
 
-       try_compile(RESULT_VAR bindir srcdir
+       |try_compile|(RESULT_VAR bindir srcdir
                    projectName <targetname> [CMAKE_FLAGS <Flags>]
                    [OUTPUT_VARIABLE var])
 
@@ -3561,9 +3637,9 @@ try_compile                              *try_compile*
      If <target name> is specified then build just that target otherwise
      the all or ALL_BUILD target is built.
 
-       try_compile(RESULT_VAR bindir srcfile
+       |try_compile|(RESULT_VAR bindir srcfile
                    [CMAKE_FLAGS <Flags>]
-                   [COMPILE_DEFINITIONS <flags> ...]
+                   [|COMPILE_DEFINITIONS| <flags> ...]
                    [OUTPUT_VARIABLE var]
                    [COPY_FILE <filename> )
 
@@ -3575,33 +3651,34 @@ try_compile                              *try_compile*
      In this version all files in bindir/CMakeFiles/CMakeTmp, will be
      cleaned automatically, for debugging a --debug-trycompile can be
      passed to cmake to avoid the clean.  Some extra flags that can be
-     included are, INCLUDE_DIRECTORIES, LINK_DIRECTORIES, and
-     LINK_LIBRARIES.  COMPILE_DEFINITIONS are -Ddefinition that will be
-     passed to the compile line.  try_compile creates a CMakeList.txt file
+     included are, |INCLUDE_DIRECTORIES|, |LINK_DIRECTORIES|, and
+     LINK_LIBRARIES.  |COMPILE_DEFINITIONS| are -Ddefinition that will be
+     passed to the compile line.  |try_compile| creates a CMakeList.txt file
      on the fly that looks like this:
 
-       add_definitions( <expanded COMPILE_DEFINITIONS from calling cmake>)
-       include_directories(${INCLUDE_DIRECTORIES})
-       link_directories(${LINK_DIRECTORIES})
-       add_executable(cmTryCompileExec sources)
-       target_link_libraries(cmTryCompileExec ${LINK_LIBRARIES})
+       |add_definitions|( <expanded |COMPILE_DEFINITIONS| from calling cmake>)
+       |include_directories|(${|INCLUDE_DIRECTORIES|})
+       |link_directories|(${|LINK_DIRECTORIES|})
+       |add_executable|(cmTryCompileExec sources)
+       |target_link_libraries|(cmTryCompileExec ${LINK_LIBRARIES})
 
      In both versions of the command, if OUTPUT_VARIABLE is specified, then
      the output from the build process is stored in the given variable.
      Return the success or failure in RESULT_VAR.  CMAKE_FLAGS can be used
-     to pass -DVAR:TYPE=VALUE flags to the cmake that is run during the
+     to pass -DVAR:|TYPE|=VALUE flags to the cmake that is run during the
      build.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 try_run                                  *try_run*
      Try compiling and then running some code.
 
-       try_run(RUN_RESULT_VAR COMPILE_RESULT_VAR
+       |try_run|(RUN_RESULT_VAR COMPILE_RESULT_VAR
                bindir srcfile [CMAKE_FLAGS <Flags>]
-               [COMPILE_DEFINITIONS <flags>]
+               [|COMPILE_DEFINITIONS| <flags>]
                [COMPILE_OUTPUT_VARIABLE comp]
                [RUN_OUTPUT_VARIABLE run]
                [OUTPUT_VARIABLE var]
@@ -3622,8 +3699,8 @@ try_run                                  *try_run*
      Cross compiling issues
 
      When cross compiling, the executable compiled in the first step
-     usually cannot be run on the build host.  try_run() checks the
-     CMAKE_CROSSCOMPILING variable to detect whether CMake is in
+     usually cannot be run on the build host.  |try_run|() checks the
+     |CMAKE_CROSSCOMPILING| variable to detect whether CMake is in
      crosscompiling mode.  If that's the case, it will still try to compile
      the executable, but it will not try to run the executable.  Instead it
      will create cache variables which must be filled by the user or by
@@ -3635,15 +3712,16 @@ try_run                                  *try_run*
      RUN_RESULT_VAR__COMPILE_RESULT_VAR__TRYRUN_OUTPUT.This is intended to
      hold stdout and stderr from the executable.
 
-     In order to make cross compiling your project easier, use try_run only
-     if really required.  If you use try_run, use RUN_OUTPUT_VARIABLE (or
+     In order to make cross compiling your project easier, use |try_run| only
+     if really required.  If you use |try_run|, use RUN_OUTPUT_VARIABLE (or
      OUTPUT_VARIABLE) only if really required.  Using them will require
      that when crosscompiling, the cache variables will have to be set
      manually to the output of the executable.  You can also "guard" the
-     calls to try_run with if(CMAKE_CROSSCOMPILING) and provide an
+     calls to |try_run| with if(|CMAKE_CROSSCOMPILING|) and provide an
      easy-to-preset alternative for this case.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3663,21 +3741,23 @@ unset                                    *unset*
      in which case the variable will be removed from the current
      environment.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 variable_watch                           *variable_watch*
      Watch the CMake variable for change.
 
-       variable_watch(<variable name> [<command to execute>])
+       |variable_watch|(<variable name> [<command to execute>])
 
      If the specified variable changes, the message will be printed about
      the variable being changed.  If the command is specified, the command
      will be executed.  The command will receive the following arguments:
      COMMAND(<variable> <access> <value> <current list file> <stack>)
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3688,37 +3768,39 @@ while                                    *while*
          COMMAND1(ARGS ...)
          COMMAND2(ARGS ...)
          ...
-       endwhile(condition)
+       |endwhile|(condition)
 
-     All commands between while and the matching endwhile are recorded
-     without being invoked.  Once the endwhile is evaluated, the recorded
+     All commands between while and the matching |endwhile| are recorded
+     without being invoked.  Once the |endwhile| is evaluated, the recorded
      list of commands is invoked as long as the condition is true.  The
      condition is evaluated using the same logic as the if command.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 build_name                               *build_name*
-     Deprecated.  Use ${CMAKE_SYSTEM} and ${CMAKE_CXX_COMPILER} instead.
+     Deprecated.  Use ${|CMAKE_SYSTEM|} and ${CMAKE_CXX_COMPILER} instead.
 
-       build_name(variable)
+       |build_name|(variable)
 
      Sets the specified variable to a string representing the platform and
      compiler settings.  These values are now available through the
-     CMAKE_SYSTEM and CMAKE_CXX_COMPILER variables.
+     |CMAKE_SYSTEM| and CMAKE_CXX_COMPILER variables.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 exec_program                             *exec_program*
-     Deprecated.  Use the execute_process() command instead.
+     Deprecated.  Use the |execute_process|() command instead.
 
      Run an executable program during the processing of the CMakeList.txt
      file.
 
-       exec_program(Executable [directory in which to run]
+       |exec_program|(Executable [directory in which to run]
                     [ARGS <arguments to executable>]
                     [OUTPUT_VARIABLE <var>]
                     [RETURN_VALUE <var>])
@@ -3733,7 +3815,8 @@ exec_program                             *exec_program*
      specified, then no output will go to the stdout/stderr of the console
      running cmake.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3747,10 +3830,10 @@ export_library_dependencies              *export_library_dependencies*
      build tree.
 
      The old-style library dependencies file does not take into account
-     per-configuration names of libraries or the LINK_INTERFACE_LIBRARIES
+     per-configuration names of libraries or the |LINK_INTERFACE_LIBRARIES|
      target property.
 
-       export_library_dependencies(<file> [APPEND])
+       |export_library_dependencies|(<file> [APPEND])
 
      Create a file named <file> that can be included into a CMake listfile
      with the INCLUDE command.  The file will contain a number of SET
@@ -3760,7 +3843,8 @@ export_library_dependencies              *export_library_dependencies*
      specified, the SET commands will be appended to the given file instead
      of replacing it.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3773,7 +3857,7 @@ install_files                            *install_files*
      regexp form can be expressed more clearly using the GLOB form of the
      file command.
 
-       install_files(<dir> extension file file ...)
+       |install_files|(<dir> extension file file ...)
 
      Create rules to install the listed files with the given extension into
      the given directory.  Only files existing in the current source tree
@@ -3783,20 +3867,21 @@ install_files                            *install_files*
      such as foo.cxx when you want the corresponding foo.h to be installed.
      A typical extension is '.h'.
 
-       install_files(<dir> regexp)
+       |install_files|(<dir> regexp)
 
      Any files in the current source directory that match the regular
      expression will be installed.
 
-       install_files(<dir> FILES file file ...)
+       |install_files|(<dir> FILES file file ...)
 
      Any files listed after the FILES keyword will be installed explicitly
      from the names given.  Full paths are allowed in this form.
 
      The directory <dir> is relative to the installation prefix, which is
-     stored in the variable CMAKE_INSTALL_PREFIX.
+     stored in the variable |CMAKE_INSTALL_PREFIX|.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3809,14 +3894,14 @@ install_programs                         *install_programs*
      regexp form can be expressed more clearly using the GLOB form of the
      FILE command.
 
-       install_programs(<dir> file1 file2 [file3 ...])
-       install_programs(<dir> FILES file1 [file2 ...])
+       |install_programs|(<dir> file1 file2 [file3 ...])
+       |install_programs|(<dir> FILES file1 [file2 ...])
 
      Create rules to install the listed programs into the given directory.
      Use the FILES argument to guarantee that the file list version of the
      command will be used even when there is only one argument.
 
-       install_programs(<dir> regexp)
+       |install_programs|(<dir> regexp)
 
      In the second form any program in the current source directory that
      matches the regular expression will be installed.
@@ -3826,9 +3911,10 @@ install_programs                         *install_programs*
      command to create installation rules for targets built by cmake.
 
      The directory <dir> is relative to the installation prefix, which is
-     stored in the variable CMAKE_INSTALL_PREFIX.
+     stored in the variable |CMAKE_INSTALL_PREFIX|.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3838,87 +3924,92 @@ install_targets                          *install_targets*
      This command has been superceded by the install command.  It is
      provided for compatibility with older CMake code.
 
-       install_targets(<dir> [RUNTIME_DIRECTORY dir] target target)
+       |install_targets|(<dir> [RUNTIME_DIRECTORY dir] target target)
 
      Create rules to install the listed targets into the given directory.
      The directory <dir> is relative to the installation prefix, which is
-     stored in the variable CMAKE_INSTALL_PREFIX.  If RUNTIME_DIRECTORY is
+     stored in the variable |CMAKE_INSTALL_PREFIX|.  If RUNTIME_DIRECTORY is
      specified, then on systems with special runtime files (Windows DLL),
      the files will be copied to that directory.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 link_libraries                           *link_libraries*
-     Deprecated.  Use the target_link_libraries() command instead.
+     Deprecated.  Use the |target_link_libraries|() command instead.
 
      Link libraries to all targets added later.
 
-       link_libraries(library1 <debug | optimized> library2 ...)
+       |link_libraries|(library1 <debug | optimized> library2 ...)
 
      Specify a list of libraries to be linked into any following targets
-     (typically added with the add_executable or add_library calls).  This
+     (typically added with the |add_executable| or |add_library| calls).  This
      command is passed down to all subdirectories.  The debug and optimized
      strings may be used to indicate that the next library listed is to be
      used only for that specific type of build.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 make_directory                           *make_directory*
      Deprecated.  Use the file(MAKE_DIRECTORY ) command instead.
 
-       make_directory(directory)
+       |make_directory|(directory)
 
      Creates the specified directory.  Full paths should be given.  Any
      parent directories that do not exist will also be created.  Use with
      care.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 remove                                   *remove*
      Deprecated.  Use the list(REMOVE_ITEM ) command instead.
 
-       remove(VAR VALUE VALUE ...)
+       remove(VAR |VALUE| VALUE ...)
 
-     Removes VALUE from the variable VAR.  This is typically used to remove
-     entries from a vector (e.g.  semicolon separated list).  VALUE is
+     Removes |VALUE| from the variable VAR.  This is typically used to remove
+     entries from a vector (e.g.  semicolon separated list).  |VALUE| is
      expanded.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 subdir_depends                           *subdir_depends*
      Deprecated.  Does nothing.
 
-       subdir_depends(subdir dep1 dep2 ...)
+       |subdir_depends|(subdir dep1 dep2 ...)
 
      Does not do anything.  This command used to help projects order
      parallel builds correctly.  This functionality is now automatic.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 subdirs                                  *subdirs*
-     Deprecated.  Use the add_subdirectory() command instead.
+     Deprecated.  Use the |add_subdirectory|() command instead.
 
      Add a list of subdirectories to the build.
 
-       subdirs(dir1 dir2 ...[EXCLUDE_FROM_ALL exclude_dir1 exclude_dir2 ...]
+       subdirs(dir1 dir2 ...[|EXCLUDE_FROM_ALL| exclude_dir1 exclude_dir2 ...]
                [PREORDER] )
 
-     Add a list of subdirectories to the build.  The add_subdirectory
+     Add a list of subdirectories to the build.  The |add_subdirectory|
      command should be used instead of subdirs although subdirs will still
      work.  This will cause any CMakeLists.txt files in the sub directories
      to be processed by CMake.  Any directories after the PREORDER flag are
      traversed first by makefile builds, the PREORDER flag has no effect on
-     IDE projects.  Any directories after the EXCLUDE_FROM_ALL marker will
+     IDE projects.  Any directories after the |EXCLUDE_FROM_ALL| marker will
      not be included in the top level makefile or project file.  This is
      useful for having CMake create makefiles or projects for a set of
      examples in a project.  You would want CMake to generate makefiles or
@@ -3926,28 +4017,30 @@ subdirs                                  *subdirs*
      want them to show up in the top level project or be built each time
      make is run from the top.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 use_mangled_mesa                         *use_mangled_mesa*
      Copy mesa headers for use in combination with system GL.
 
-       use_mangled_mesa(PATH_TO_MESA OUTPUT_DIRECTORY)
+       |use_mangled_mesa|(PATH_TO_MESA OUTPUT_DIRECTORY)
 
      The path to mesa includes, should contain gl_mangle.h.  The mesa
      headers are copied to the specified output directory.  This allows
      mangled mesa headers to override other GL headers by being added to
      the include directory path earlier.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 utility_source                           *utility_source*
      Specify the source tree of a third-party utility.
 
-       utility_source(cache_entry executable_name
+       |utility_source|(cache_entry executable_name
                       path_to_source [file1 file2 ...])
 
      When a third-party utility's source is included in the distribution,
@@ -3956,14 +4049,15 @@ utility_source                           *utility_source*
      is assumed that the source tree of the utility will have been built
      before it is needed.
 
-     When cross compiling CMake will print a warning if a utility_source()
+     When cross compiling CMake will print a warning if a |utility_source|()
      command is executed, because in many cases it is used to build an
      executable which is executed later on.  This doesn't work when cross
      compiling, since the executable can run only on their target platform.
      So in this case the cache entry has to be adjusted manually so it
      points to an executable which is runnable on the build host.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3972,7 +4066,7 @@ variable_requires                        *variable_requires*
 
      Assert satisfaction of an option's required variables.
 
-       variable_requires(TEST_VARIABLE RESULT_VARIABLE
+       |variable_requires|(TEST_VARIABLE RESULT_VARIABLE
                          REQUIRED_VARIABLE1
                          REQUIRED_VARIABLE2 ...)
 
@@ -3984,14 +4078,15 @@ variable_requires                        *variable_requires*
      to NOTFOUND to avoid an error.  If any are not true, an error is
      reported.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 write_file                               *write_file*
      Deprecated.  Use the file(WRITE ) command instead.
 
-       write_file(filename "message to write"... [APPEND])
+       |write_file|(filename "message to write"... [APPEND])
 
      The first argument is the file name, the rest of the arguments are
      messages to write.  If the argument APPEND is specified, then the
@@ -4000,12 +4095,13 @@ write_file                               *write_file*
      NOTE 1: file(WRITE ...  and file(APPEND ...  do exactly the same as
      this one but add some more functionality.
 
-     NOTE 2: When using write_file the produced file cannot be used as an
+     NOTE 2: When using |write_file| the produced file cannot be used as an
      input to CMake (CONFIGURE_FILE, source file ...) because it will lead
-     to an infinite loop.  Use configure_file if you want to generate input
+     to an infinite loop.  Use |configure_file| if you want to generate input
      files to CMake.
 
-    |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+     |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 ---------------------------------------------------------

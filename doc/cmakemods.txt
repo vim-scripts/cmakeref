@@ -1,7 +1,8 @@
 CMake Modules
 
 
-CMake |cmake-commands|  |cmake-modules|  |cmake-properties|  |cmake-variables|
+CMake  |cmake-commands| |cmake-modules| |cmake-properties| |cmake-variables|
+CMake  |cmake-policies|
 
 INDEX                          *cmake-modules*
 
@@ -192,13 +193,14 @@ AddFileDependencies                      *AddFileDependencies*
 
      Defined in: /usr/share/cmake-2.8/Modules/AddFileDependencies.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 BundleUtilities                          *BundleUtilities*
       
-     BundleUtilities.cmake
+     |BundleUtilities|.cmake
 
      A collection of CMake utility functions useful for dealing with .app
      bundles on the Mac and bundle-like directories on any OS.
@@ -222,11 +224,12 @@ BundleUtilities                          *BundleUtilities*
         verify_app
 
      Requires CMake 2.6 or greater because it uses function, break and
-     PARENT_SCOPE.  Also depends on GetPrerequisites.cmake.
+     PARENT_SCOPE.  Also depends on |GetPrerequisites|.cmake.
 
      Defined in: /usr/share/cmake-2.8/Modules/BundleUtilities.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -235,14 +238,15 @@ CMakeBackwardCompatibilityCXX            *CMakeBackwardCompatibilityCXX*
 
        CMAKE_ANSI_CXXFLAGS - flag for ansi c++ 
        CMAKE_HAS_ANSI_STRING_STREAM - has <strstream>
-       INCLUDE(TestForANSIStreamHeaders)
-       INCLUDE(CheckIncludeFileCXX)
-       INCLUDE(TestForSTDNamespace)
-       INCLUDE(TestForANSIForScope)
+       INCLUDE(|TestForANSIStreamHeaders|)
+       INCLUDE(|CheckIncludeFileCXX|)
+       INCLUDE(|TestForSTDNamespace|)
+       INCLUDE(|TestForANSIForScope|)
 
      Defined in: /usr/share/cmake-2.8/Modules/CMakeBackwardCompatibilityCXX.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -265,7 +269,8 @@ CMakeDependentOption                     *CMakeDependentOption*
 
      Defined in: /usr/share/cmake-2.8/Modules/CMakeDependentOption.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -285,20 +290,21 @@ CMakeDetermineVSServicePack              *CMakeDetermineVSServicePack*
 
      Usage: ===========================
 
-         if(MSVC)
-            include(CMakeDetermineVSServicePack)
+         if(|MSVC|)
+            include(|CMakeDetermineVSServicePack|)
             DetermineVSServicePack( my_service_pack )
 
             if( my_service_pack )
                 message(STATUS "Detected: ${my_service_pack}")
-            endif()
-         endif()
+            |endif|()
+         |endif|()
 
      ===========================
 
      Defined in: /usr/share/cmake-2.8/Modules/CMakeDetermineVSServicePack.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -307,7 +313,8 @@ CMakeFindFrameworks                      *CMakeFindFrameworks*
 
      Defined in: /usr/share/cmake-2.8/Modules/CMakeFindFrameworks.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -337,14 +344,15 @@ CMakeForceCompiler                       *CMakeForceCompiler*
 
      So a simple toolchain file could look like this:
 
-        INCLUDE (CMakeForceCompiler)
-        SET(CMAKE_SYSTEM_NAME Generic)
+        INCLUDE (|CMakeForceCompiler|)
+        SET(|CMAKE_SYSTEM_NAME| Generic)
         CMAKE_FORCE_C_COMPILER   (chc12 MetrowerksHicross)
         CMAKE_FORCE_CXX_COMPILER (chc12 MetrowerksHicross)
 
      Defined in: /usr/share/cmake-2.8/Modules/CMakeForceCompiler.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -356,13 +364,14 @@ CMakePrintSystemInformation              *CMakePrintSystemInformation*
 
      Defined in: /usr/share/cmake-2.8/Modules/CMakePrintSystemInformation.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 CMakeVerifyManifest                      *CMakeVerifyManifest*
       
-     CMakeVerifyManifest.cmake
+     |CMakeVerifyManifest|.cmake
 
      This script is used to verify that embeded manifests and side by side
      manifests for a project match.  To run this script, cd to a directory
@@ -375,15 +384,16 @@ CMakeVerifyManifest                      *CMakeVerifyManifest*
 
      Defined in: /usr/share/cmake-2.8/Modules/CMakeVerifyManifest.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 CPack                                    *CPack*
      Build binary and source package installers
 
-     The CPack module generates binary and source installers in a variety
-     of formats using the cpack program.  Inclusion of the CPack module
+     The |CPack| module generates binary and source installers in a variety
+     of formats using the cpack program.  Inclusion of the |CPack| module
      adds two new targets to the resulting makefiles, package and
      package_source, which build the binary and source installers,
      respectively.  The generated binary installers contain everything
@@ -391,7 +401,7 @@ CPack                                    *CPack*
      INSTALL_FILES, INSTALL_PROGRAMS, and INSTALL_TARGETS commands).
 
      For certain kinds of binary installers (including the graphical
-     installers on Mac OS X and Windows), CPack generates installers that
+     installers on Mac OS X and Windows), |CPack| generates installers that
      allow users to select individual application components to install.
      The contents of each of the components are identified by the COMPONENT
      argument of CMake's INSTALL command.  These components can be
@@ -400,7 +410,7 @@ CPack                                    *CPack*
      resulting installer.  See the cpack_add_* commands, described below,
      for more information about component-specific installations.
 
-     Before including the CPack module, there are a variety of variables
+     Before including the |CPack| module, there are a variety of variables
      that can be set to customize the resulting installers.  The most
      commonly-used variables are:
 
@@ -418,7 +428,7 @@ CPack                                    *CPack*
 
         CPACK_PACKAGE_DESCRIPTION_FILE - A text file used to describe the
         project. Used, for example, the introduction screen of a
-        CPack-generated Windows installer to describe the project.
+        |CPack|-generated Windows installer to describe the project.
 
         CPACK_PACKAGE_DESCRIPTION_SUMMARY - Short description of the
         project (only a few words).
@@ -443,13 +453,13 @@ CPack                                    *CPack*
         CPACK_MONOLITHIC_INSTALL - Disables the component-based 
         installation mechanism, so that all components are always installed.
 
-        CPACK_GENERATOR - List of CPack generators to use. If not
-        specified, CPack will create a set of options (e.g.,
+        CPACK_GENERATOR - List of |CPack| generators to use. If not
+        specified, |CPack| will create a set of options (e.g.,
         CPACK_BINARY_NSIS) allowing the user to enable/disable individual
         generators.
 
-        CPACK_OUTPUT_CONFIG_FILE - The name of the CPack configuration file
-        for binary installers that will be generated by the CPack
+        CPACK_OUTPUT_CONFIG_FILE - The name of the |CPack| configuration file
+        for binary installers that will be generated by the |CPack|
         module. Defaults to CPackConfig.cmake.
 
         CPACK_PACKAGE_EXECUTABLES - Lists each of the executables along
@@ -463,7 +473,7 @@ CPack                                    *CPack*
         enables stripping of all files (a list of files evaluates to TRUE
         in CMake, so this change is compatible).
 
-     The following CPack variables are specific to source packages, and
+     The following |CPack| variables are specific to source packages, and
      will not affect binary packages:
 
         CPACK_SOURCE_PACKAGE_FILE_NAME - The name of the source package,
@@ -477,12 +487,12 @@ CPack                                    *CPack*
 
         CPACK_SOURCE_GENERATOR - List of generators used for the source
         packages. As with CPACK_GENERATOR, if this is not specified then
-        CPack will create a set of options (e.g., CPACK_SOURCE_ZIP)
+        |CPack| will create a set of options (e.g., CPACK_SOURCE_ZIP)
         allowing users to select which packages will be generated.
 
-        CPACK_SOURCE_OUTPUT_CONFIG_FILE - The name of the CPack
+        CPACK_SOURCE_OUTPUT_CONFIG_FILE - The name of the |CPack|
         configuration file for source installers that will be generated by
-        the CPack module. Defaults to CPackSourceConfig.cmake.
+        the |CPack| module. Defaults to CPackSourceConfig.cmake.
 
         CPACK_SOURCE_IGNORE_FILES - Pattern of files in the source tree
         that won't be packaged when building a source package. This is a
@@ -547,7 +557,7 @@ CPack                                    *CPack*
         CPACK_OSX_PACKAGE_VERSION - The version of Mac OS X that the
         resulting PackageMaker archive should be compatible
         with. Different versions of Mac OS X support different
-        features. For example, CPack can only build component-based
+        features. For example, |CPack| can only build component-based
         installers for Mac OS X 10.4 or newer, and can only build
         installers that download component son-the-fly for Mac OS X 10.5
         or newer. If left blank, this value will be set to the minimum
@@ -557,19 +567,19 @@ CPack                                    *CPack*
         don't mind missing extra features available in the installer
         shipping with later versions of Mac OS X.
 
-     The following variables are for advanced uses of CPack:
+     The following variables are for advanced uses of |CPack|:
 
         CPACK_CMAKE_GENERATOR - What CMake generator should be used if the
-        project is CMake project. Defaults to the value of CMAKE_GENERATOR;
+        project is CMake project. Defaults to the value of |CMAKE_GENERATOR|;
         few users will want to change this setting.
 
         CPACK_INSTALL_CMAKE_PROJECTS - List of four values that specify
         what project to install. The four values are: Build directory,
-        Project Name, Project Component, Directory. If omitted, CPack will
+        Project Name, Project Component, Directory. If omitted, |CPack| will
         build an installer that installers everything.
 
         CPACK_SYSTEM_NAME - System name, defaults to the value of
-        ${CMAKE_SYSTEM_NAME}.
+        ${|CMAKE_SYSTEM_NAME|}.
 
         CPACK_PACKAGE_VERSION - Package full version, used internally. By
         default, this is built from CPACK_PACKAGE_VERSION_MAJOR,
@@ -584,10 +594,10 @@ CPack                                    *CPack*
      Component-specific installation allows users to select specific sets
      of components to install during the install process.  Installation
      components are identified by the COMPONENT argument of CMake's INSTALL
-     commands, and should be further described by the following CPack
+     commands, and should be further described by the following |CPack|
      commands:
 
-        cpack_add_component - Describes a CPack installation component
+        cpack_add_component - Describes a |CPack| installation component
         named by the COMPONENT argument to a CMake INSTALL command.
 
           cpack_add_component(compname
@@ -651,13 +661,13 @@ CPack                                    *CPack*
         installer itself. For more information, see the cpack_configure_downloads
         command.
 
-        ARCHIVE_FILE provides a name for the archive file created by CPack
-        to be used for downloaded components. If not supplied, CPack will
+        ARCHIVE_FILE provides a name for the archive file created by |CPack|
+        to be used for downloaded components. If not supplied, |CPack| will
         create a file with some name based on CPACK_PACKAGE_FILE_NAME and
         the name of the component. See cpack_configure_downloads for more
         information.
 
-        cpack_add_component_group - Describes a group of related CPack
+        cpack_add_component_group - Describes a group of related |CPack|
         installation components.
 
           cpack_add_component_group(groupname
@@ -720,7 +730,7 @@ CPack                                    *CPack*
         typically show up in a drop-down box within a graphical
         installer. This value can be any string.
 
-        cpack_configure_downloads - Configure CPack to download selected
+        cpack_configure_downloads - Configure |CPack| to download selected
         components on-the-fly as part of the installation process.
 
           cpack_configure_downloads(site
@@ -730,7 +740,7 @@ CPack                                    *CPack*
 
         The cpack_configure_downloads command configures installation-time
         downloads of selected components. For each downloadable component,
-        CPack will create an archive containing the contents of that
+        |CPack| will create an archive containing the contents of that
         component, which should be uploaded to the given site. When the
         user selects that component for installation, the installer will
         download and extract the component in place. This feature is
@@ -751,12 +761,12 @@ CPack                                    *CPack*
 
         The site argument is a URL where the archives for downloadable 
         components will reside, e.g., http://www.cmake.org/files/2.6.1/installer/
-        All of the archives produced by CPack should be uploaded to that location.
+        All of the archives produced by |CPack| should be uploaded to that location.
 
-        UPLOAD_DIRECTORY is the local directory where CPack will create the 
+        UPLOAD_DIRECTORY is the local directory where |CPack| will create the 
         various archives for each of the components. The contents of this
         directory should be uploaded to a location accessible by the URL given
-        in the site argument. If omitted, CPack will use the directory 
+        in the site argument. If omitted, |CPack| will use the directory 
         CPackUploads inside the CMake binary directory to store the generated
         archives.
 
@@ -765,25 +775,26 @@ CPack                                    *CPack*
         ARCHIVE_FILE will be downloaded. Additionally, the ALL option implies
         ADD_REMOVE (unless NO_ADD_REMOVE is specified).
 
-        ADD_REMOVE indicates that CPack should install a copy of the installer
+        ADD_REMOVE indicates that |CPack| should install a copy of the installer
         that can be called from Windows' Add/Remove Programs dialog (via the 
         "Modify" button) to change the set of installed components. NO_ADD_REMOVE
         turns off this behavior. This option is ignored on Mac OS X.
 
      Defined in: /usr/share/cmake-2.8/Modules/CPack.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 CPackDeb                                 *CPackDeb*
-     The builtin (binary) CPack Deb generator (Unix only)
+     The builtin (binary) |CPack| Deb generator (Unix only)
 
-     CPackDeb may be used to create Deb package using CPack.  CPackDeb is a
-     CPack generator thus it uses the CPACK_XXX variables used by CPack :
+     |CPackDeb| may be used to create Deb package using |CPack|.  |CPackDeb| is a
+     |CPack| generator thus it uses the CPACK_XXX variables used by |CPack| :
      http://www.cmake.org/Wiki/CMake:CPackConfiguration
 
-     However CPackRPM has specific features which are controlled by the
+     However |CPackRPM| has specific features which are controlled by the
      specifics CPACK_RPM_XXX variables.You'll find a detailed usage on the
      wiki:
 
@@ -840,18 +851,19 @@ CPackDeb                                 *CPackDeb*
 
      Defined in: /usr/share/cmake-2.8/Modules/CPackDeb.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 CPackRPM                                 *CPackRPM*
-     The builtin (binary) CPack RPM generator (Unix only)
+     The builtin (binary) |CPack| RPM generator (Unix only)
 
-     CPackRPM may be used to create RPM package using CPack.  CPackRPM is a
-     CPack generator thus it uses the CPACK_XXX variables used by CPack :
+     |CPackRPM| may be used to create RPM package using |CPack|.  |CPackRPM| is a
+     |CPack| generator thus it uses the CPACK_XXX variables used by |CPack| :
      http://www.cmake.org/Wiki/CMake:CPackConfiguration
 
-     However CPackRPM has specific features which are controlled by the
+     However |CPackRPM| has specific features which are controlled by the
      specifics CPACK_RPM_XXX variables.You'll find a detailed usage on the
      wiki:
 
@@ -917,33 +929,35 @@ CPackRPM                                 *CPackRPM*
           Mandatory : NO
           Default   : -
           May be set when invoking cpack in order to trace debug informations 
-          during CPack RPM run. For example you may launch CPack like this 
+          during |CPack| RPM run. For example you may launch |CPack| like this 
           cpack -D CPACK_RPM_PACKAGE_DEBUG=1 -G RPM
 
      Defined in: /usr/share/cmake-2.8/Modules/CPackRPM.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 CTest                                    *CTest*
-     Configure a project for testing with CTest/CDash
+     Configure a project for testing with |CTest|/CDash
 
-     This file configures a project to use the CTest/CDash/Dart
+     This file configures a project to use the |CTest|/CDash/|Dart|
      testing/dashboard process.  This module should be included in the
      CMakeLists.txt file at the top of a project.  Typical usage:
 
-       INCLUDE(CTest)
+       INCLUDE(|CTest|)
        IF(BUILD_TESTING)
          # ... testing related CMake code ...
        ENDIF(BUILD_TESTING)
 
-     The BUILD_TESTING option is created by the CTest module to determine
+     The BUILD_TESTING option is created by the |CTest| module to determine
      whether testing support should be enabled.  The default is ON.
 
      Defined in: /usr/share/cmake-2.8/Modules/CTest.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -953,7 +967,8 @@ CTestScriptMode                          *CTestScriptMode*
 
      Defined in: /usr/share/cmake-2.8/Modules/CTestScriptMode.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -966,12 +981,13 @@ CheckCCompilerFlag                       *CheckCCompilerFlag*
        <var>  - variable to store the result
 
      This internally calls the check_c_source_compiles macro.  See help for
-     CheckCSourceCompiles for a listing of variables that can modify the
+     |CheckCSourceCompiles| for a listing of variables that can modify the
      build.
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckCCompilerFlag.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -994,7 +1010,8 @@ CheckCSourceCompiles                     *CheckCSourceCompiles*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckCSourceCompiles.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1017,7 +1034,8 @@ CheckCSourceRuns                         *CheckCSourceRuns*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckCSourceRuns.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1030,12 +1048,13 @@ CheckCXXCompilerFlag                     *CheckCXXCompilerFlag*
        <var>  - variable to store the result
 
      This internally calls the check_cxx_source_compiles macro.  See help
-     for CheckCXXSourceCompiles for a listing of variables that can modify
+     for |CheckCXXSourceCompiles| for a listing of variables that can modify
      the build.
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckCXXCompilerFlag.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1058,7 +1077,8 @@ CheckCXXSourceCompiles                   *CheckCXXSourceCompiles*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckCXXSourceCompiles.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1081,7 +1101,8 @@ CheckCXXSourceRuns                       *CheckCXXSourceRuns*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckCXXSourceRuns.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1100,7 +1121,8 @@ CheckFortranFunctionExists               *CheckFortranFunctionExists*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckFortranFunctionExists.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1122,7 +1144,8 @@ CheckFunctionExists                      *CheckFunctionExists*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckFunctionExists.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1146,7 +1169,8 @@ CheckIncludeFile                         *CheckIncludeFile*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckIncludeFile.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1170,7 +1194,8 @@ CheckIncludeFileCXX                      *CheckIncludeFileCXX*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckIncludeFileCXX.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1191,18 +1216,19 @@ CheckIncludeFiles                        *CheckIncludeFiles*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckIncludeFiles.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 CheckLibraryExists                       *CheckLibraryExists*
      Check if the function exists.
 
-     CHECK_LIBRARY_EXISTS (LIBRARY FUNCTION LOCATION VARIABLE)
+     CHECK_LIBRARY_EXISTS (LIBRARY FUNCTION |LOCATION| VARIABLE)
 
        LIBRARY  - the name of the library you are looking for
        FUNCTION - the name of the function
-       LOCATION - location where the library should be found
+       |LOCATION| - location where the library should be found
        VARIABLE - variable to store the result
 
      The following variables may be set before calling this macro to modify
@@ -1214,7 +1240,8 @@ CheckLibraryExists                       *CheckLibraryExists*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckLibraryExists.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1240,7 +1267,8 @@ CheckStructHasMember                     *CheckStructHasMember*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckStructHasMember.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1263,14 +1291,15 @@ CheckSymbolExists                        *CheckSymbolExists*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckSymbolExists.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 CheckTypeSize                            *CheckTypeSize*
      Check sizeof a type
 
-       CHECK_TYPE_SIZE(TYPE VARIABLE [BUILTIN_TYPES_ONLY])
+       CHECK_TYPE_SIZE(|TYPE| VARIABLE [BUILTIN_TYPES_ONLY])
 
      Check if the type exists and determine size of type.  if the type
      exists, the size will be stored to the variable.  This also calls
@@ -1294,7 +1323,8 @@ CheckTypeSize                            *CheckTypeSize*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckTypeSize.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1317,30 +1347,32 @@ CheckVariableExists                      *CheckVariableExists*
 
      Defined in: /usr/share/cmake-2.8/Modules/CheckVariableExists.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 Dart                                     *Dart*
-     Configure a project for testing with CTest or old Dart Tcl Client
+     Configure a project for testing with |CTest| or old |Dart| Tcl Client
 
-     This file is the backwards-compatibility version of the CTest module.
-     It supports using the old Dart 1 Tcl client for driving dashboard
-     submissions as well as testing with CTest.  This module should be
+     This file is the backwards-compatibility version of the |CTest| module.
+     It supports using the old |Dart| 1 Tcl client for driving dashboard
+     submissions as well as testing with |CTest|.  This module should be
      included in the CMakeLists.txt file at the top of a project.  Typical
      usage:
 
-       INCLUDE(Dart)
+       INCLUDE(|Dart|)
        IF(BUILD_TESTING)
          # ... testing related CMake code ...
        ENDIF(BUILD_TESTING)
 
-     The BUILD_TESTING option is created by the Dart module to determine
+     The BUILD_TESTING option is created by the |Dart| module to determine
      whether testing support should be enabled.  The default is ON.
 
      Defined in: /usr/share/cmake-2.8/Modules/Dart.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1352,7 +1384,8 @@ Documentation                            *Documentation*
 
      Defined in: /usr/share/cmake-2.8/Modules/Documentation.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1365,7 +1398,7 @@ ExternalProject                          *ExternalProject*
 
        ExternalProject_Add(<name>    # Name for custom target
          [DEPENDS projects...]       # Targets on which the project depends
-         [PREFIX dir]                # Root dir for entire project
+         [|PREFIX| dir]                # Root dir for entire project
          [LIST_SEPARATOR sep]        # Sep to be replaced by ; in cmd lines
          [TMP_DIR dir]               # Directory to store temporary files
          [STAMP_DIR dir]             # Directory to store step timestamps
@@ -1384,8 +1417,8 @@ ExternalProject                          *ExternalProject*
         #--Configure step-------------
          [SOURCE_DIR dir]            # Source dir to be used for build
          [CONFIGURE_COMMAND cmd...]  # Build tree configuration command
-         [CMAKE_COMMAND /.../cmake]  # Specify alternative cmake executable
-         [CMAKE_GENERATOR gen]       # Specify generator for native build
+         [|CMAKE_COMMAND| /.../cmake]  # Specify alternative cmake executable
+         [|CMAKE_GENERATOR| gen]       # Specify generator for native build
          [CMAKE_ARGS args...]        # Arguments to CMake command line
         #--Build step-----------------
          [BINARY_DIR dir]            # Specify build dir location
@@ -1401,7 +1434,7 @@ ExternalProject                          *ExternalProject*
          )
 
      The *_DIR options specify directories for the project, with default
-     directories computed as follows.  If the PREFIX option is given to
+     directories computed as follows.  If the |PREFIX| option is given to
      ExternalProject_Add() or the EP_PREFIX directory property is set, then
      an external project is built and installed under the specified prefix:
 
@@ -1422,8 +1455,8 @@ ExternalProject                          *ExternalProject*
         BINARY_DIR   = <base>/Build/<name>
         INSTALL_DIR  = <base>/Install/<name>
 
-     If no PREFIX, EP_PREFIX, or EP_BASE is specified then the default is
-     to set PREFIX to "<name>-prefix".  Relative paths are interpreted with
+     If no |PREFIX|, EP_PREFIX, or EP_BASE is specified then the default is
+     to set |PREFIX| to "<name>-prefix".  Relative paths are interpreted with
      respect to the build directory corresponding to the source directory
      in which ExternalProject_Add is invoked.
 
@@ -1461,7 +1494,8 @@ ExternalProject                          *ExternalProject*
 
      Defined in: /usr/share/cmake-2.8/Modules/ExternalProject.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1473,25 +1507,26 @@ FeatureSummary                           *FeatureSummary*
         Print a summary of all enabled features. By default all successfull
         FIND_PACKAGE() calls will appear here, except the ones which used the
         QUIET keyword. Additional features can be added by appending an entry
-        to the global ENABLED_FEATURES property. If SET_FEATURE_INFO() is
+        to the global |ENABLED_FEATURES| property. If SET_FEATURE_INFO() is
         used for that feature, the output will be much more informative.
 
      PRINT_DISABLED_FEATURES()
 
         Same as PRINT_ENABLED_FEATURES(), but for disabled features. It can
         be extended the same way by adding to the global property 
-        DISABLED_FEATURES.
+        |DISABLED_FEATURES|.
 
      SET_FEATURE_INFO(NAME DESCRIPTION [URL [COMMENT] ] )
 
          Use this macro to set up information about the named feature, which will
-         then be displayed by PRINT_ENABLED/DISABLED_FEATURES().
+         then be displayed by PRINT_ENABLED/|DISABLED_FEATURES|().
          Example: SET_FEATURE_INFO(LibXml2 "XML processing library." 
          "http://xmlsoft.org/")
 
      Defined in: /usr/share/cmake-2.8/Modules/FeatureSummary.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1511,7 +1546,8 @@ FindALSA                                 *FindALSA* *ALSA*
      Defined in: /usr/share/cmake-2.8/Modules/FindALSA.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1528,7 +1564,8 @@ FindASPELL                               *FindASPELL* *ASPELL*
      Defined in: /usr/share/cmake-2.8/Modules/FindASPELL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1548,7 +1585,8 @@ FindAVIFile                              *FindAVIFile* *AVIFile*
      Defined in: /usr/share/cmake-2.8/Modules/FindAVIFile.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1565,12 +1603,12 @@ FindBISON                                *FindBISON* *BISON*
      If bison is found, the module defines the macros:
 
        BISON_TARGET(<Name> <YaccInput> <CodeOutput> [VERBOSE <file>]
-                   [COMPILE_FLAGS <string>])
+                   [|COMPILE_FLAGS| <string>])
 
      which will create a custom rule to generate a parser.  <YaccInput> is
      the path to a yacc file.  <CodeOutput> is the name of the source file
      generated by bison.  A header file is also be generated, and contains
-     the token list.  If COMPILE_FLAGS option is specified, the next
+     the token list.  If |COMPILE_FLAGS| option is specified, the next
      parameter is added in the bison command line.  if VERBOSE option is
      specified, <file> is created and contains verbose descriptions of the
      grammar and parser.  The macro defines a set of variables:
@@ -1585,15 +1623,16 @@ FindBISON                                *FindBISON* *BISON*
        ====================================================================
        Example:
 
-        find_package(BISON)
-        BISON_TARGET(MyParser parser.y ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp)
-        add_executable(Foo main.cpp ${BISON_MyParser_OUTPUTS})
+        |find_package|(BISON)
+        BISON_TARGET(MyParser parser.y ${|CMAKE_CURRENT_BINARY_DIR|}/parser.cpp)
+        |add_executable|(Foo main.cpp ${BISON_MyParser_OUTPUTS})
        ====================================================================
 
      Defined in: /usr/share/cmake-2.8/Modules/FindBISON.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1632,7 +1671,8 @@ FindBLAS                                 *FindBLAS* *BLAS*
      Defined in: /usr/share/cmake-2.8/Modules/FindBLAS.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1650,7 +1690,8 @@ FindBZip2                                *FindBZip2* *BZip2*
      Defined in: /usr/share/cmake-2.8/Modules/FindBZip2.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1666,27 +1707,27 @@ FindBoost                                *FindBoost* *Boost*
 
      == Using Header-Only libraries from within Boost: ==
 
-        find_package( Boost 1.36.0 )
+        |find_package|( Boost 1.36.0 )
         if(Boost_FOUND)
-           include_directories(${Boost_INCLUDE_DIRS})
-           add_executable(foo foo.cc)
-        endif()
+           |include_directories|(${Boost_INCLUDE_DIRS})
+           |add_executable|(foo foo.cc)
+        |endif|()
 
      == Using actual libraries from within Boost: ==
 
         set(Boost_USE_STATIC_LIBS   ON)
         set(Boost_USE_MULTITHREADED ON)
-        find_package( Boost 1.36.0 COMPONENTS date_time filesystem system ... )
+        |find_package|( Boost 1.36.0 COMPONENTS date_time filesystem system ... )
 
         if(Boost_FOUND)
-           include_directories(${Boost_INCLUDE_DIRS})
-           add_executable(foo foo.cc)
-           target_link_libraries(foo ${Boost_LIBRARIES})
-        endif()
+           |include_directories|(${Boost_INCLUDE_DIRS})
+           |add_executable|(foo foo.cc)
+           |target_link_libraries|(foo ${Boost_LIBRARIES})
+        |endif|()
 
      The components list needs to contain actual names of boost libraries
      only, such as "date_time" for "libboost_date_time".  If you're using
-     parts of Boost that contain header files only (e.g.  foreach) you do
+     parts of Boost that contain header files only (e.g.  |foreach|) you do
      not need to specify COMPONENTS.
 
      You should provide a minimum version number that should be used.  If
@@ -1698,7 +1739,7 @@ FindBoost                                *FindBoost* *Boost*
 
      NOTE for Visual Studio Users:
 
-          Automatic linking is used on MSVC & Borland compilers by default when
+          Automatic linking is used on |MSVC| & Borland compilers by default when
           #including things in Boost.  It's important to note that setting
           Boost_USE_STATIC_LIBS to OFF is NOT enough to get you dynamic linking,
           should you need this feature.  Automatic linking typically uses static
@@ -1735,7 +1776,7 @@ FindBoost                                *FindBoost* *Boost*
      ========================
 
      Variables used by this module, they can change the default behaviour
-     and need to be set before calling find_package:
+     and need to be set before calling |find_package|:
 
         Boost_USE_MULTITHREADED      Can be set to OFF to use the non-multithreaded
                                      boost libraries.  If not specified, defaults
@@ -1752,18 +1793,18 @@ FindBoost                                *FindBoost* *Boost*
                                      annoying, but necessary variable :(
 
         Boost_DEBUG                  Set this to TRUE to enable debugging output
-                                     of FindBoost.cmake if you are having problems.
+                                     of |FindBoost|.cmake if you are having problems.
                                      Please enable this before filing any bug
                                      reports.
 
-        Boost_DETAILED_FAILURE_MSG   FindBoost doesn't output detailed information
+        Boost_DETAILED_FAILURE_MSG   |FindBoost| doesn't output detailed information
                                      about why it failed or how to fix the problem
                                      unless this is set to TRUE or the REQUIRED
-                                     keyword is specified in find_package().
+                                     keyword is specified in |find_package|().
                                        [Since CMake 2.8.0]
 
         Boost_COMPILER               Set this to the compiler suffix used by Boost
-                                     (e.g. "-gcc43") if FindBoost has problems finding
+                                     (e.g. "-gcc43") if |FindBoost| has problems finding
                                      the proper Boost installation
 
      These last three variables are available also as environment
@@ -1805,12 +1846,12 @@ FindBoost                                *FindBoost* *Boost*
         Boost_MINOR_VERSION                 minor version number of boost
         Boost_SUBMINOR_VERSION              subminor version number of boost
 
-        Boost_LIB_DIAGNOSTIC_DEFINITIONS    [WIN32 Only] You can call
-                                            add_definitions(${Boost_LIB_DIAGNOSTIC_DEFINITIONS})
+        Boost_LIB_DIAGNOSTIC_DEFINITIONS    [|WIN32| Only] You can call
+                                            |add_definitions|(${Boost_LIB_DIAGNOSTIC_DEFINITIONS})
                                             to have diagnostic information about Boost's
                                             automatic linking outputted during compilation time.
 
-     For each component you specify in find_package(), the following
+     For each component you specify in |find_package|(), the following
      (UPPER-CASE) variables are set.  You can use these variables if you
      would like to pick and choose components for your targets instead of
      just using Boost_LIBRARIES.
@@ -1824,7 +1865,8 @@ FindBoost                                *FindBoost* *Boost*
      Defined in: /usr/share/cmake-2.8/Modules/FindBoost.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1846,7 +1888,8 @@ FindBullet                               *FindBullet* *Bullet*
      Defined in: /usr/share/cmake-2.8/Modules/FindBullet.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1868,7 +1911,8 @@ FindCABLE                                *FindCABLE* *CABLE*
      Defined in: /usr/share/cmake-2.8/Modules/FindCABLE.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -1879,13 +1923,13 @@ FindCUDA                                 *FindCUDA* *CUDA*
      windows, and mac and should be reasonably up to date with CUDA C
      releases.
 
-     This script makes use of the standard find_package arguments of
+     This script makes use of the standard |find_package| arguments of
      <VERSION>, REQUIRED and QUIET.  CUDA_FOUND will report if an
      acceptable version of CUDA was found.
 
      The script will prompt the user to specify CUDA_TOOLKIT_ROOT_DIR if
      the prefix cannot be determined by the location of nvcc in the system
-     path and REQUIRED is specified to find_package().  To use a different
+     path and REQUIRED is specified to |find_package|().  To use a different
      installed version of the toolkit set the environment variable
      CUDA_BIN_PATH before running cmake (e.g.
      CUDA_BIN_PATH=/usr/local/cuda1.0 instead of the default
@@ -1938,11 +1982,11 @@ FindCUDA                                 *FindCUDA* *CUDA*
        -- Set to ON for Emulation mode. -D_DEVICEEMU is defined for CUDA C files
           when CUDA_BUILD_EMULATION is TRUE.
 
-       CUDA_GENERATED_OUTPUT_DIR (Default CMAKE_CURRENT_BINARY_DIR)
+       CUDA_GENERATED_OUTPUT_DIR (Default |CMAKE_CURRENT_BINARY_DIR|)
        -- Set to the path you wish to have the generated files placed.  If it is
-          blank output files will be placed in CMAKE_CURRENT_BINARY_DIR.
+          blank output files will be placed in |CMAKE_CURRENT_BINARY_DIR|.
           Intermediate files will always be placed in
-          CMAKE_CURRENT_BINARY_DIR/CMakeFiles.
+          |CMAKE_CURRENT_BINARY_DIR|/CMakeFiles.
 
        CUDA_HOST_COMPILATION_CPP (Default ON)
        -- Set to OFF for C compilation of host code.
@@ -1980,17 +2024,17 @@ FindCUDA                                 *FindCUDA* *CUDA*
           whether you are in emulation mode or not.
 
        CUDA_ADD_EXECUTABLE( cuda_target file0 file1 ...
-                            [WIN32] [MACOSX_BUNDLE] [EXCLUDE_FROM_ALL] [OPTIONS ...] )
+                            [|WIN32|] [|MACOSX_BUNDLE|] [|EXCLUDE_FROM_ALL|] [OPTIONS ...] )
        -- Creates an executable "cuda_target" which is made up of the files
           specified.  All of the non CUDA C files are compiled using the standard
           build rules specified by CMAKE and the cuda files are compiled to object
           files using nvcc and the host compiler.  In addition CUDA_INCLUDE_DIRS is
-          added automatically to include_directories().  Standard CMake target calls
+          added automatically to |include_directories|().  Standard CMake target calls
           can be used on the target after calling this macro
-          (e.g. set_target_properties and target_link_libraries).
+          (e.g. |set_target_properties| and |target_link_libraries|).
 
        CUDA_ADD_LIBRARY( cuda_target file0 file1 ...
-                         [STATIC | SHARED | MODULE] [EXCLUDE_FROM_ALL] [OPTIONS ...] )
+                         [STATIC | SHARED | MODULE] [|EXCLUDE_FROM_ALL|] [OPTIONS ...] )
        -- Same as CUDA_ADD_EXECUTABLE except that a library is created.
 
        CUDA_BUILD_CLEAN_TARGET()
@@ -2020,7 +2064,7 @@ FindCUDA                                 *FindCUDA* *CUDA*
           Given the list of files (file0 file1 ... fileN) this macro generates
           custom commands that generate either PTX or linkable objects (use "PTX" or
           "OBJ" for the format argument to switch).  Files that don't end with .cu
-          or have the HEADER_FILE_ONLY property are ignored.
+          or have the |HEADER_FILE_ONLY| property are ignored.
 
           The arguments passed in after OPTIONS are extra command line options to
           give to nvcc.  You can also specify per configuration options by
@@ -2058,13 +2102,13 @@ FindCUDA                                 *FindCUDA* *CUDA*
 
           This script also looks at optional arguments STATIC, SHARED, or MODULE to
           determine when to target the object compilation for a shared library.
-          BUILD_SHARED_LIBS is ignored in CUDA_WRAP_SRCS, but it is respected in
+          |BUILD_SHARED_LIBS| is ignored in CUDA_WRAP_SRCS, but it is respected in
           CUDA_ADD_LIBRARY.  On some systems special flags are added for building
           objects intended for shared libraries.  A preprocessor macro,
           <target_name>_EXPORTS is defined when a shared library compilation is
           detected.
 
-          Flags passed into add_definitions with -D or /D are passed along to nvcc.
+          Flags passed into |add_definitions| with -D or /D are passed along to nvcc.
 
      The script defines the following variables:
 
@@ -2079,7 +2123,7 @@ FindCUDA                                 *FindCUDA* *CUDA*
                                 specific libraries or headers, as that isn't
                                 supported by NVIDIA.  If you want to change
                                 libraries when the path changes see the
-                                FindCUDA.cmake script for an example of how to clear
+                                |FindCUDA|.cmake script for an example of how to clear
                                 these variables.  There are also examples of how to
                                 use the CUDA_SDK_ROOT_DIR to locate headers or
                                 libraries, if you so choose (at your own risk).
@@ -2101,13 +2145,14 @@ FindCUDA                                 *FindCUDA* *CUDA*
        Copyright (c) 2007-2009
        Scientific Computing and Imaging Institute, University of Utah
 
-       This code is licensed under the MIT License.  See the FindCUDA.cmake script
+       This code is licensed under the MIT License.  See the |FindCUDA|.cmake script
        for the text of the license.
 
      Defined in: /usr/share/cmake-2.8/Modules/FindCUDA.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2123,7 +2168,8 @@ FindCURL                                 *FindCURL* *CURL*
      Defined in: /usr/share/cmake-2.8/Modules/FindCURL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2136,15 +2182,16 @@ FindCVS                                  *FindCVS* *CVS*
 
      Example usage:
 
-        find_package(CVS)
+        |find_package|(CVS)
         if(CVS_FOUND)
           message("CVS found: ${CVS_EXECUTABLE}")
-        endif(CVS_FOUND)
+        |endif|(CVS_FOUND)
 
      Defined in: /usr/share/cmake-2.8/Modules/FindCVS.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2164,7 +2211,8 @@ FindCoin3D                               *FindCoin3D* *Coin3D*
      Defined in: /usr/share/cmake-2.8/Modules/FindCoin3D.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2182,7 +2230,8 @@ FindCups                                 *FindCups* *Cups*
      Defined in: /usr/share/cmake-2.8/Modules/FindCups.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2204,7 +2253,8 @@ FindCurses                               *FindCurses* *Curses*
      Defined in: /usr/share/cmake-2.8/Modules/FindCurses.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2212,7 +2262,7 @@ FindCxxTest                              *FindCxxTest* *CxxTest*
      Find CxxTest
 
      Find the CxxTest suite and declare a helper macro for creating unit
-     tests and integrating them with CTest.  For more details on CxxTest
+     tests and integrating them with |CTest|.  For more details on CxxTest
      see http://cxxtest.tigris.org
 
      INPUT Variables
@@ -2232,10 +2282,10 @@ FindCxxTest                              *FindCxxTest* *CxxTest*
         CXXTEST_PYTHON_TESTGEN_EXECUTABLE
             The python-based test generator.
 
-     MACROS for optional use by CMake users:
+     |MACROS| for optional use by CMake users:
 
          CXXTEST_ADD_TEST(<test_name> <gen_source_file> <input_files_to_testgen...>)
-            Creates a CxxTest runner and adds it to the CTest testing suite
+            Creates a CxxTest runner and adds it to the |CTest| testing suite
             Parameters:
                 test_name               The name of the test
                 gen_source_file         The generated source filename to be generated by CxxTest
@@ -2245,15 +2295,15 @@ FindCxxTest                              *FindCxxTest* *CxxTest*
             #==============
             Example Usage:
 
-                find_package(CxxTest)
+                |find_package|(CxxTest)
                 if(CXXTEST_FOUND)
-                    include_directories(${CXXTEST_INCLUDE_DIR})
-                    enable_testing()
+                    |include_directories|(${CXXTEST_INCLUDE_DIR})
+                    |enable_testing|()
 
                     CXXTEST_ADD_TEST(unittest_foo foo_test.cc
-                                      ${CMAKE_CURRENT_SOURCE_DIR}/foo_test.h)
-                    target_link_libraries(unittest_foo foo) # as needed
-                endif()
+                                      ${|CMAKE_CURRENT_SOURCE_DIR|}/foo_test.h)
+                    |target_link_libraries|(unittest_foo foo) # as needed
+                |endif|()
 
                    This will (if CxxTest is found):
                    1. Invoke the testgen executable to autogenerate foo_test.cc in the
@@ -2278,7 +2328,8 @@ FindCxxTest                              *FindCxxTest* *CxxTest*
      Defined in: /usr/share/cmake-2.8/Modules/FindCxxTest.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2288,7 +2339,8 @@ FindCygwin                               *FindCygwin* *Cygwin*
      Defined in: /usr/share/cmake-2.8/Modules/FindCygwin.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2298,7 +2350,8 @@ FindDCMTK                                *FindDCMTK* *DCMTK*
      Defined in: /usr/share/cmake-2.8/Modules/FindDCMTK.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2311,7 +2364,8 @@ FindDart                                 *FindDart* *Dart*
      Defined in: /usr/share/cmake-2.8/Modules/FindDart.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2337,7 +2391,8 @@ FindDevIL                                *FindDevIL* *DevIL*
      Defined in: /usr/share/cmake-2.8/Modules/FindDevIL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2364,7 +2419,8 @@ FindDoxygen                              *FindDoxygen* *Doxygen*
      Defined in: /usr/share/cmake-2.8/Modules/FindDoxygen.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2380,7 +2436,8 @@ FindEXPAT                                *FindEXPAT* *EXPAT*
      Defined in: /usr/share/cmake-2.8/Modules/FindEXPAT.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2397,10 +2454,10 @@ FindFLEX                                 *FindFLEX* *FLEX*
 
      If flex is found on the system, the module provides the macro:
 
-       FLEX_TARGET(Name FlexInput FlexOutput [COMPILE_FLAGS <string>])
+       FLEX_TARGET(Name FlexInput FlexOutput [|COMPILE_FLAGS| <string>])
 
      which creates a custom command to generate the <FlexOutput> file from
-     the <FlexInput> file.  If COMPILE_FLAGS option is specified, the next
+     the <FlexInput> file.  If |COMPILE_FLAGS| option is specified, the next
      parameter is added to the flex command line.  Name is an alias used to
      get details of this custom command.  Indeed the macro defines the
      following variables:
@@ -2423,15 +2480,15 @@ FindFLEX                                 *FindFLEX* *FLEX*
        ====================================================================
        Example:
 
-        find_package(BISON)
-        find_package(FLEX)
+        |find_package|(BISON)
+        |find_package|(FLEX)
 
-        BISON_TARGET(MyParser parser.y ${CMAKE_CURRENT_BINARY_DIR}/parser.cpp
+        BISON_TARGET(MyParser parser.y ${|CMAKE_CURRENT_BINARY_DIR|}/parser.cpp
         FLEX_TARGET(MyScanner lexer.l  ${CMAKE_CURRENT_BIANRY_DIR}/lexer.cpp)
         ADD_FLEX_BISON_DEPENDENCY(MyScanner MyParser)
 
-        include_directories(${CMAKE_CURRENT_BINARY_DIR})
-        add_executable(Foo
+        |include_directories|(${|CMAKE_CURRENT_BINARY_DIR|})
+        |add_executable|(Foo
            Foo.cc
            ${BISON_MyParser_OUTPUTS}
            ${FLEX_MyScanner_OUTPUTS}
@@ -2441,14 +2498,15 @@ FindFLEX                                 *FindFLEX* *FLEX*
      Defined in: /usr/share/cmake-2.8/Modules/FindFLEX.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 FindFLTK                                 *FindFLTK* *FLTK*
      Find the native FLTK includes and library
 
-     By default FindFLTK.cmake will search for all of the FLTK components
+     By default |FindFLTK|.cmake will search for all of the FLTK components
      and add them to the FLTK_LIBRARIES variable.
 
         You can limit the components which get placed in FLTK_LIBRARIES by
@@ -2481,7 +2539,8 @@ FindFLTK                                 *FindFLTK* *FLTK*
      Defined in: /usr/share/cmake-2.8/Modules/FindFLTK.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2505,7 +2564,8 @@ FindFLTK2                                *FindFLTK2* *FLTK2*
      Defined in: /usr/share/cmake-2.8/Modules/FindFLTK2.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2527,7 +2587,8 @@ FindFreetype                             *FindFreetype* *Freetype*
      Defined in: /usr/share/cmake-2.8/Modules/FindFreetype.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2537,7 +2598,8 @@ FindGCCXML                               *FindGCCXML* *GCCXML*
      Defined in: /usr/share/cmake-2.8/Modules/FindGCCXML.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2558,7 +2620,8 @@ FindGDAL                                 *FindGDAL* *GDAL*
      Defined in: /usr/share/cmake-2.8/Modules/FindGDAL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2574,7 +2637,8 @@ FindGIF                                  *FindGIF* *GIF*
      Defined in: /usr/share/cmake-2.8/Modules/FindGIF.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2594,7 +2658,8 @@ FindGLUT                                 *FindGLUT* *GLUT*
      Defined in: /usr/share/cmake-2.8/Modules/FindGLUT.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2609,12 +2674,13 @@ FindGTK                                  *FindGTK* *GTK*
      Defined in: /usr/share/cmake-2.8/Modules/FindGTK.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 FindGTK2                                 *FindGTK2* *GTK2*
-     FindGTK2.cmake
+     |FindGTK2|.cmake
 
      This module can find the GTK2 widget libraries and several of its
      other optional components like gtkmm, glade, and glademm.
@@ -2649,27 +2715,28 @@ FindGTK2                                 *FindGTK2* *GTK2*
 
      ================= Example Usage:
 
-        Call find_package() once, here are some examples to pick from:
+        Call |find_package|() once, here are some examples to pick from:
 
         Require GTK 2.6 or later
-            find_package(GTK2 2.6 REQUIRED gtk)
+            |find_package|(GTK2 2.6 REQUIRED gtk)
 
         Require GTK 2.10 or later and Glade
-            find_package(GTK2 2.10 REQUIRED gtk glade)
+            |find_package|(GTK2 2.10 REQUIRED gtk glade)
 
         Search for GTK/GTKMM 2.8 or later
-            find_package(GTK2 2.8 COMPONENTS gtk gtkmm)
+            |find_package|(GTK2 2.8 COMPONENTS gtk gtkmm)
 
         if(GTK2_FOUND)
-           include_directories(${GTK2_INCLUDE_DIRS})
-           add_executable(mygui mygui.cc)
-           target_link_libraries(mygui ${GTK2_LIBRARIES})
-        endif()
+           |include_directories|(${GTK2_INCLUDE_DIRS})
+           |add_executable|(mygui mygui.cc)
+           |target_link_libraries|(mygui ${GTK2_LIBRARIES})
+        |endif|()
 
      Defined in: /usr/share/cmake-2.8/Modules/FindGTK2.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2695,21 +2762,21 @@ FindGTest                                *FindGTest* *GTest*
         GTEST_ROOT - (as CMake or env. variable)
                      The root directory of the gtest install prefix
 
-        GTEST_MSVC_SEARCH - If on MSVC, enables searching the build tree of
+        GTEST_MSVC_SEARCH - If on |MSVC|, enables searching the build tree of
                             GTest if set to MD or MT (defaults: MD)
 
      Example Usage:
 
-         enable_testing(true)
-         find_package(GTest REQUIRED)
-         include_directories(${GTEST_INCLUDE_DIRS})
+         |enable_testing|(true)
+         |find_package|(GTest REQUIRED)
+         |include_directories|(${GTEST_INCLUDE_DIRS})
 
-         add_executable(foo foo.cc)
-         target_link_libraries(foo ${GTEST_BOTH_LIBRARIES})
+         |add_executable|(foo foo.cc)
+         |target_link_libraries|(foo ${GTEST_BOTH_LIBRARIES})
 
-         add_test(AllTestsInFoo foo)
+         |add_test|(AllTestsInFoo foo)
 
-     If you would like each Google test to show up in CTest as a test you
+     If you would like each Google test to show up in |CTest| as a test you
      may use the following macro.  NOTE: It WILL slow down your tests, so
      be warned.
 
@@ -2723,13 +2790,14 @@ FindGTest                                *FindGTest* *GTest*
 
        Example:
           set(FooTestArgs --foo 1 --bar 2)
-          add_executable(FooTest FooUnitTest.cc)
+          |add_executable|(FooTest FooUnitTest.cc)
           GTEST_ADD_TESTS(FooTest "${FooTestArgs}" FooUnitTest.cc)
 
      Defined in: /usr/share/cmake-2.8/Modules/FindGTest.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2754,7 +2822,8 @@ FindGettext                              *FindGettext* *Gettext*
      Defined in: /usr/share/cmake-2.8/Modules/FindGettext.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2771,7 +2840,8 @@ FindGnuTLS                               *FindGnuTLS* *GnuTLS*
      Defined in: /usr/share/cmake-2.8/Modules/FindGnuTLS.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2786,7 +2856,8 @@ FindGnuplot                              *FindGnuplot* *Gnuplot*
      Defined in: /usr/share/cmake-2.8/Modules/FindGnuplot.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2809,11 +2880,11 @@ FindHDF5                                 *FindHDF5* *HDF5*
      COMPONENTS argument is not given, the module will attempt to find only
      the C bindings.
 
-     On UNIX systems, this module will read the variable
+     On |UNIX| systems, this module will read the variable
      HDF5_USE_STATIC_LIBRARIES to determine whether or not to prefer a
      static link to a dynamic link for HDF5 and all of it's dependencies.
      To use this feature, make sure that the HDF5_USE_STATIC_LIBRARIES
-     variable is set before the call to find_package.
+     variable is set before the call to |find_package|.
 
      To provide the module with a hint about where to find your HDF5
      installation, you can set the environment variable HDF5_ROOT.  The
@@ -2842,7 +2913,8 @@ FindHDF5                                 *FindHDF5* *HDF5*
      Defined in: /usr/share/cmake-2.8/Modules/FindHDF5.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2859,7 +2931,8 @@ FindHSPELL                               *FindHSPELL* *HSPELL*
      Defined in: /usr/share/cmake-2.8/Modules/FindHSPELL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2875,7 +2948,8 @@ FindHTMLHelp                             *FindHTMLHelp* *HTMLHelp*
      Defined in: /usr/share/cmake-2.8/Modules/FindHTMLHelp.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2885,7 +2959,8 @@ FindITK                                  *FindITK* *ITK*
      Defined in: /usr/share/cmake-2.8/Modules/FindITK.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2947,7 +3022,8 @@ FindImageMagick                          *FindImageMagick* *ImageMagick*
      Defined in: /usr/share/cmake-2.8/Modules/FindImageMagick.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2969,7 +3045,8 @@ FindJNI                                  *FindJNI* *JNI*
      Defined in: /usr/share/cmake-2.8/Modules/FindJNI.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -2989,7 +3066,8 @@ FindJPEG                                 *FindJPEG* *JPEG*
      Defined in: /usr/share/cmake-2.8/Modules/FindJPEG.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3005,7 +3083,8 @@ FindJasper                               *FindJasper* *Jasper*
      Defined in: /usr/share/cmake-2.8/Modules/FindJasper.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3023,7 +3102,8 @@ FindJava                                 *FindJava* *Java*
      Defined in: /usr/share/cmake-2.8/Modules/FindJava.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3035,8 +3115,8 @@ FindKDE3                                 *FindKDE3* *KDE3*
 
        KDE3_DEFINITIONS         - compiler definitions required for compiling KDE software
        KDE3_INCLUDE_DIR         - the KDE include directory
-       KDE3_INCLUDE_DIRS        - the KDE and the Qt include directory, for use with INCLUDE_DIRECTORIES()
-       KDE3_LIB_DIR             - the directory where the KDE libraries are installed, for use with LINK_DIRECTORIES()
+       KDE3_INCLUDE_DIRS        - the KDE and the Qt include directory, for use with |INCLUDE_DIRECTORIES|()
+       KDE3_LIB_DIR             - the directory where the KDE libraries are installed, for use with |LINK_DIRECTORIES|()
        QT_AND_KDECORE_LIBS      - this contains both the Qt and the kdecore library
        KDE3_DCOPIDL_EXECUTABLE  - the dcopidl executable
        KDE3_DCOPIDL2CPP_EXECUTABLE - the dcopidl2cpp executable
@@ -3107,7 +3187,8 @@ FindKDE3                                 *FindKDE3* *KDE3*
      Defined in: /usr/share/cmake-2.8/Modules/FindKDE3.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3117,7 +3198,7 @@ FindKDE4                                 *FindKDE4* *KDE4*
      software for it.  It looks for KDE 4 in the following directories in
      the given order:
 
-       CMAKE_INSTALL_PREFIX
+       |CMAKE_INSTALL_PREFIX|
        KDEDIRS
        /opt/kde4
 
@@ -3130,7 +3211,8 @@ FindKDE4                                 *FindKDE4* *KDE4*
      Defined in: /usr/share/cmake-2.8/Modules/FindKDE4.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3167,7 +3249,8 @@ FindLAPACK                               *FindLAPACK* *LAPACK*
      Defined in: /usr/share/cmake-2.8/Modules/FindLAPACK.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3188,7 +3271,8 @@ FindLATEX                                *FindLATEX* *LATEX*
      Defined in: /usr/share/cmake-2.8/Modules/FindLATEX.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3206,7 +3290,8 @@ FindLibXml2                              *FindLibXml2* *LibXml2*
      Defined in: /usr/share/cmake-2.8/Modules/FindLibXml2.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3223,7 +3308,8 @@ FindLibXslt                              *FindLibXslt* *LibXslt*
      Defined in: /usr/share/cmake-2.8/Modules/FindLibXslt.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3249,7 +3335,8 @@ FindLua50                                *FindLua50* *Lua50*
      Defined in: /usr/share/cmake-2.8/Modules/FindLua50.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3275,7 +3362,8 @@ FindLua51                                *FindLua51* *Lua51*
      Defined in: /usr/share/cmake-2.8/Modules/FindLua51.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3292,7 +3380,8 @@ FindMFC                                  *FindMFC* *MFC*
      Defined in: /usr/share/cmake-2.8/Modules/FindMFC.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3313,7 +3402,8 @@ FindMPEG                                 *FindMPEG* *MPEG*
      Defined in: /usr/share/cmake-2.8/Modules/FindMPEG.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3334,7 +3424,8 @@ FindMPEG2                                *FindMPEG2* *MPEG2*
      Defined in: /usr/share/cmake-2.8/Modules/FindMPEG2.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3399,7 +3490,8 @@ FindMPI                                  *FindMPI* *MPI*
      Defined in: /usr/share/cmake-2.8/Modules/FindMPI.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3417,7 +3509,8 @@ FindMatlab                               *FindMatlab* *Matlab*
      Defined in: /usr/share/cmake-2.8/Modules/FindMatlab.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3433,7 +3526,8 @@ FindMotif                                *FindMotif* *Motif*
      Defined in: /usr/share/cmake-2.8/Modules/FindMotif.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3446,13 +3540,14 @@ FindOpenAL                               *FindOpenAL* *OpenAL*
      $OPENALDIR is an environment variable that would correspond to the
      ./configure --prefix=$OPENALDIR used in building OpenAL.
 
-     Created by Eric Wing.  This was influenced by the FindSDL.cmake
+     Created by Eric Wing.  This was influenced by the |FindSDL|.cmake
      module.
 
      Defined in: /usr/share/cmake-2.8/Modules/FindOpenAL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3479,7 +3574,8 @@ FindOpenGL                               *FindOpenGL* *OpenGL*
      Defined in: /usr/share/cmake-2.8/Modules/FindOpenGL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3502,7 +3598,8 @@ FindOpenMP                               *FindOpenMP* *OpenMP*
      Defined in: /usr/share/cmake-2.8/Modules/FindOpenMP.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3518,7 +3615,8 @@ FindOpenSSL                              *FindOpenSSL* *OpenSSL*
      Defined in: /usr/share/cmake-2.8/Modules/FindOpenSSL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3532,9 +3630,9 @@ FindOpenSceneGraph                       *FindOpenSceneGraph* *OpenSceneGraph*
          See http://www.openscenegraph.org
 
      NOTE: To use this module effectively you must either require CMake >=
-     2.6.3 with cmake_minimum_required(VERSION 2.6.3) or download and place
-     FindOpenThreads.cmake, Findosg_functions.cmake, Findosg.cmake, and
-     Find<etc>.cmake files into your CMAKE_MODULE_PATH.
+     2.6.3 with |cmake_minimum_required|(VERSION 2.6.3) or download and place
+     |FindOpenThreads|.cmake, |Findosg_functions|.cmake, |Findosg|.cmake, and
+     Find<etc>.cmake files into your |CMAKE_MODULE_PATH|.
 
      ==================================
 
@@ -3546,10 +3644,10 @@ FindOpenSceneGraph                       *FindOpenSceneGraph* *OpenSceneGraph*
                                            automatically
 
      The following environment variables are also respected for finding the
-     OSG and it's various components.  CMAKE_PREFIX_PATH can also be used
-     for this (see find_library() CMake documentation).
+     OSG and it's various components.  |CMAKE_PREFIX_PATH| can also be used
+     for this (see |find_library|() CMake documentation).
 
-         <MODULE>_DIR (where MODULE is of the form "OSGVOLUME" and there is a FindosgVolume.cmake file)
+         <MODULE>_DIR (where MODULE is of the form "OSGVOLUME" and there is a |FindosgVolume|.cmake file)
          OSG_DIR
          OSGDIR
          OSG_ROOT
@@ -3566,17 +3664,18 @@ FindOpenSceneGraph                       *FindOpenSceneGraph* *OpenSceneGraph*
 
      ================================== Example Usage:
 
-       find_package(OpenSceneGraph 2.0.0 REQUIRED osgDB osgUtil)
+       |find_package|(OpenSceneGraph 2.0.0 REQUIRED osgDB osgUtil)
            # libOpenThreads & libosg automatically searched
-       include_directories(${OPENSCENEGRAPH_INCLUDE_DIRS})
+       |include_directories|(${OPENSCENEGRAPH_INCLUDE_DIRS})
 
-       add_executable(foo foo.cc)
-       target_link_libraries(foo ${OPENSCENEGRAPH_LIBRARIES})
+       |add_executable|(foo foo.cc)
+       |target_link_libraries|(foo ${OPENSCENEGRAPH_LIBRARIES})
 
      Defined in: /usr/share/cmake-2.8/Modules/FindOpenSceneGraph.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3600,7 +3699,8 @@ FindOpenThreads                          *FindOpenThreads* *OpenThreads*
      Defined in: /usr/share/cmake-2.8/Modules/FindOpenThreads.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3617,7 +3717,8 @@ FindPHP4                                 *FindPHP4* *PHP4*
      Defined in: /usr/share/cmake-2.8/Modules/FindPHP4.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3641,7 +3742,8 @@ FindPNG                                  *FindPNG* *PNG*
      Defined in: /usr/share/cmake-2.8/Modules/FindPNG.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3671,7 +3773,8 @@ FindPackageHandleStandardArgs            *FindPackageHandleStandardArgs* *Packag
      Defined in: /usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3686,7 +3789,7 @@ FindPackageMessage                       *FindPackageMessage* *PackageMessage*
      specifies the message to display.  The third argument lists details
      about the find result so that if they change the message will be
      displayed again.  The macro also obeys the QUIET argument to the
-     find_package command.
+     |find_package| command.
 
      Example:
 
@@ -3700,7 +3803,8 @@ FindPackageMessage                       *FindPackageMessage* *PackageMessage*
      Defined in: /usr/share/cmake-2.8/Modules/FindPackageMessage.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3715,7 +3819,8 @@ FindPerl                                 *FindPerl* *Perl*
      Defined in: /usr/share/cmake-2.8/Modules/FindPerl.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3745,7 +3850,8 @@ FindPerlLibs                             *FindPerlLibs* *PerlLibs*
      Defined in: /usr/share/cmake-2.8/Modules/FindPerlLibs.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3763,7 +3869,8 @@ FindPhysFS                               *FindPhysFS* *PhysFS*
      Defined in: /usr/share/cmake-2.8/Modules/FindPhysFS.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3780,7 +3887,8 @@ FindPike                                 *FindPike* *Pike*
      Defined in: /usr/share/cmake-2.8/Modules/FindPike.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3805,7 +3913,7 @@ FindPkgConfig                            *FindPkgConfig* *PkgConfig*
         <PREFIX>_FOUND           ... set to 1 if module(s) exist
 
      For the following variables two sets of values exist; first one is the
-     common one and has the given PREFIX.  The second set contains flags
+     common one and has the given |PREFIX|.  The second set contains flags
      which are given out when pkgconfig was called with the '--static'
      option.
 
@@ -3836,9 +3944,9 @@ FindPkgConfig                            *FindPkgConfig* *PkgConfig*
      A <MODULE> parameter can have the following formats:
 
         {MODNAME}            ... matches any version
-        {MODNAME}>={VERSION} ... at least version <VERSION> is required
-        {MODNAME}={VERSION}  ... exactly version <VERSION> is required
-        {MODNAME}<={VERSION} ... modules must not be newer than <VERSION>
+        {MODNAME}>={|VERSION|} ... at least version <VERSION> is required
+        {MODNAME}={|VERSION|}  ... exactly version <VERSION> is required
+        {MODNAME}<={|VERSION|} ... modules must not be newer than <VERSION>
 
      Examples
 
@@ -3863,7 +3971,8 @@ FindPkgConfig                            *FindPkgConfig* *PkgConfig*
      Defined in: /usr/share/cmake-2.8/Modules/FindPkgConfig.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3879,9 +3988,9 @@ FindProducer                             *FindProducer* *Producer*
      it for you.  This is to allow you control over your own system piece
      by piece in case you need to opt out of certain components or change
      the Find behavior for a particular module (perhaps because the default
-     FindOpenGL.cmake module doesn't work with your system as an example).
+     |FindOpenGL|.cmake module doesn't work with your system as an example).
      If you want to use a more convenient module that includes everything,
-     use the FindOpenSceneGraph.cmake instead of the Findosg*.cmake
+     use the |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake
      modules.
 
      Locate Producer This module defines PRODUCER_LIBRARY PRODUCER_FOUND,
@@ -3896,7 +4005,8 @@ FindProducer                             *FindProducer* *Producer*
      Defined in: /usr/share/cmake-2.8/Modules/FindProducer.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3919,13 +4029,13 @@ FindProtobuf                             *FindProtobuf* *Protobuf*
        ====================================================================
        Example:
 
-        find_package(Protobuf REQUIRED)
-        include_directories(${PROTOBUF_INCLUDE_DIRS})
+        |find_package|(Protobuf REQUIRED)
+        |include_directories|(${PROTOBUF_INCLUDE_DIRS})
 
-        include_directories(${CMAKE_CURRENT_BINARY_DIR})
+        |include_directories|(${|CMAKE_CURRENT_BINARY_DIR|})
         PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS foo.proto)
-        add_executable(bar bar.cc ${PROTO_SRCS} ${PROTO_HDRS})
-        target_link_libraries(bar ${PROTOBUF_LIBRARY})
+        |add_executable|(bar bar.cc ${PROTO_SRCS} ${PROTO_HDRS})
+        |target_link_libraries|(bar ${PROTOBUF_LIBRARY})
 
      NOTE: You may need to link against pthreads, depending on the
      platform.
@@ -3945,7 +4055,8 @@ FindProtobuf                             *FindProtobuf* *Protobuf*
      Defined in: /usr/share/cmake-2.8/Modules/FindProtobuf.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3961,7 +4072,8 @@ FindPythonInterp                         *FindPythonInterp* *PythonInterp*
      Defined in: /usr/share/cmake-2.8/Modules/FindPythonInterp.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3981,7 +4093,8 @@ FindPythonLibs                           *FindPythonLibs* *PythonLibs*
      Defined in: /usr/share/cmake-2.8/Modules/FindPythonLibs.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -3989,13 +4102,13 @@ FindQt                                   *FindQt* *Qt*
      Searches for all installed versions of QT.
 
      This should only be used if your project can work with multiple
-     versions of QT.  If not, you should just directly use FindQt4 or
-     FindQt3.  If multiple versions of QT are found on the machine, then
+     versions of QT.  If not, you should just directly use |FindQt4| or
+     |FindQt3|.  If multiple versions of QT are found on the machine, then
      The user must set the option DESIRED_QT_VERSION to the version they
      want to use.  If only one version of qt is found on the machine, then
-     the DESIRED_QT_VERSION is set to that version and the matching FindQt3
-     or FindQt4 module is included.  Once the user sets DESIRED_QT_VERSION,
-     then the FindQt3 or FindQt4 module is included.
+     the DESIRED_QT_VERSION is set to that version and the matching |FindQt3|
+     or |FindQt4| module is included.  Once the user sets DESIRED_QT_VERSION,
+     then the |FindQt3| or |FindQt4| module is included.
 
        QT_REQUIRED if this is set to TRUE then if CMake can 
                    not find QT4 or QT3 an error is raised 
@@ -4008,7 +4121,8 @@ FindQt                                   *FindQt* *Qt*
      Defined in: /usr/share/cmake-2.8/Modules/FindQt.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4037,7 +4151,8 @@ FindQt3                                  *FindQt3* *Qt3*
      Defined in: /usr/share/cmake-2.8/Modules/FindQt3.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4055,17 +4170,17 @@ FindQt4                                  *FindQt4* *Qt4*
 
      Typical usage could be something like:
 
-        find_package(Qt4 4.4.3 COMPONENTS QtCore QtGui QtXml REQUIRED )
+        |find_package|(Qt4 4.4.3 COMPONENTS QtCore QtGui QtXml REQUIRED )
         include(${QT_USE_FILE})
-        add_executable(myexe main.cpp)
-        target_link_libraries(myexe ${QT_LIBRARIES})
+        |add_executable|(myexe main.cpp)
+        |target_link_libraries|(myexe ${QT_LIBRARIES})
 
      The minimum required version can be specified using the standard
-     find_package()-syntax (see example above).  For compatibility with
-     older versions of FindQt4.cmake it is also possible to set the
+     |find_package|()-syntax (see example above).  For compatibility with
+     older versions of |FindQt4|.cmake it is also possible to set the
      variable QT_MIN_VERSION to the minimum required version of Qt4 before
-     the find_package(Qt4) command.  If both are used, the version used in
-     the find_package() command overrides the one from QT_MIN_VERSION.
+     the |find_package|(Qt4) command.  If both are used, the version used in
+     the |find_package|() command overrides the one from QT_MIN_VERSION.
 
      When using the components argument, QT_USE_QT* variables are
      automatically set for the QT_USE_FILE to pick up.  If one wishes to
@@ -4183,7 +4298,7 @@ FindQt4                                  *FindQt4* *Qt4*
              filenames can be found in qm_files. The ts_files
              must exists and are not updated in any way.
 
-       Below is a detailed list of variables that FindQt4.cmake sets.
+       Below is a detailed list of variables that |FindQt4|.cmake sets.
        QT_FOUND         If false, don't try to use Qt.
        QT4_FOUND        If false, don't try to use Qt 4.
 
@@ -4322,7 +4437,7 @@ FindQt4                                  *FindQt4* *Qt4*
        QT_WRAP_UI   Set true if QT_UIC_EXECUTABLE is found
        
      These variables do _NOT_ have any effect anymore (compared to
-     FindQt.cmake)
+     |FindQt|.cmake)
 
        QT_MT_REQUIRED         Qt4 is now always multithreaded
        
@@ -4334,7 +4449,8 @@ FindQt4                                  *FindQt4* *Qt4*
      Defined in: /usr/share/cmake-2.8/Modules/FindQt4.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4352,7 +4468,8 @@ FindQuickTime                            *FindQuickTime* *QuickTime*
      Defined in: /usr/share/cmake-2.8/Modules/FindQuickTime.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4380,7 +4497,8 @@ FindRTI                                  *FindRTI* *RTI*
      Defined in: /usr/share/cmake-2.8/Modules/FindRTI.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4389,7 +4507,7 @@ FindRuby                                 *FindRuby* *Ruby*
 
      This module finds if Ruby is installed and determines where the
      include files and libraries are.  Ruby 1.8 and 1.9 are supported.  The
-     minimum required version specified in the find_package() command is
+     minimum required version specified in the |find_package|() command is
      honored.  It also determines what the name of the library is.  This
      code sets the following variables:
 
@@ -4404,7 +4522,8 @@ FindRuby                                 *FindRuby* *Ruby*
      Defined in: /usr/share/cmake-2.8/Modules/FindRuby.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4449,7 +4568,7 @@ FindSDL                                  *FindSDL* *SDL*
      On OSX, this will prefer the Framework version (if found) over others.
      People will have to manually change the cache values of SDL_LIBRARY to
      override this selection or set the CMake environment
-     CMAKE_INCLUDE_PATH to modify the search paths.
+     |CMAKE_INCLUDE_PATH| to modify the search paths.
 
      Note that the header path has changed from SDL/SDL.h to just SDL.h
      This needed to change because "proper" SDL convention is #include
@@ -4459,7 +4578,8 @@ FindSDL                                  *FindSDL* *SDL*
      Defined in: /usr/share/cmake-2.8/Modules/FindSDL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4472,14 +4592,15 @@ FindSDL_image                            *FindSDL_image* *SDL_image*
      $SDLDIR is an environment variable that would correspond to the
      ./configure --prefix=$SDLDIR used in building SDL.
 
-     Created by Eric Wing.  This was influenced by the FindSDL.cmake
+     Created by Eric Wing.  This was influenced by the |FindSDL|.cmake
      module, but with modifications to recognize OS X frameworks and
      additional Unix paths (FreeBSD, etc).
 
      Defined in: /usr/share/cmake-2.8/Modules/FindSDL_image.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4492,14 +4613,15 @@ FindSDL_mixer                            *FindSDL_mixer* *SDL_mixer*
      $SDLDIR is an environment variable that would correspond to the
      ./configure --prefix=$SDLDIR used in building SDL.
 
-     Created by Eric Wing.  This was influenced by the FindSDL.cmake
+     Created by Eric Wing.  This was influenced by the |FindSDL|.cmake
      module, but with modifications to recognize OS X frameworks and
      additional Unix paths (FreeBSD, etc).
 
      Defined in: /usr/share/cmake-2.8/Modules/FindSDL_mixer.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4512,14 +4634,15 @@ FindSDL_net                              *FindSDL_net* *SDL_net*
      $SDLDIR is an environment variable that would correspond to the
      ./configure --prefix=$SDLDIR used in building SDL.
 
-     Created by Eric Wing.  This was influenced by the FindSDL.cmake
+     Created by Eric Wing.  This was influenced by the |FindSDL|.cmake
      module, but with modifications to recognize OS X frameworks and
      additional Unix paths (FreeBSD, etc).
 
      Defined in: /usr/share/cmake-2.8/Modules/FindSDL_net.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4530,7 +4653,8 @@ FindSDL_sound                            *FindSDL_sound* *SDL_sound*
      Defined in: /usr/share/cmake-2.8/Modules/FindSDL_sound.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4543,14 +4667,15 @@ FindSDL_ttf                              *FindSDL_ttf* *SDL_ttf*
      $SDLDIR is an environment variable that would correspond to the
      ./configure --prefix=$SDLDIR used in building SDL.
 
-     Created by Eric Wing.  This was influenced by the FindSDL.cmake
+     Created by Eric Wing.  This was influenced by the |FindSDL|.cmake
      module, but with modifications to recognize OS X frameworks and
      additional Unix paths (FreeBSD, etc).
 
      Defined in: /usr/share/cmake-2.8/Modules/FindSDL_ttf.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4571,7 +4696,8 @@ FindSWIG                                 *FindSWIG* *SWIG*
      Defined in: /usr/share/cmake-2.8/Modules/FindSWIG.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4587,7 +4713,8 @@ FindSelfPackers                          *FindSelfPackers* *SelfPackers*
      Defined in: /usr/share/cmake-2.8/Modules/FindSelfPackers.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4622,7 +4749,8 @@ FindSquish                               *FindSquish* *Squish*
      Defined in: /usr/share/cmake-2.8/Modules/FindSquish.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4655,16 +4783,17 @@ FindSubversion                           *FindSubversion* *Subversion*
 
        FIND_PACKAGE(Subversion)
        IF(Subversion_FOUND)
-         Subversion_WC_INFO(${PROJECT_SOURCE_DIR} Project)
+         Subversion_WC_INFO(${|PROJECT_SOURCE_DIR|} Project)
          MESSAGE("Current revision is ${Project_WC_REVISION}")
-         Subversion_WC_LOG(${PROJECT_SOURCE_DIR} Project)
+         Subversion_WC_LOG(${|PROJECT_SOURCE_DIR|} Project)
          MESSAGE("Last changed log is ${Project_LAST_CHANGED_LOG}")
        ENDIF(Subversion_FOUND)
 
      Defined in: /usr/share/cmake-2.8/Modules/FindSubversion.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4705,7 +4834,8 @@ FindTCL                                  *FindTCL* *TCL*
      Defined in: /usr/share/cmake-2.8/Modules/FindTCL.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4725,7 +4855,8 @@ FindTIFF                                 *FindTIFF* *TIFF*
      Defined in: /usr/share/cmake-2.8/Modules/FindTIFF.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4733,7 +4864,7 @@ FindTclStub                              *FindTclStub* *TclStub*
      TCL_STUB_LIBRARY_DEBUG and TK_STUB_LIBRARY_DEBUG were removed.
 
      This module finds Tcl stub libraries.  It first finds Tcl include
-     files and libraries by calling FindTCL.cmake.  How to Use the Tcl
+     files and libraries by calling |FindTCL|.cmake.  How to Use the Tcl
      Stubs Library:
 
         http://tcl.activestate.com/doc/howto/stubs.html
@@ -4762,7 +4893,8 @@ FindTclStub                              *FindTclStub* *TclStub*
      Defined in: /usr/share/cmake-2.8/Modules/FindTclStub.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4782,7 +4914,8 @@ FindTclsh                                *FindTclsh* *Tclsh*
      Defined in: /usr/share/cmake-2.8/Modules/FindTclsh.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4793,14 +4926,15 @@ FindThreads                              *FindThreads* *Threads*
 
        CMAKE_THREAD_LIBS_INIT     - the thread library
        CMAKE_USE_SPROC_INIT       - are we using sproc?
-       CMAKE_USE_WIN32_THREADS_INIT - using WIN32 threads?
+       CMAKE_USE_WIN32_THREADS_INIT - using |WIN32| threads?
        CMAKE_USE_PTHREADS_INIT    - are we using pthreads
        CMAKE_HP_PTHREADS_INIT     - are we using hp pthreads
 
      Defined in: /usr/share/cmake-2.8/Modules/FindThreads.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4812,7 +4946,8 @@ FindUnixCommands                         *FindUnixCommands* *UnixCommands*
      Defined in: /usr/share/cmake-2.8/Modules/FindUnixCommands.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4854,7 +4989,8 @@ FindVTK                                  *FindVTK* *VTK*
      Defined in: /usr/share/cmake-2.8/Modules/FindVTK.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4869,7 +5005,8 @@ FindWget                                 *FindWget* *Wget*
      Defined in: /usr/share/cmake-2.8/Modules/FindWget.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4882,19 +5019,20 @@ FindWish                                 *FindWish* *Wish*
 
        TK_WISH = the path to the wish executable
 
-     if UNIX is defined, then it will look for the cygwin version first
+     if |UNIX| is defined, then it will look for the cygwin version first
 
      Defined in: /usr/share/cmake-2.8/Modules/FindWish.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 FindX11                                  *FindX11* *X11*
      Find X11 installation
 
-     Try to find X11 on UNIX systems.  The following values are defined
+     Try to find X11 on |UNIX| systems.  The following values are defined
 
        X11_FOUND        - True if X11 is available
        X11_INCLUDE_DIR  - include directories to use X11
@@ -4934,7 +5072,8 @@ FindX11                                  *FindX11* *X11*
      Defined in: /usr/share/cmake-2.8/Modules/FindX11.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4962,7 +5101,8 @@ FindXMLRPC                               *FindXMLRPC* *XMLRPC*
      Defined in: /usr/share/cmake-2.8/Modules/FindXMLRPC.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -4978,14 +5118,15 @@ FindZLIB                                 *FindZLIB* *ZLIB*
      Defined in: /usr/share/cmake-2.8/Modules/FindZLIB.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 Findosg                                  *Findosg* *osg*
       
      NOTE: It is highly recommended that you use the new
-     FindOpenSceneGraph.cmake introduced in CMake 2.6.3 and not use this
+     |FindOpenSceneGraph|.cmake introduced in CMake 2.6.3 and not use this
      Find module directly.
 
      This is part of the Findosg* suite used to find OpenSceneGraph
@@ -4994,10 +5135,10 @@ Findosg                                  *Findosg* *osg*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osg This module defines
 
@@ -5016,7 +5157,8 @@ Findosg                                  *Findosg* *osg*
      Defined in: /usr/share/cmake-2.8/Modules/Findosg.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5028,10 +5170,10 @@ FindosgAnimation                         *FindosgAnimation* *osgAnimation*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgAnimation This module defines
 
@@ -5050,7 +5192,8 @@ FindosgAnimation                         *FindosgAnimation* *osgAnimation*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgAnimation.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5062,10 +5205,10 @@ FindosgDB                                *FindosgDB* *osgDB*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgDB This module defines
 
@@ -5084,7 +5227,8 @@ FindosgDB                                *FindosgDB* *osgDB*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgDB.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5096,10 +5240,10 @@ FindosgFX                                *FindosgFX* *osgFX*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgFX This module defines
 
@@ -5118,7 +5262,8 @@ FindosgFX                                *FindosgFX* *osgFX*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgFX.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5130,10 +5275,10 @@ FindosgGA                                *FindosgGA* *osgGA*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgGA This module defines
 
@@ -5152,7 +5297,8 @@ FindosgGA                                *FindosgGA* *osgGA*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgGA.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5164,10 +5310,10 @@ FindosgIntrospection                     *FindosgIntrospection* *osgIntrospectio
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgINTROSPECTION This module defines
 
@@ -5187,7 +5333,8 @@ FindosgIntrospection                     *FindosgIntrospection* *osgIntrospectio
      Defined in: /usr/share/cmake-2.8/Modules/FindosgIntrospection.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5199,10 +5346,10 @@ FindosgManipulator                       *FindosgManipulator* *osgManipulator*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgManipulator This module defines
 
@@ -5222,7 +5369,8 @@ FindosgManipulator                       *FindosgManipulator* *osgManipulator*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgManipulator.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5234,10 +5382,10 @@ FindosgParticle                          *FindosgParticle* *osgParticle*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgParticle This module defines
 
@@ -5256,7 +5404,8 @@ FindosgParticle                          *FindosgParticle* *osgParticle*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgParticle.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5268,10 +5417,10 @@ FindosgProducer                          *FindosgProducer* *osgProducer*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgProducer This module defines
 
@@ -5290,7 +5439,8 @@ FindosgProducer                          *FindosgProducer* *osgProducer*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgProducer.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5302,10 +5452,10 @@ FindosgShadow                            *FindosgShadow* *osgShadow*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgShadow This module defines
 
@@ -5324,7 +5474,8 @@ FindosgShadow                            *FindosgShadow* *osgShadow*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgShadow.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5336,10 +5487,10 @@ FindosgSim                               *FindosgSim* *osgSim*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgSim This module defines
 
@@ -5358,7 +5509,8 @@ FindosgSim                               *FindosgSim* *osgSim*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgSim.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5370,10 +5522,10 @@ FindosgTerrain                           *FindosgTerrain* *osgTerrain*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgTerrain This module defines
 
@@ -5392,7 +5544,8 @@ FindosgTerrain                           *FindosgTerrain* *osgTerrain*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgTerrain.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5404,10 +5557,10 @@ FindosgText                              *FindosgText* *osgText*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgText This module defines
 
@@ -5426,7 +5579,8 @@ FindosgText                              *FindosgText* *osgText*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgText.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5438,10 +5592,10 @@ FindosgUtil                              *FindosgUtil* *osgUtil*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgUtil This module defines
 
@@ -5460,7 +5614,8 @@ FindosgUtil                              *FindosgUtil* *osgUtil*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgUtil.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5472,10 +5627,10 @@ FindosgViewer                            *FindosgViewer* *osgViewer*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgViewer This module defines
 
@@ -5494,7 +5649,8 @@ FindosgViewer                            *FindosgViewer* *osgViewer*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgViewer.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5506,10 +5662,10 @@ FindosgVolume                            *FindosgVolume* *osgVolume*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgVolume This module defines
 
@@ -5528,7 +5684,8 @@ FindosgVolume                            *FindosgVolume* *osgVolume*
      Defined in: /usr/share/cmake-2.8/Modules/FindosgVolume.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5540,10 +5697,10 @@ FindosgWidget                            *FindosgWidget* *osgWidget*
      if needed) as these modules won't do it for you.  This is to allow you
      control over your own system piece by piece in case you need to opt
      out of certain components or change the Find behavior for a particular
-     module (perhaps because the default FindOpenGL.cmake module doesn't
+     module (perhaps because the default |FindOpenGL|.cmake module doesn't
      work with your system as an example).  If you want to use a more
      convenient module that includes everything, use the
-     FindOpenSceneGraph.cmake instead of the Findosg*.cmake modules.
+     |FindOpenSceneGraph|.cmake instead of the Findosg*.cmake modules.
 
      Locate osgWidget This module defines
 
@@ -5557,13 +5714,14 @@ FindosgWidget                            *FindosgWidget* *osgWidget*
      $OSGDIR is an environment variable that would correspond to the
      ./configure --prefix=$OSGDIR used in building osg.
 
-     FindosgWidget.cmake tweaked from Findosg* suite as created by Eric
+     |FindosgWidget|.cmake tweaked from Findosg* suite as created by Eric
      Wing.
 
      Defined in: /usr/share/cmake-2.8/Modules/FindosgWidget.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5575,7 +5733,8 @@ Findosg_functions                        *Findosg_functions* *osg_functions*
      Defined in: /usr/share/cmake-2.8/Modules/Findosg_functions.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5616,19 +5775,19 @@ FindwxWidgets                            *FindwxWidgets* *wxWidgets*
      and unix style:
 
        wxWidgets_FOUND            - Set to TRUE if wxWidgets was found.
-       wxWidgets_INCLUDE_DIRS     - Include directories for WIN32
+       wxWidgets_INCLUDE_DIRS     - Include directories for |WIN32|
                                     i.e., where to find "wx/wx.h" and
                                     "wx/setup.h"; possibly empty for unices.
        wxWidgets_LIBRARIES        - Path to the wxWidgets libraries.
        wxWidgets_LIBRARY_DIRS     - compile time link dirs, useful for
-                                    rpath on UNIX. Typically an empty string
-                                    in WIN32 environment.
+                                    rpath on |UNIX|. Typically an empty string
+                                    in |WIN32| environment.
        wxWidgets_DEFINITIONS      - Contains defines required to compile/link
                                     against WX, e.g. WXUSINGDLL
        wxWidgets_DEFINITIONS_DEBUG- Contains defines required to compile/link
                                     against WX debug builds, e.g. __WXDEBUG__
        wxWidgets_CXX_FLAGS        - Include dirs and compiler flags for
-                                    unices, empty on WIN32. Essentially
+                                    unices, empty on |WIN32|. Essentially
                                     "`wx-config --cxxflags`".
        wxWidgets_USE_FILE         - Convenience include file.
 
@@ -5651,7 +5810,8 @@ FindwxWidgets                            *FindwxWidgets* *wxWidgets*
      Defined in: /usr/share/cmake-2.8/Modules/FindwxWidgets.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5661,7 +5821,7 @@ FindwxWindows                            *FindwxWindows* *wxWindows*
      This module finds if wxWindows/wxWidgets is installed and determines
      where the include files and libraries are.  It also determines what
      the name of the library is.  Please note this file is DEPRECATED and
-     replaced by FindwxWidgets.cmake.  This code sets the following
+     replaced by |FindwxWidgets|.cmake.  This code sets the following
      variables:
 
        WXWINDOWS_FOUND     = system has WxWindows
@@ -5685,8 +5845,8 @@ FindwxWindows                            *FindwxWindows* *wxWindows*
 
        HAVE_ISYSTEM      - true required to replace -I by -isystem on g++
 
-     For convenience include Use_wxWindows.cmake in your project's
-     CMakeLists.txt using INCLUDE(Use_wxWindows).
+     For convenience include |Use_wxWindows|.cmake in your project's
+     CMakeLists.txt using INCLUDE(|Use_wxWindows|).
 
      USAGE
 
@@ -5711,7 +5871,8 @@ FindwxWindows                            *FindwxWindows* *wxWindows*
      Defined in: /usr/share/cmake-2.8/Modules/FindwxWindows.cmake
 
      See also |find_package|
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5765,7 +5926,7 @@ FortranCInterface                        *FortranCInterface*
 
      Example usage:
 
-        include(FortranCInterface)
+        include(|FortranCInterface|)
         FortranCInterface_HEADER(FC.h MACRO_NAMESPACE "FC_")
 
      This creates a "FC.h" header that defines mangling macros FC_GLOBAL(),
@@ -5773,7 +5934,7 @@ FortranCInterface                        *FortranCInterface*
 
      Example usage:
 
-        include(FortranCInterface)
+        include(|FortranCInterface|)
         FortranCInterface_HEADER(FCMangle.h
                                  MACRO_NAMESPACE "FC_"
                                  SYMBOL_NAMESPACE "FC_"
@@ -5796,14 +5957,14 @@ FortranCInterface                        *FortranCInterface*
      FATAL_ERROR message describing the problem.  The purpose of this check
      is to stop a build early for incompatible compiler combinations.
 
-     FortranCInterface is aware of possible GLOBAL and MODULE manglings for
+     |FortranCInterface| is aware of possible GLOBAL and MODULE manglings for
      many Fortran compilers, but it also provides an interface to specify
      new possible manglings.  Set the variables
 
         FortranCInterface_GLOBAL_SYMBOLS
         FortranCInterface_MODULE_SYMBOLS
 
-     before including FortranCInterface to specify manglings of the symbols
+     before including |FortranCInterface| to specify manglings of the symbols
      "MySub", "My_Sub", "MyModule:MySub", and "My_Module:My_Sub".  For
      example, the code:
 
@@ -5812,21 +5973,22 @@ FortranCInterface                        *FortranCInterface*
         set(FortranCInterface_MODULE_SYMBOLS
             __mymodule_MOD_mysub __my_module_MOD_my_sub)
           #   ^^^^^^^^     ^^^^^   ^^^^^^^^^     ^^^^^^
-        include(FortranCInterface)
+        include(|FortranCInterface|)
 
-     tells FortranCInterface to try given GLOBAL and MODULE manglings.
+     tells |FortranCInterface| to try given GLOBAL and MODULE manglings.
      (The carets point at raw symbol names for clarity in this example but
      are not needed.)
 
      Defined in: /usr/share/cmake-2.8/Modules/FortranCInterface.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 GetPrerequisites                         *GetPrerequisites*
       
-     GetPrerequisites.cmake
+     |GetPrerequisites|.cmake
 
      This script provides functions to list the .dll, .dylib or .so files
      that an executable or shared library file depends on.  (Its
@@ -5858,7 +6020,8 @@ GetPrerequisites                         *GetPrerequisites*
 
      Defined in: /usr/share/cmake-2.8/Modules/GetPrerequisites.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5866,21 +6029,22 @@ InstallRequiredSystemLibraries           *InstallRequiredSystemLibraries*
       
      By including this file, all files in the
      CMAKE_INSTALL_DEBUG_LIBRARIES, will be installed with INSTALL_PROGRAMS
-     into /bin for WIN32 and /lib for non-win32.  If
+     into /bin for |WIN32| and /lib for non-win32.  If
      CMAKE_SKIP_INSTALL_RULES is set to TRUE before including this file,
      then the INSTALL command is not called.  The use can use the variable
      CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS to use a custom install command and
-     install them into any directory they want.  If it is the MSVC
+     install them into any directory they want.  If it is the |MSVC|
      compiler, then the microsoft run time libraries will be found add
      automatically added to the CMAKE_INSTALL_DEBUG_LIBRARIES, and
-     installed.  If CMAKE_INSTALL_DEBUG_LIBRARIES is set and it is the MSVC
+     installed.  If CMAKE_INSTALL_DEBUG_LIBRARIES is set and it is the |MSVC|
      compiler, then the debug libraries are installed when available.  If
      CMAKE_INSTALL_MFC_LIBRARIES is set then the MFC run time libraries are
      installed as well as the CRT run time libraries.
 
      Defined in: /usr/share/cmake-2.8/Modules/InstallRequiredSystemLibraries.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5891,13 +6055,14 @@ MacroAddFileDependencies                 *MacroAddFileDependencies*
      are usually better ways to specifiy the correct dependencies.
 
      MACRO_ADD_FILE_DEPENDENCIES(<_file> depend_files...) is just a
-     convenience wrapper around the OBJECT_DEPENDS source file property.
+     convenience wrapper around the |OBJECT_DEPENDS| source file property.
      You can just use SET_PROPERTY(SOURCE <file> APPEND PROPERTY
-     OBJECT_DEPENDS depend_files) instead.
+     |OBJECT_DEPENDS| depend_files) instead.
 
      Defined in: /usr/share/cmake-2.8/Modules/MacroAddFileDependencies.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5923,7 +6088,8 @@ SelectLibraryConfigurations              *SelectLibraryConfigurations*
 
      Defined in: /usr/share/cmake-2.8/Modules/SelectLibraryConfigurations.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5931,7 +6097,7 @@ SquishTestScript                         *SquishTestScript*
       
      This script launches a GUI test using Squish.  You should not call the
      script directly; instead, you should access it via the SQUISH_ADD_TEST
-     macro that is defined in FindSquish.cmake.
+     macro that is defined in |FindSquish|.cmake.
 
      This script starts the Squish server, launches the test on the client,
      and finally stops the squish server.  If any of these steps fail
@@ -5939,7 +6105,8 @@ SquishTestScript                         *SquishTestScript*
 
      Defined in: /usr/share/cmake-2.8/Modules/SquishTestScript.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5953,7 +6120,8 @@ TestBigEndian                            *TestBigEndian*
 
      Defined in: /usr/share/cmake-2.8/Modules/TestBigEndian.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5969,7 +6137,8 @@ TestCXXAcceptsFlag                       *TestCXXAcceptsFlag*
 
      Defined in: /usr/share/cmake-2.8/Modules/TestCXXAcceptsFlag.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5983,7 +6152,8 @@ TestForANSIForScope                      *TestForANSIForScope*
 
      Defined in: /usr/share/cmake-2.8/Modules/TestForANSIForScope.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -5997,7 +6167,8 @@ TestForANSIStreamHeaders                 *TestForANSIStreamHeaders*
 
      Defined in: /usr/share/cmake-2.8/Modules/TestForANSIStreamHeaders.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -6010,7 +6181,8 @@ TestForSSTREAM                           *TestForSSTREAM*
 
      Defined in: /usr/share/cmake-2.8/Modules/TestForSSTREAM.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -6023,7 +6195,8 @@ TestForSTDNamespace                      *TestForSTDNamespace*
 
      Defined in: /usr/share/cmake-2.8/Modules/TestForSTDNamespace.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -6052,7 +6225,8 @@ UseEcos                                  *UseEcos*
 
      Defined in: /usr/share/cmake-2.8/Modules/UseEcos.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -6072,20 +6246,22 @@ UsePkgConfig                             *UsePkgConfig*
 
      Defined in: /usr/share/cmake-2.8/Modules/UsePkgConfig.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
 UseQt4                                   *UseQt4*
      Use Module for QT4
 
-     Sets up C and C++ to use Qt 4.  It is assumed that FindQt.cmake has
-     already been loaded.  See FindQt.cmake for information on how to load
+     Sets up C and C++ to use Qt 4.  It is assumed that |FindQt|.cmake has
+     already been loaded.  See |FindQt|.cmake for information on how to load
      Qt 4 into your CMake project.
 
      Defined in: /usr/share/cmake-2.8/Modules/UseQt4.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -6111,11 +6287,12 @@ UseSWIG                                  *UseSWIG*
      by swig need some special flag you can use
      SET_SOURCE_FILES_PROPERTIES( ${swig_generated_file_fullname}
 
-             PROPERTIES COMPILE_FLAGS "-bla")
+             PROPERTIES |COMPILE_FLAGS| "-bla")
 
      Defined in: /usr/share/cmake-2.8/Modules/UseSWIG.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -6128,10 +6305,10 @@ Use_wxWindows                            *Use_wxWindows*
 
      USAGE:
 
-        just include Use_wxWindows.cmake
+        just include |Use_wxWindows|.cmake
         in your projects CMakeLists.txt
 
-     INCLUDE( ${CMAKE_MODULE_PATH}/Use_wxWindows.cmake)
+     INCLUDE( ${|CMAKE_MODULE_PATH|}/|Use_wxWindows|.cmake)
 
         if you are sure you need GL then
 
@@ -6141,7 +6318,8 @@ Use_wxWindows                            *Use_wxWindows*
 
      Defined in: /usr/share/cmake-2.8/Modules/Use_wxWindows.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 
@@ -6149,7 +6327,7 @@ UsewxWidgets                             *UsewxWidgets*
      Convenience include for using wxWidgets library
 
      Finds if wxWidgets is installed and set the appropriate libs, incdirs,
-     flags etc.  INCLUDE_DIRECTORIES, LINK_DIRECTORIES and ADD_DEFINITIONS
+     flags etc.  |INCLUDE_DIRECTORIES|, |LINK_DIRECTORIES| and ADD_DEFINITIONS
      are called.
 
      USAGE
@@ -6170,7 +6348,8 @@ UsewxWidgets                             *UsewxWidgets*
 
      Defined in: /usr/share/cmake-2.8/Modules/UsewxWidgets.cmake
 
-    |cmake-modules|  |cmake-commands|  |cmake-properties|  |cmake-variables|
+     |cmake-modules| |cmake-commands| |cmake-properties| |cmake-variables|
+     |cmake-policies|
 
 
 ---------------------------------------------------------
